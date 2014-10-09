@@ -7,6 +7,7 @@ package princessbride;
 
 import byui.cit260.princessBride.model.Actor;
 import byui.cit260.princessBride.model.Inventory;
+import byui.cit260.princessBride.model.Item;
 import byui.cit260.princessBride.model.Player;
 import byui.cit260.princessBride.model.Map;
 import byui.cit260.princessBride.model.Location;
@@ -84,6 +85,13 @@ public class PrincessBride {
         
         String inventoryInfo = inventoryOne.toString();
         System.out.println(inventoryInfo);
+        
+        Item itemOne = new Item ();
+        
+        itemOne.setDescription("A goblet of water");
+        
+        String itemInfo = itemOne.toString();
+        System.out.println(itemInfo);
        
     }
     
