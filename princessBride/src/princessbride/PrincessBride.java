@@ -6,6 +6,10 @@
 package princessbride;
 
 import byui.cit260.princessBride.model.Player;
+import byui.cit260.princessBride.model.Map;
+import byui.cit260.princessBride.model.Location;
+import byui.cit260.princessBride.model.Scene;
+import byui.cit260.princessBride.model.Messages;
 
 /**
  *
@@ -17,6 +21,7 @@ public class PrincessBride {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        //testing Player class
         Player playerOne = new Player();
         
         playerOne.setName("Bob");
@@ -24,6 +29,44 @@ public class PrincessBride {
         
         String playerInfo = playerOne.toString();
         System.out.println(playerInfo);
+
+        //testing Map class
+        Map mapOne = new Map();
+        
+        mapOne.setRowCount(3);
+        mapOne.setColumnCount(7);
+        
+        String mapInfo = mapOne.toString();
+        System.out.println(mapInfo);
+        
+        //testing Location Class
+        Location placeOne = new Location();
+        
+        placeOne.setRow(3);
+        placeOne.setColumn(7);
+        placeOne.setBlocked(Boolean.TRUE);
+        placeOne.setDescription("castle");
+        
+        String placeInfo = placeOne.toString();
+        System.out.println(placeInfo);
+        
+        //testing Scene class
+        Scene sceneOne = new Scene();
+        
+        sceneOne.setDescription("Mostly Dead");
+        sceneOne.setBlocked(Boolean.FALSE);
+        sceneOne.setStatus(Boolean.TRUE);
+        
+        String sceneInfo = sceneOne.toString();
+        System.out.println(sceneInfo);
+        
+        //testing Messages class
+        Messages messageOne = new Messages();
+        
+        messageOne.setResponse("Come here and fight like a man!");
+        
+        String messageInfo = messageOne.toString();
+        System.out.println(messageInfo);
     }
     
 }
