@@ -22,7 +22,7 @@ public class SceneControlTest {
      */
     @Test
     public void testPercentSolution() {
-        System.out.println("percentSolution");
+        System.out.println("\tTest case #1 PercentSolution");
         double gramsIocane = 6.0;
         double gramsWine = 500.0;
         SceneControl instance = new SceneControl();
@@ -102,6 +102,63 @@ public class SceneControlTest {
         
         result = instance.percentSolution(gramsIocane, gramsWine);
         assertEquals(expResult, result, 0.0);        
+    }
+
+    /**
+     * Test of computerRhymingWord method, of class SceneControl.
+     */
+    @Test
+    public void computerRhymingWord() {
+        System.out.println("\tTest case #1FinalScore");
+        double gameScore = 41.0;
+        SceneControl instance = new SceneControl();
+        double expResult = 12.299999999999999;
+        double result = instance.computerRhymingWord((int) gameScore);
+        assertEquals(expResult, result, 0.0);
+        
+        System.out.println("\tTest case #2");
+        gameScore = -18.0;
+        
+        expResult = -1.0;
+        result = instance.computerRhymingWord((int) gameScore);
+        assertEquals(expResult, result, 0.0);
+        
+         System.out.println("\tTest case #3");
+        gameScore = 118.0;
+        
+        expResult = -1.0;
+        result = instance.computerRhymingWord((int) gameScore);
+        assertEquals(expResult, result, 0.0);
+        
+         System.out.println("\tTest case #4");
+        gameScore = 3.0;
+        
+        expResult = 0.9;
+        result = instance.computerRhymingWord((int) gameScore);
+        assertEquals(expResult, result, 0.0);
+        
+         System.out.println("\tTest case #5");
+        gameScore = 100;
+        
+        expResult = 30.0;
+        result = instance.computerRhymingWord((int) gameScore);
+        assertEquals(expResult, result, 0.0);
+        
+        System.out.println("\tTest case #6");
+        gameScore = 19.0;
+        
+        expResult = 5.699999999999999;
+        result = instance.computerRhymingWord((int) gameScore);
+        assertEquals(expResult, result, 0.0);
+        
+         System.out.println("\tTest case #7");
+        gameScore = 1.0;
+        
+        expResult = 0.3;
+        result = instance.computerRhymingWord((int) gameScore);
+        assertEquals(expResult, result, 0.0);
+        
+        
     }
     
 }
