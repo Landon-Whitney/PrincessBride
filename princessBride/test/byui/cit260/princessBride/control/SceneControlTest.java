@@ -26,9 +26,9 @@ public class SceneControlTest {
         double gramsIocane = 6.0;
         double gramsWine = 500.0;
         SceneControl instance = new SceneControl();
-        double expResult = 1.185770750988142;
+        double expResult = 1.19;
         double result = instance.percentSolution(gramsIocane, gramsWine);
-        assertEquals(expResult, result, 0.0);
+        assertEquals(expResult, result, 0.01);
 
        
      System.out.println("\tTest Case #2");
@@ -38,7 +38,7 @@ public class SceneControlTest {
         expResult = -1.0;
         
         result = instance.percentSolution(gramsIocane, gramsWine);
-        assertEquals(expResult, result, 0.0);
+        assertEquals(expResult, result, 0.01);
         
     System.out.println("\tTest Case #3");
         gramsIocane = 21.0;
@@ -47,61 +47,134 @@ public class SceneControlTest {
         expResult = -1.0;
         
         result = instance.percentSolution(gramsIocane, gramsWine);
-        assertEquals(expResult, result, 0.0);
+        assertEquals(expResult, result, 0.01);
         
     System.out.println("\tTest Case #4");
-        gramsIocane = 6;
-        gramsWine = -1;
+        gramsIocane = 6.0;
+        gramsWine = -1.0;
         
-        expResult = -1.0;
+        expResult = -1;
         
         result = instance.percentSolution(gramsIocane, gramsWine);
-        assertEquals(expResult, result, 0.0);
+        assertEquals(expResult, result, 0.01);
         
     System.out.println("\tTest Case #5");
-        gramsIocane = 6;
-        gramsWine = 1001;
+        gramsIocane = 6.0;
+        gramsWine = 1001.0;
         
-        expResult = -1.0;
+        expResult = -1.00;
         
         result = instance.percentSolution(gramsIocane, gramsWine);
-        assertEquals(expResult, result, 0.0);
+        assertEquals(expResult, result, 0.01);
         
      System.out.println("\tTest Case #6");
-        gramsIocane = 0;
-        gramsWine = 500;
+        gramsIocane = 0.0;
+        gramsWine = 500.0;
         
-        expResult = 0;
+        expResult = 0.00;
         
         result = instance.percentSolution(gramsIocane, gramsWine);
-        assertEquals(expResult, result, 0.0); 
+        assertEquals(expResult, result, 0.01); 
         
      System.out.println("\tTest Case #7");
-        gramsIocane = 20;
-        gramsWine = 500;
+        gramsIocane = 20.0;
+        gramsWine = 500.0;
         
-        expResult = 3.8461538461538463;
+        expResult = 3.85;
         
         result = instance.percentSolution(gramsIocane, gramsWine);
-        assertEquals(expResult, result, 0.0); 
+        assertEquals(expResult, result, 0.01); 
         
      System.out.println("\tTest Case #8");
-        gramsIocane = 6;
-        gramsWine = 0;
+        gramsIocane = 6.0;
+        gramsWine = 0.0;
         
-        expResult = 100;
+        expResult = 100.0;
         
         result = instance.percentSolution(gramsIocane, gramsWine);
-        assertEquals(expResult, result, 0.0);
+        assertEquals(expResult, result, 0.01);
         
      System.out.println("\tTest Case #9");
-        gramsIocane = 6;
-        gramsWine = 1000;
+        gramsIocane = 6.0;
+        gramsWine = 1000.0;
         
-        expResult = 0.5964214711729622;
+        expResult = 0.60;
         
         result = instance.percentSolution(gramsIocane, gramsWine);
-        assertEquals(expResult, result, 0.0);        
+        assertEquals(expResult, result, 0.01);        
+    }
+
+    /**
+     * Test of calculateIngredientVolume method, of class SceneControl.
+     */
+    @Test
+    public void testCalculateIngredientVolume() {
+        System.out.println("calculateIngredientVolume");
+        
+        System.out.println("\tTest case #1");
+        double radius = 1.0;
+        double height = 2.0;
+        SceneControl instance = new SceneControl();
+        double expResult = 0.00628;
+        double result = instance.calculateIngredientVolume(radius, height);
+        assertEquals(expResult, result, 0.00001);
+        
+        
+        System.out.println("\tTest case #2");
+        radius = -1.0;
+        height = 2.0;
+        expResult = -1.0;
+        result = instance.calculateIngredientVolume(radius, height);
+        assertEquals(expResult, result, 0.0);
+        
+        System.out.println("\tTest case #3");
+        radius = 11.0;
+        height = 2.0;
+        expResult = -1.0;
+        result = instance.calculateIngredientVolume(radius, height);
+        assertEquals(expResult, result, 0.0);
+        
+        System.out.println("\tTest case #4");
+        radius = 1.0;
+        height = -1.0;
+        expResult = -1.0;
+        result = instance.calculateIngredientVolume(radius, height);
+        assertEquals(expResult, result, 0.0);
+        
+        System.out.println("\tTest case #5");
+        radius = 1.0;
+        height = 11.0;
+        expResult = -1.0;
+        result = instance.calculateIngredientVolume(radius, height);
+        assertEquals(expResult, result, 0.0);
+        
+        System.out.println("\tTest case #6");
+        radius = 0.0;
+        height = 2.0;
+        expResult = 0.0;
+        result = instance.calculateIngredientVolume(radius, height);
+        assertEquals(expResult, result, 0.0);
+        
+        System.out.println("\tTest case #7");
+        radius = 10.0;
+        height = 2.0;
+        expResult = 0.6283;
+        result = instance.calculateIngredientVolume(radius, height);
+        assertEquals(expResult, result, 0.0001);
+        
+        System.out.println("\tTest case #8");
+        radius = 1.0;
+        height = 0.0;
+        expResult = 0.0;
+        result = instance.calculateIngredientVolume(radius, height);
+        assertEquals(expResult, result, 0.0001);
+        
+        System.out.println("\tTest case #9");
+        radius = 1.0;
+        height = 10.0;
+        expResult = 0.0314;
+        result = instance.calculateIngredientVolume(radius, height);
+        assertEquals(expResult, result, 0.0001);
     }
     
 }

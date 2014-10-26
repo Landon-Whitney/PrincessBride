@@ -20,10 +20,21 @@ public class SceneControl {
         }
 
     double percentSolution = gramsIocane / (gramsIocane + gramsWine) * 100;
-
-    return percentSolution;
+    double roundedPercent = Math.round(percentSolution * 100.0)/100.0;
     
-        
+    return roundedPercent;
+    
     }
-          
+    
+    public double calculateIngredientVolume(double radius, double height){
+        if(radius < 0 || radius > 10) {
+            return -1;
+        }
+        if(height < 0 || height > 10) {
+            return -1;
+        }
+        
+        double volume = (Math.PI * Math.pow(radius, 2) * height)/1000.0;
+        return volume;
+    }
 }
