@@ -40,8 +40,7 @@ public class SceneControl {
     
     }
  
-    
-    public double calculateIngredientVolume(double radius, double height){
+    public double calculateIngredientVolume(int radius, int height){
         if(radius < 0 || radius > 10) {
             return -1;
         }
@@ -49,7 +48,7 @@ public class SceneControl {
             return -1;
         }
         
-        double volume = (Math.PI * Math.pow(radius, 2) * height)/1000.0;
+        double volume = (double)((Math.PI * Math.pow(radius, 2) * height)/1000);
         return volume;
     }
 }
