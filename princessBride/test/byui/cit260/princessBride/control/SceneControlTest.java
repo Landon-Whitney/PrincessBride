@@ -181,7 +181,7 @@ public class SceneControlTest {
      */
     @Test
     public void computerRhymingWord() {
-        System.out.println("\tTest case #1FinalScore");
+        System.out.println("\tTest case #computerRhymingWord");
         double gameScore = 41.0;
         SceneControl instance = new SceneControl();
         double expResult = 12.299999999999999;
