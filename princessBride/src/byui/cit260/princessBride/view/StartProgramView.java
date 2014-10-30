@@ -5,6 +5,8 @@
  */
 package byui.cit260.princessBride.view;
 
+import byui.cit260.princessBride.control.ProgramControl;
+import byui.cit260.princessBride.model.Player;
 import java.util.Scanner;
 
 /**
@@ -23,7 +25,9 @@ public class StartProgramView {
         // Get the players name
         String playersName = this.getPlayersName();
         // Create a new player 
+        Player player = ProgramControl.createPlayer(playersName);
         // DISPLAY a customized welcome message 
+        this.displayWelcomeMessage(player);
         // DISPLAY the main menu 
  
     }
@@ -78,4 +82,13 @@ public class StartProgramView {
             //RETURN value entered
         //END
     }
+
+    public void displayWelcomeMessage(Player player) {
+        System.out.println("\n\n========================================");
+        System.out.println("\t Welcome to the game " + player.getName());
+        System.out.println("\t We hope you will have a lot of fun!");
+        System.out.println("==============================================");
+    }
+
 }
+

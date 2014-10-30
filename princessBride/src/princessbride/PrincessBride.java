@@ -6,6 +6,7 @@
 package princessbride;
 
 import byui.cit260.princessBride.model.Actor;
+import byui.cit260.princessBride.model.Game;
 import byui.cit260.princessBride.model.Inventory;
 import byui.cit260.princessBride.model.Item;
 import byui.cit260.princessBride.model.Player;
@@ -21,6 +22,25 @@ import byui.cit260.princessBride.view.StartProgramView;
  * @author whitneydavis
  */
 public class PrincessBride {
+    
+    private static Game currentGame = null;
+
+    public static Game getCurrentGame() {
+        return currentGame;
+    }
+
+    public static void setCurrentGame(Game currentGame) {
+        PrincessBride.currentGame = currentGame;
+    }
+
+    public static Player getPlayer() {
+        return player;
+    }
+
+    public static void setPlayer(Player player) {
+        PrincessBride.player = player;
+    }
+    private static Player player = null;
 
     /**
      * @param args the command line arguments
@@ -28,8 +48,10 @@ public class PrincessBride {
     public static void main(String[] args) {
         //create StartProgramView and start the program
         StartProgramView startProgramView = new StartProgramView();
-        startProgramView.getPlayersName();
-       
+        startProgramView.displayBanner();
+        //startProgramView.getPlayersName();    
+        //startProgramView.displayWelcomeMessage(player);
+        
     }
     
 }
