@@ -24,6 +24,7 @@ import byui.cit260.princessBride.view.StartProgramView;
 public class PrincessBride {
     
     private static Game currentGame = null;
+    private static Player player = null;
 
     public static Game getCurrentGame() {
         return currentGame;
@@ -40,7 +41,6 @@ public class PrincessBride {
     public static void setPlayer(Player player) {
         PrincessBride.player = player;
     }
-    private static Player player = null;
 
     /**
      * @param args the command line arguments
@@ -48,7 +48,7 @@ public class PrincessBride {
     public static void main(String[] args) {
         //create StartProgramView and start the program
         StartProgramView startProgramView = new StartProgramView();
-        startProgramView.displayBanner();
+        startProgramView.startProgram();
         //startProgramView.getPlayersName();    
         //startProgramView.displayWelcomeMessage(player);
         

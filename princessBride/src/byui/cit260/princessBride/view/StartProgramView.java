@@ -33,15 +33,15 @@ public class StartProgramView {
     }
 
     public void displayBanner() {
-        System.out.println("\n\n************************************************");
+        System.out.println("\n\n*************************************************");
         
-        System.out.println("*                                              *"
-                + "\n*This is the game Princess Bride Adventure.    *"
-                + "\n*Buttercup has found her true love in Westley, *"
-                + "\n*farm boy. Without any money Westley travels   *"
-                + "\n*");
+        System.out.println("*                                               *"
+                + "\n* This is the game Princess Bride Adventure.    *"
+                + "\n* Buttercup has found her true love in Westley, *"
+                + "\n* the farm boy. Without any money Westley       *"
+                + "\n* travels ");
         
-        System.out.println("\n\n************************************************");
+        System.out.println("\n\n*************************************************");
       
     }
 
@@ -66,28 +66,13 @@ public class StartProgramView {
         
         return playersName;
         
-        //getInput(): valueEntered;
-        //BEGIN
-            //WHILE valid value has been entered
-                //DISPLAY a message prompting the user to enter another value   
-                //GET the value entered from the keyboard, trim off front and trailing blanks
-            
-                //IF invalid value entered then
-                    //DISPLAY invalid value message
-                    //CONTINUE
-                //ENDIF
-            
-                //BREAK
-            //ENDWHILE
-            //RETURN value entered
-        //END
     }
 
     public void displayWelcomeMessage(Player player) {
-        System.out.println("\n\n========================================");
+        System.out.println("\n\n===================================================");
         System.out.println("\t Welcome to the game " + player.getName());
         System.out.println("\t We hope you will have a lot of fun!");
-        System.out.println("==============================================");
+        System.out.println("===================================================");
     }
 
 }
