@@ -14,6 +14,7 @@ import byui.cit260.princessBride.model.Map;
 import byui.cit260.princessBride.model.Location;
 import byui.cit260.princessBride.model.Scene;
 import byui.cit260.princessBride.model.Messages;
+import byui.cit260.princessBride.view.MainMenuView;
 
 import byui.cit260.princessBride.view.StartProgramView;
 
@@ -47,10 +48,10 @@ public class PrincessBride {
      */
     public static void main(String[] args) {
         //create StartProgramView and start the program
-        StartProgramView startProgramView = new StartProgramView();
-        startProgramView.startProgram();
-        //startProgramView.getPlayersName();    
-        //startProgramView.displayWelcomeMessage(player);
+        //StartProgramView startProgramView = new StartProgramView();
+        //HstartProgramView.startProgram();
+        MainMenuView mainMenuView = new MainMenuView();
+        mainMenuView.displayMenu();
         
     }
     
