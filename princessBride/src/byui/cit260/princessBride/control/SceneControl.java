@@ -51,4 +51,8 @@ public class SceneControl {
         double volume = (double)((Math.PI * Math.pow(radius, 2) * height)/1000);
         return volume;
     }
+    
+    public boolean validScene(String scene) {
+        return true;
+    }
 }
