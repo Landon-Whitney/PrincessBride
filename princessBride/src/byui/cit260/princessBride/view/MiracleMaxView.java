@@ -29,30 +29,29 @@ public class MiracleMaxView {
             + "\n----------------------------------------";
     
     public void miracleMaxScene () {
-        Scene miracleMax = new Scene(); //create Scene instance
-        miracleMax.setBlocked(false); //set scene to not blocked
         
         String selection = null;
         Scanner keyboard = new Scanner(System.in);
         
-        //check if miracleMax scene is blocked
-        if (!(miracleMax.getBlocked()))
-            //Display storyline continuation
-            this.displayStoryline();
-            //Ask player if they would like to continue
-            System.out.println("Would you like to mix the miracle pill for Max?");
+        //Display storyline continuation
+        this.displayStoryline();
+        //Ask player if they would like to continue
+        System.out.println("Would you like to mix the miracle pill for Max?");
             
-            selection = keyboard.nextLine();
-            selection = selection.trim();
+        selection = keyboard.nextLine();
+        selection = selection.trim();
             
-            if (selection == "yes" || selection == "Yes"){
-                this.displayIngredientList();
-            }
-            else {
-                System.out.println("As you wish. Returning to the Game Menu.");
-                GameMenuView gameMenuView = new GameMenuView();
-                gameMenuView.displayMenu();
-            }
+        if ("yes".equals(selection) || "Yes".equals(selection)){
+            this.displayIngredientList();
+        }
+        else if ("no".equals(selection)|| "No".equals(selection)) {
+            System.out.println("As you wish. Returning to the Game Menu.");
+            GameMenuView gameMenuView = new GameMenuView();
+            gameMenuView.displayMenu();
+        }
+        else {
+            System.out.println("What do you mean? Enter yes or no.");
+        }
             
     }
 
@@ -108,6 +107,7 @@ public class MiracleMaxView {
             radius = this.getNumInput();
             System.out.println("Enter the height needed:");
             height = this.getNumInput();
+            
             //calculate the volume added by the player from the inputs
             addedVolume = miracleMaxControl.calculateIngredientVolume(radius, height);
             
@@ -116,7 +116,9 @@ public class MiracleMaxView {
                 ingredients = ++ingredients;
             }
             else {
-               System.out.println("You rush a miracle man, you get rotten miracles. You added the wrong amount of ingredient!"); 
+               System.out.println("You rush a miracle man, you get rotten miracles. You added the wrong amount of ingredient, try again!");
+               this.displayDefeatMenu();
+               break;
             }
         }
         
@@ -168,10 +170,14 @@ public class MiracleMaxView {
         Scanner keyboard = new Scanner(System.in);
         
         while (!valid) {
-            System.out.println("Select an ingredient to add from the recipe:");
             
             input = keyboard.nextInt();
-            
+            break;
         }
         return input;    }
+
+    private void displayDefeatMenu() {
+        DefeatMenuView defeatMenu = new DefeatMenuView();
+        defeatMenu.displayMenu();
+    }
 }
