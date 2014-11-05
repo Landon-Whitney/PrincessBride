@@ -41,15 +41,16 @@ public class SceneControl {
     }
  
     public double calculateIngredientVolume(int radius, int height){
-        if(radius < 0 || radius > 10) {
+        if(radius < 0 || radius > 100) {
             return -1;
         }
-        if(height < 0 || height > 10) {
+        if(height < 0 || height > 100) {
             return -1;
         }
         
         double volume = (double)((Math.PI * Math.pow(radius, 2) * height)/1000);
-        return volume;
+        double roundedVolume = Math.round(volume * 100.0)/100.0;
+        return roundedVolume;
     }
     
     public boolean validScene(String scene) {

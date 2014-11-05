@@ -5,6 +5,7 @@
  */
 package princessbride;
 
+import byui.cit260.princessBride.control.SceneControl;
 import byui.cit260.princessBride.model.Actor;
 import byui.cit260.princessBride.model.Game;
 import byui.cit260.princessBride.model.Inventory;
@@ -16,6 +17,7 @@ import byui.cit260.princessBride.model.Scene;
 import byui.cit260.princessBride.model.Messages;
 import byui.cit260.princessBride.view.FirstNavMenuView;
 import byui.cit260.princessBride.view.MainMenuView;
+import byui.cit260.princessBride.view.MiracleMaxView;
 import byui.cit260.princessBride.view.PitOfDespairView;
 
 import byui.cit260.princessBride.view.StartProgramView;
@@ -50,12 +52,16 @@ public class PrincessBride {
      */
     public static void main(String[] args) {
         //create StartProgramView and start the program
-        StartProgramView startProgramView = new StartProgramView();
-        startProgramView.startProgram();
-        MainMenuView mainMenuView = new MainMenuView();
-        mainMenuView.displayMenu();
-        //FirstNavMenuView firstNavMenuView = new FirstNavMenuView();
-        //firstNavMenuView.displayMenu();
+        MiracleMaxView miracleMax = new MiracleMaxView();
+        miracleMax.miracleMaxScene();
+        /**
+        * int radius = 5;
+        * int height = 6;
+        * double volume;
+        * SceneControl calculate = new SceneControl();
+        * volume = calculate.calculateIngredientVolume(radius, height);
+        * System.out.println(volume);
+        */
         
     }
     

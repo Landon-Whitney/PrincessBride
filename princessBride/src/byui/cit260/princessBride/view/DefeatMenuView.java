@@ -41,13 +41,13 @@ public class DefeatMenuView {
         Scanner keyboard = new Scanner(System.in);
         
         while (!valid) {
-            System.out.println("Select an option from the Main Menu:");
+            System.out.println("Select an option from the Defeat Menu:");
             
             selection = keyboard.nextLine();
             selection = selection.trim();
             
             if (selection.length() > 1 || selection.length() < 1){
-                System.out.println("Inconcievable! Please select an option from the Main Menu.");
+                System.out.println("Inconcievable! Please select an option from the Defeat Menu.");
                 continue;
             }
             break;

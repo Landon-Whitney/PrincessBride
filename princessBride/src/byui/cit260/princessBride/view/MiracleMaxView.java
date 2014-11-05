@@ -17,10 +17,10 @@ public class MiracleMaxView {
             + "\n----------------------------------------"
             + "\n           Miracle Pill Recipe          "
             + "\n----------------------------------------"
-            + "\n1.  2 Liters of ROUS spit                "
-            + "\n2.  .5 Liters of Shrieking Eel blood "
-            + "\n3.  1 Liter of Buttercup's tears"
-            + "\n4.  3 Liters of Milk"
+            + "\n1.  .57 Liters of ROUS spit                "
+            + "\n2.  .47 Liters of Shrieking Eel blood "
+            + "\n3.  5.18 Liter of Buttercup's tears"
+            + "\n4.  6.2 Liters of Milk"
             + "\n"
             + "\nCombine all ingredients until well mixed,"
             + "\nform into a pill, and then let sit for   "
@@ -102,7 +102,10 @@ public class MiracleMaxView {
             neededVolume = this.findNeededVolume(selection);
             
             //get the inputs for radius and height from the player
-            System.out.println("To add the ingredients to the recipe you must first tell Miracle Max the radius and height of the measuring cup you need. There can be many combinations as long as the calculate to the correct volume.");
+            System.out.println("To add the ingredients to the recipe you must first tell Miracle Max the radius and height of the measuring cup you need in centimeters.");
+            System.out.println("There can be many correct combinations as long as the radius and height calculate to the correct volume in Liters.");
+            System.out.println("HINT: Miracle Max thinks the radius and heights of the volumes have to do with his favorite numbers: 5 and 6. Volume = radius^2 * pi * height");
+
             System.out.println("Enter the radius needed:");
             radius = this.getNumInput();
             System.out.println("Enter the height needed:");
@@ -121,7 +124,7 @@ public class MiracleMaxView {
                break;
             }
         }
-        
+        System.out.println("end of function");
     }
     
     private String getInput() {
@@ -148,13 +151,17 @@ public class MiracleMaxView {
         double neededVolume = 0.0;
         switch (selection) {
             case '1':
-                neededVolume = 2.0;
+                neededVolume = 0.57; // r = 6 h = 5
+                break;
             case '2':
-                neededVolume = 0.5;
+                neededVolume = 0.47; // r = 5 h = 6
+                break;
             case '3':
-                neededVolume = 1.0;
+                neededVolume = 5.18; // r = 5 h = 66
+                break;
             case '4':
-                neededVolume = 3.0;
+                neededVolume = 6.22; // r = 6 h = 55
+                break;
             case 'E':
                 break;
             default:
