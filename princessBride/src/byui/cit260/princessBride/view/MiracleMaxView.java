@@ -5,6 +5,7 @@
  */
 package byui.cit260.princessBride.view;
 
+import byui.cit260.princessBride.control.InventoryControl;
 import byui.cit260.princessBride.control.SceneControl;
 import byui.cit260.princessBride.model.Scene;
 import java.util.Scanner;
@@ -83,14 +84,18 @@ public class MiracleMaxView {
 
 
     public void displayIngredientList () {
-        int ingredients = 1;
+        int ingredients = 0;
         char selection = ' ';
         double neededVolume;
         double addedVolume;
         int radius = 0;
         int height = 0;
+        int remainingIngredients = 4;
         
         SceneControl miracleMaxControl = new SceneControl();
+        System.out.println("To add the ingredients to the recipe you must first tell Miracle Max the radius and height of the measuring cup you need in centimeters.");
+        System.out.println("There can be many correct combinations as long as the radius and height calculate to the correct volume in Liters.");
+        System.out.println("HINT: Miracle Max thinks the radius and heights of the volumes have to do with his favorite numbers: 5 and 6. Volume = radius^2 * pi * height");
         
         while (ingredients < 4) {
             System.out.println(RECIPE);
@@ -102,9 +107,6 @@ public class MiracleMaxView {
             neededVolume = this.findNeededVolume(selection);
             
             //get the inputs for radius and height from the player
-            System.out.println("To add the ingredients to the recipe you must first tell Miracle Max the radius and height of the measuring cup you need in centimeters.");
-            System.out.println("There can be many correct combinations as long as the radius and height calculate to the correct volume in Liters.");
-            System.out.println("HINT: Miracle Max thinks the radius and heights of the volumes have to do with his favorite numbers: 5 and 6. Volume = radius^2 * pi * height");
 
             System.out.println("Enter the radius needed:");
             radius = this.getNumInput();
@@ -117,6 +119,8 @@ public class MiracleMaxView {
             //compare the amount added to the amount needed
             if (addedVolume == neededVolume){
                 ingredients = ++ingredients;
+                remainingIngredients = 4 - ingredients;
+                System.out.println("You've sucessfully added one ingredient from the recipe! Only" + remainingIngredients + "to go!");
             }
             else {
                System.out.println("You rush a miracle man, you get rotten miracles. You added the wrong amount of ingredient, try again!");
@@ -124,7 +128,14 @@ public class MiracleMaxView {
                break;
             }
         }
-        System.out.println("end of function");
+        System.out.println("You've sucessfully mixed the Miracle Pill! This pill will restore your mostly dead self to mostly alive!");
+        InventoryControl inventory = new InventoryControl();
+        inventory.addItem("Miracle Pill");
+        inventory.addItem("Holocaust Cloak");
+        
+        //display Game Menu
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.displayMenu();
     }
     
     private String getInput() {
