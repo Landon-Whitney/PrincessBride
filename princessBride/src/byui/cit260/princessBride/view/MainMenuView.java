@@ -14,8 +14,10 @@ import princessbride.PrincessBride;
  *
  * @author whitneydavis
  */
-public class MainMenuView {
-    private final String MENU = "\n"
+public class MainMenuView extends View {
+    
+    public MainMenuView() {
+        super("\n"
             + "\n-------------------------------------"
             + "\n              Main Menu              "
             + "\n-------------------------------------"
@@ -24,41 +26,10 @@ public class MainMenuView {
             + "\nH - Get help on how to play the game "
             + "\nS - Save game                        "
             + "\nE - Exit                             "
-            + "\n-------------------------------------";
+            + "\n-------------------------------------");
+    }
     
-    public void displayMenu () {
-        char selection = ' ';
-        do {
-            System.out.println(MENU);
-            
-            String input = this.getInput();
-            selection = input.charAt(0);
-            
-            this.doAction(selection);
-        } while (selection != 'E');
-    }
-
-    private String getInput() {
-        boolean valid = false;
-        String selection = null;
-        Scanner keyboard = new Scanner(System.in);
-        
-        while (!valid) {
-            System.out.println("Select an option from the Main Menu:");
-            
-            selection = keyboard.nextLine();
-            selection = selection.trim();
-            
-            if (selection.length() > 1 || selection.length() < 1){
-                System.out.println("Inconcievable! Please select an option from the Main Menu.");
-                continue;
-            }
-            break;
-        }
-        return selection;
-    }
-
-    private void doAction(char selection) {
+    public void doAction(char selection) {
         switch (selection) {
             case 'N':
                 this.startNewGame();

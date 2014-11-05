@@ -52,16 +52,8 @@ public class PrincessBride {
      */
     public static void main(String[] args) {
         //create StartProgramView and start the program
-        MiracleMaxView miracleMax = new MiracleMaxView();
-        miracleMax.miracleMaxScene();
-        /**
-        * int radius = 5;
-        * int height = 6;
-        * double volume;
-        * SceneControl calculate = new SceneControl();
-        * volume = calculate.calculateIngredientVolume(radius, height);
-        * System.out.println(volume);
-        */
+        MainMenuView mainMenu = new MainMenuView();
+        mainMenu.display();
         
     }
     

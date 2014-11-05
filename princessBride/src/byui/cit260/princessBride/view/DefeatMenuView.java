@@ -62,7 +62,7 @@ public class DefeatMenuView {
                 break;
             case 'M':
                 MainMenuView mainMenu = new MainMenuView();
-                mainMenu.displayMenu();
+                mainMenu.display();
                 break;
             case 'E':
                 return;
