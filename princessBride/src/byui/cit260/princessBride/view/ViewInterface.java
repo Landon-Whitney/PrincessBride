@@ -17,4 +17,5 @@ public interface ViewInterface {
     public String getInput();
     public void doAction(char value);
 
+    
 }
