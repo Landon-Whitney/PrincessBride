@@ -15,11 +15,11 @@ import java.util.Scanner;
 public class PitOfDespairView {
     
     //TESTER
-    public static void main(String args[]){
-        PitOfDespairView pit = new PitOfDespairView();
-        pit.displayStoryline();
-        pit.run();
-    }
+    //public static void main(String args[]){
+        //PitOfDespairView pit = new PitOfDespairView();
+        //pit.displayStoryline();
+        //pit.run();
+    //}
     //create an array of levers
     boolean levers[] = new boolean[5];
     //put an inital value on health
