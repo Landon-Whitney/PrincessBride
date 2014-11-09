@@ -192,7 +192,8 @@ public class MiracleMaxView {
             input = keyboard.nextInt();
             break;
         }
-        return input;    }
+        return input;    
+    }
 
     private void displayDefeatMenu() {
         DefeatMenuView defeatMenu = new DefeatMenuView();

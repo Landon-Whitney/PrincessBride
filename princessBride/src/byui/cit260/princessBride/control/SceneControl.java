@@ -10,7 +10,7 @@ package byui.cit260.princessBride.control;
  * @author Robbie
  */
 public class SceneControl {
-    public double percentSolution(double gramsIocane,double gramsWine){
+    public double percentSolution(int gramsIocane,int gramsWine){
     
         if(gramsIocane < 0 || gramsIocane > 20 ){ //No Iocane or too much
             return -1;

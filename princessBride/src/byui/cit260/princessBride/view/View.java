@@ -52,6 +52,18 @@ public abstract class View implements ViewInterface {
         }
         return selection;
     }
+
+    public int getNumInput() {
+        boolean valid = false;
+        int input = 0;
+        Scanner keyboard = new Scanner(System.in);
+        
+        while (!valid) {
+            input = keyboard.nextInt();
+            break;
+        }
+        return input;
+    }
  }
 
 

@@ -11,9 +11,10 @@ import java.util.Scanner;
  *
  * @author whitneydavis
  */
-public class HelpMenuView {
+public class HelpMenuView extends View{
     
-    private final String MENU = "\n"
+    public HelpMenuView () {
+            super("\n"
             + "\n---------------------------------------"
             + "\n               Help Menu               "
             + "\n---------------------------------------"
@@ -22,41 +23,10 @@ public class HelpMenuView {
             + "\nF - What do I do if I fail a challenge?"
             + "\nS - Can I leave the game and return to it later?"
             + "\nE - Exit                             "
-            + "\n---------------------------------------";
-    
-    public void displayMenu () {
-        char selection = ' ';
-        do {
-            System.out.println(MENU);
-            
-            String input = this.getInput();
-            selection = input.charAt(0);
-            
-            this.doAction(selection);
-        } while (selection != 'E');
+            + "\n---------------------------------------");
     }
     
-        private String getInput() {
-        boolean valid = false;
-        String selection = null;
-        Scanner keyboard = new Scanner(System.in);
-        
-        while (!valid) {
-            System.out.println("Select an option from the Help Menu:");
-            
-            selection = keyboard.nextLine();
-            selection = selection.trim();
-            
-            if (selection.length() > 1 || selection.length() < 1){
-                System.out.println("Inconcievable! Please select an option from the Help Menu.");
-                continue;
-            }
-            break;
-        }
-        return selection;
-    }
-
-    private void doAction(char selection) {
+    public void doAction(char selection) {
         switch (selection) {
             case 'G':
                 this.explainGameGoal();

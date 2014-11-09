@@ -72,8 +72,9 @@ public class FirstNavMenuView extends View {
          private void fezzikView() {
         System.out.println("fezzikView function called");
     }
-          private void vizziniView() {
-        System.out.println("vizziniView function called");
-}     
+        private void vizziniView() {
+            VizziniView vizzini = new VizziniView();
+            vizzini.faceVizzini();
+        }   
 }
 
