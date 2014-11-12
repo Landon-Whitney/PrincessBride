@@ -23,8 +23,8 @@ public class SceneControlTest {
     @Test
     public void testPercentSolution() {
         System.out.println("\tTest case #1 PercentSolution");
-        double gramsIocane = 6.0;
-        double gramsWine = 500.0;
+        int gramsIocane = 6;
+        int gramsWine = 500;
         SceneControl instance = new SceneControl();
         double expResult = 1.19;
         double result = instance.percentSolution(gramsIocane, gramsWine);
@@ -32,8 +32,8 @@ public class SceneControlTest {
 
        
      System.out.println("\tTest Case #2");
-        gramsIocane = -1.0;
-        gramsWine = 500.0;
+        gramsIocane = -1;
+        gramsWine = 500;
         
         expResult = -1.0;
         
@@ -41,8 +41,8 @@ public class SceneControlTest {
         assertEquals(expResult, result, 0.01);
         
     System.out.println("\tTest Case #3");
-        gramsIocane = 21.0;
-        gramsWine = 500.0;
+        gramsIocane = 21;
+        gramsWine = 500;
         
         expResult = -1.0;
         
@@ -50,8 +50,8 @@ public class SceneControlTest {
         assertEquals(expResult, result, 0.01);
         
     System.out.println("\tTest Case #4");
-        gramsIocane = 6.0;
-        gramsWine = -1.0;
+        gramsIocane = 6;
+        gramsWine = -1;
         
         expResult = -1;
         
@@ -59,8 +59,8 @@ public class SceneControlTest {
         assertEquals(expResult, result, 0.01);
         
     System.out.println("\tTest Case #5");
-        gramsIocane = 6.0;
-        gramsWine = 1001.0;
+        gramsIocane = 6;
+        gramsWine = 1001;
         
         expResult = -1.00;
         
@@ -68,8 +68,8 @@ public class SceneControlTest {
         assertEquals(expResult, result, 0.01);
         
      System.out.println("\tTest Case #6");
-        gramsIocane = 0.0;
-        gramsWine = 500.0;
+        gramsIocane = 0;
+        gramsWine = 500;
         
         expResult = 0.00;
         
@@ -77,8 +77,8 @@ public class SceneControlTest {
         assertEquals(expResult, result, 0.01); 
         
      System.out.println("\tTest Case #7");
-        gramsIocane = 20.0;
-        gramsWine = 500.0;
+        gramsIocane = 20;
+        gramsWine = 500;
         
         expResult = 3.85;
         
@@ -86,8 +86,8 @@ public class SceneControlTest {
         assertEquals(expResult, result, 0.01); 
         
      System.out.println("\tTest Case #8");
-        gramsIocane = 6.0;
-        gramsWine = 0.0;
+        gramsIocane = 6;
+        gramsWine = 0;
         
         expResult = 100.0;
         
@@ -95,8 +95,8 @@ public class SceneControlTest {
         assertEquals(expResult, result, 0.01);
         
      System.out.println("\tTest Case #9");
-        gramsIocane = 6.0;
-        gramsWine = 1000.0;
+        gramsIocane = 6;
+        gramsWine = 1000;
         
         expResult = 0.60;
         

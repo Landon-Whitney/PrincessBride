@@ -5,6 +5,7 @@
  */
 package byui.cit260.princessBride.model;
 
+import java.awt.Point;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -12,61 +13,37 @@ import java.util.Objects;
  *
  * @author Robbie
  */
-public class Actor implements Serializable{
-   private String name;
-   private Boolean defeated;
+public enum Actor implements Serializable{
+    Vizzini("The mastermind"),
+    Fezzick("The muscle"),
+    Buttercup("She need rescuing");
+    
+    private final String description;
+    private final Point coordinates;
+    
+    private Inventory[] inventory;
+    private Game[] game;
 
-    public Actor() {
+    Actor(String description) {
+        this.description = description;
+        coordinates = new Point(1,1);
     }
    
-   
 
-    public String getName() {
-        return name;
+    public String getDescription() {
+        return description;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Boolean getDefeated() {
-        return defeated;
-    }
-
-    public void setDefeated(Boolean defeated) {
-        this.defeated = defeated;
+    public Point getCoordinates() {
+        return coordinates;
     }
 
     @Override
     public String toString() {
-        return "Actor{" + "name=" + name + ", defeated=" + defeated + '}';
+        return "Actor{" + "description=" + description + ", coordinates=" + coordinates + ", inventory=" + inventory + ", game=" + game + '}';
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 53 * hash + Objects.hashCode(this.name);
-        hash = 53 * hash + Objects.hashCode(this.defeated);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Actor other = (Actor) obj;
-        if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
-        if (!Objects.equals(this.defeated, other.defeated)) {
-            return false;
-        }
-        return true;
-    }
+    
    
     
 }
