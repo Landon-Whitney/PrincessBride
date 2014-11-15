@@ -8,7 +8,6 @@ package princessbride;
 import byui.cit260.princessBride.control.SceneControl;
 import byui.cit260.princessBride.model.Actor;
 import byui.cit260.princessBride.model.Game;
-import byui.cit260.princessBride.model.Inventory;
 import byui.cit260.princessBride.model.Item;
 import byui.cit260.princessBride.model.Player;
 import byui.cit260.princessBride.model.Map;

@@ -14,10 +14,18 @@ import java.io.Serializable;
 public class Inventory implements Serializable {
     private double quantity;
 
+    private Item[] item;
+
     public Inventory() {
     }
     
-    
+    public Item[] getItem() {
+        return item;
+    }
+
+    public void setItem(Item[] item) {
+        this.item = item;
+    }
 
     public double getQuantity() {
         return quantity;

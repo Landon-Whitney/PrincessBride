@@ -48,7 +48,7 @@ public class MiracleMaxView {
         else if ("no".equals(selection)|| "No".equals(selection)) {
             System.out.println("As you wish. Returning to the Game Menu.");
             GameMenuView gameMenuView = new GameMenuView();
-            gameMenuView.displayMenu();
+            gameMenuView.display();
         }
         else {
             System.out.println("What do you mean? Enter yes or no.");
@@ -135,7 +135,7 @@ public class MiracleMaxView {
         
         //display Game Menu
         GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
+        gameMenu.display();
     }
     
     private String getInput() {

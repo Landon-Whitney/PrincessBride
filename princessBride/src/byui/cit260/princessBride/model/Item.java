@@ -15,11 +15,29 @@ import java.util.Objects;
 public class Item implements Serializable {
     private String description ;
 
+    private Game[] game;
+    private Scene[] scene;
+
     public Item() {
+        
     }
     
-    
+    public Game[] getGame() {
+        return game;
+    }
 
+    public void setGame(Game[] game) {
+        this.game = game;
+    }
+
+    public Scene[] getScene() {
+        return scene;
+    }
+
+    public void setScene(Scene[] scene) {
+        this.scene = scene;
+    }
+    
     public String getDescription() {
         return description;
     }
