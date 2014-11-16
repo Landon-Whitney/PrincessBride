@@ -14,10 +14,44 @@ import java.io.Serializable;
 public class Inventory implements Serializable {
     private double quantity;
 
-    public Inventory() {
+    public static Inventory[] createInventoryList() {
+        
+        Inventory [] inventory = new Inventory[4];
+        
+        Inventory goblet = new Inventory();
+        goblet.setDescription("goblet of water");
+        goblet.setQuantity(0);
+        goblet.setRequiredAmount(1);
+        inventory[Item.goblet.ordinal()] = goblet;
+        
+        Inventory rocks = new Inventory();
+        rocks.setDescription("bag of rocks");
+        rocks.setQuantity(0);
+        rocks.setRequiredAmount(1);
+        inventory[Item.rocks.ordinal()] = rocks;
+        
+        Inventory rope = new Inventory();
+        rope.setDescription("coil of rope");
+        rope.setQuantity(0);
+        rope.setRequiredAmount(1);
+        inventory[Item.rope.ordinal()] = rope;
+        
+        Inventory cloak = new Inventory();
+        cloak.setDescription("holocaust cloak made of fireproof material");
+        cloak.setQuantity(0);
+        cloak.setRequiredAmount(1);
+        inventory[Item.cloak.ordinal()] = cloak;
+        
+        Inventory pill = new Inventory();
+        pill.setDescription("a miracle pill that brings the motly dead back to life");
+        pill.setQuantity(0);
+        pill.setRequiredAmount(1);
+        inventory[Item.pill.ordinal()] = pill;
+        
+        return inventory;
+        
     }
-    
-    
+      
 
     public double getQuantity() {
         return quantity;
@@ -52,6 +86,14 @@ public class Inventory implements Serializable {
             return false;
         }
         return true;
+    }
+
+    private void setDescription(String description) {
+        
+    }
+
+    private void setRequiredAmount(int i) {
+        
     }
     
     

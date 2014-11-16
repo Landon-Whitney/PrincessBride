@@ -14,6 +14,9 @@ import java.io.Serializable;
 public class Game implements Serializable {
     private double totalTime;
     private double completedScenes;
+    private Player player;
+    private Map map;
+    private Inventory[] inventoryList;
 
     public Game() {
     }
@@ -34,6 +37,29 @@ public class Game implements Serializable {
 
     public void setCompletedScenes(double completedScenes) {
         this.completedScenes = completedScenes;
+    }
+    
+    public Player getPlayer() {
+        return player;
+    }
+    
+    public void setPlayer(Player player){
+        this.player = player;
+    }
+    
+    public Inventory[] getinventoryList(){
+        return inventoryList;
+    }
+    public void setInventory(Inventory[] inventoryList) {
+        this.inventoryList = inventoryList;
+    }
+    
+    public Map getMap (){
+        return map;
+    }
+    
+    public void setMap (Map map){
+        this.map = map;
     }
 
     @Override
@@ -65,7 +91,7 @@ public class Game implements Serializable {
             return false;
         }
         return true;
-    }
-   
-    
+    }  
+
+
 }

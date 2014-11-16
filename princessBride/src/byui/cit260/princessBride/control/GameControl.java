@@ -5,7 +5,13 @@
  */
 package byui.cit260.princessBride.control;
 
+import byui.cit260.princessBride.model.Game;
+import byui.cit260.princessBride.model.Inventory;
+import byui.cit260.princessBride.model.Item;
+import byui.cit260.princessBride.model.Map;
 import byui.cit260.princessBride.model.Player;
+import byui.cit260.princessBride.model.Scene;
+import princessbride.PrincessBride;
 
 
 /**
@@ -15,6 +21,29 @@ import byui.cit260.princessBride.model.Player;
 public class GameControl {
     
     public static void createNewGame(Player player) {
-        System.out.println("createNewGame stub function called");
+        Game game = new Game ();
+        PrincessBride.setCurrentGame(game);
+        
+        game.setPlayer(player);    
+        
+        Inventory[] inventoryList = GameControl.createInventoryList();
+        game.setInventory(inventoryList);
+        
+        Map map = MapControl.createMap();
+        game.setMap(map);
+        
+        MapControl.moveActorsToStartingLocation(map);
     }
+    
+    public static Inventory[] createInventoryList(){
+           System.out.println("** called createInventoryList in GameControl**");
+           return null;
+       
+    }
+
+    public static void assignScenesToLocations(Map map, Scene[] scenes) {
+       
+    }
+
+
 }
