@@ -7,6 +7,9 @@ package byui.cit260.princessBride.view;
 
 import byui.cit260.princessBride.control.GameControl;
 import byui.cit260.princessBride.model.Item;
+import byui.cit260.princessBride.model.Location;
+import byui.cit260.princessBride.model.Map;
+import princessbride.PrincessBride;
 
 /**
  *
@@ -53,7 +56,36 @@ public class GameMenuView extends View {
     }
 
     private void displayMap() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //get the map locations from the current game
+        Map currentMap = PrincessBride.getCurrentGame().getMap();
+        //display title
+        System.out.println("Princess Bride Game Map");
+        //display row of column numbers
+        System.out.println();
+        //iterate through every row and column
+        int rowCount = currentMap.getRowCount();
+        int columnCount = currentMap.getColumnCount();
+        for (int row = 0; row < rowCount; row++) {
+            System.out.println("------------------------------------------------");
+            System.out.println(row);
+            
+            for (int column = 0; column < columnCount; column++) {
+                System.out.println("|");
+                location = location [][];
+                
+                //for every column display description if location is not blocked and X if it is
+                if (location.getBlocked == true) {
+                    System.out.println(location.getDescription());
+                }
+                else {
+                    System.out.println("X");
+                }
+                //display ending column divider
+                System.out.println("|");
+            }
+            //display ending row divider
+            System.out.println("------------------------------------------------");
+        }
     }
 
     private void viewInventory() {
