@@ -14,8 +14,41 @@ import java.util.Objects;
 public class Map implements Serializable{
     private Integer rowCount;
     private Integer columnCount;
+    private Location [][] locations;
 
     public Map() {
+    }
+    
+    public Map(int noOfRows, int noOfColumns) {
+        
+        if (noOfRows < 1 || noOfColumns < 1) {
+            System.out.println("The number of rows and columns must be > zero");
+            return;
+        }
+        
+        this.rowCount = noOfRows;
+        this.columnCount = noOfColumns;
+        
+        this.locations = new Location[noOfRows][noOfColumns];
+        
+        for (int row = 0; row < rowCount; row++) {
+            for (int column = 0; column < columnCount; column++) {
+                Location location = new Location();
+                location.setColumn(column);
+                location.setRow(row);
+                location.setBlocked(false);
+                
+                locations[row][column] = location;
+            }
+        }
+    }
+
+    public Location[][] getLocations() {
+        return locations;
+    }
+
+    public void setLocations(Location[][] locations) {
+        this.locations = locations;
     }
 
     public Integer getRowCount() {
