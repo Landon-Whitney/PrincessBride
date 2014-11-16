@@ -13,6 +13,10 @@ import java.io.Serializable;
  */
 public class Inventory implements Serializable {
     private double quantity;
+    private Item[] item;
+    
+    public Inventory() {
+    }
 
     public static Inventory[] createInventoryList() {
         
@@ -51,7 +55,14 @@ public class Inventory implements Serializable {
         return inventory;
         
     }
-      
+    
+    public Item[] getItem() {
+        return item;
+    }
+
+    public void setItem(Item[] item) {
+        this.item = item;
+    }
 
     public double getQuantity() {
         return quantity;
@@ -86,16 +97,14 @@ public class Inventory implements Serializable {
             return false;
         }
         return true;
-    }
+    } 
 
-    private void setDescription(String description) {
-        
+    private void setDescription(String goblet_of_water) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     private void setRequiredAmount(int i) {
-        
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
     
 }

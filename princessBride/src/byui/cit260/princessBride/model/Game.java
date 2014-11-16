@@ -14,13 +14,38 @@ import java.io.Serializable;
 public class Game implements Serializable {
     private double totalTime;
     private double completedScenes;
+
     private Player player;
     private Map map;
     private Inventory[] inventoryList;
+    private Item[] item;
+
+    public Item[] getItem() {
+        return item;
+    }
+
+    public void setItem(Item[] item) {
+        this.item = item;
+    }
+
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
 
     public Game() {
     }
-    
     
 
     public double getTotalTime() {
@@ -39,14 +64,6 @@ public class Game implements Serializable {
         this.completedScenes = completedScenes;
     }
     
-    public Player getPlayer() {
-        return player;
-    }
-    
-    public void setPlayer(Player player){
-        this.player = player;
-    }
-    
     public Inventory[] getinventoryList(){
         return inventoryList;
     }
@@ -54,14 +71,6 @@ public class Game implements Serializable {
         this.inventoryList = inventoryList;
     }
     
-    public Map getMap (){
-        return map;
-    }
-    
-    public void setMap (Map map){
-        this.map = map;
-    }
-
     @Override
     public String toString() {
         return "Game{" + "totalTime=" + totalTime + ", completedScenes=" + completedScenes + '}';

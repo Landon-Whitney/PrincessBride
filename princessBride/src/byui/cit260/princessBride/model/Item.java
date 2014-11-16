@@ -12,6 +12,7 @@ import java.util.Objects;
  *
  * @author Robbie
  */
+
 public enum Item implements Serializable {
     
     goblet,
@@ -20,9 +21,30 @@ public enum Item implements Serializable {
     cloak,
     pill;
     
-    
-    private String description ;
+    private String description;
+    private Game[] game;
+    private Scene[] scene;
 
+    Item() {
+        
+    }
+    
+    public Game[] getGame() {
+        return game;
+    }
+
+    public void setGame(Game[] game) {
+        this.game = game;
+    }
+
+    public Scene[] getScene() {
+        return scene;
+    }
+
+    public void setScene(Scene[] scene) {
+        this.scene = scene;
+    }
+    
     public String getDescription() {
         return description;
     }
