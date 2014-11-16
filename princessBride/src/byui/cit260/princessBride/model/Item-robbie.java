@@ -12,6 +12,7 @@ import java.util.Objects;
  *
  * @author Robbie
  */
+<<<<<<< HEAD
 public enum Item implements Serializable {
     
     goblet,
@@ -22,7 +23,34 @@ public enum Item implements Serializable {
     
     
     private String description ;
+=======
+public class Item implements Serializable {
+    private String description ;
 
+    private Game[] game;
+    private Scene[] scene;
+
+    public Item() {
+        
+    }
+    
+    public Game[] getGame() {
+        return game;
+    }
+
+    public void setGame(Game[] game) {
+        this.game = game;
+    }
+>>>>>>> origin/master
+
+    public Scene[] getScene() {
+        return scene;
+    }
+
+    public void setScene(Scene[] scene) {
+        this.scene = scene;
+    }
+    
     public String getDescription() {
         return description;
     }

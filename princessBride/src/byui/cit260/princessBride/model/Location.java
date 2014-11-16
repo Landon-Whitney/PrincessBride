@@ -6,6 +6,7 @@
 package byui.cit260.princessBride.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 /**
  *
@@ -16,6 +17,9 @@ public class Location implements Serializable{
     private Integer column;
     private Boolean blocked;
     private String description;
+    
+    private Scene scene;
+    private ArrayList<Actor> actors;
 
     public Location() {
     }
@@ -50,6 +54,18 @@ public class Location implements Serializable{
 
     public void setDescription(String description) {
         this.description = description;
+    }
+    public Scene getScene(){
+        return scene;
+    }
+    public void setScene(Scene scene){
+        this.scene = scene;
+    }
+    public ArrayList<Actor> getActors(){
+        return actors;
+    }
+    public void setActors (ArrayList<Actor> actors){
+        this.actors = actors;
     }
 
     @Override

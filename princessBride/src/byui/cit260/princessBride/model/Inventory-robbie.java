@@ -14,6 +14,7 @@ import java.io.Serializable;
 public class Inventory implements Serializable {
     private double quantity;
 
+<<<<<<< HEAD
     public static Inventory[] createInventoryList() {
         
         Inventory [] inventory = new Inventory[4];
@@ -52,6 +53,20 @@ public class Inventory implements Serializable {
         
     }
       
+=======
+    private Item[] item;
+
+    public Inventory() {
+    }
+    
+    public Item[] getItem() {
+        return item;
+    }
+
+    public void setItem(Item[] item) {
+        this.item = item;
+    }
+>>>>>>> origin/master
 
     public double getQuantity() {
         return quantity;

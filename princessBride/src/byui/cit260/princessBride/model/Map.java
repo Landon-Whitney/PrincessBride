@@ -5,6 +5,7 @@
  */
 package byui.cit260.princessBride.model;
 
+import byui.cit260.princessBride.control.GameControl;
 import java.io.Serializable;
 import java.util.Objects;
 /**
@@ -12,11 +13,34 @@ import java.util.Objects;
  * @author whitneydavis
  */
 public class Map implements Serializable{
+
+    private static Scene[] createScenes() {
+        return null;
+    }
+
     private Integer rowCount;
     private Integer columnCount;
     private Location [][] locations;
 
     public Map() {
+    }
+    public Map(int noOfRows, int noOfColumns){
+        if (noOfRows < 1 || noOfColumns < 1)
+            System.out.println("The number of rows and columns must be > zero.");
+            return;
+    }
+
+
+    
+    private static Map createMap(){
+        //create the map for the game
+        Map map = new Map (20,20);
+        //create the scenes for the game
+        Scene[] scenes = createScenes();
+        //assign scenes to locations
+        GameControl.assignScenesToLocations(map, scenes);
+        
+        return map;
     }
     
     public Map(int noOfRows, int noOfColumns) {
@@ -65,6 +89,14 @@ public class Map implements Serializable{
 
     public void setColumnCount(Integer columnCount) {
         this.columnCount = columnCount;
+    }
+    
+    public Location [][] getLocations(){
+        return locations;
+    }
+    
+    public void setLocations(Location [][] locations){
+        this.locations = locations;
     }
 
     @Override
