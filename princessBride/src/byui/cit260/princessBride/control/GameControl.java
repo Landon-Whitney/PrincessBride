@@ -44,6 +44,29 @@ public class GameControl {
     public static void assignScenesToLocations(Map map, Scene[] scenes) {
        
     }
-
+    
+     public static Item[] getSortedInventoryList() {
+        //get inventory list for the current game
+        Item[] originalInventoryList =
+                PrincessBride.getCurrentGame().getInventory();
+        
+        //clone (make a copy) of the oringinal list
+        Item[] inventoryList = originalInventoryList.clone();
+        
+        //using a selection sort to sort the list of inventoryList by name
+        Item tempInventoryItem;
+        for (int i = 0; i < inventoryList.length-1; i++) {
+            int min = i;
+            for (int j = i+1; j < inventoryList.length; j++) {
+                if (inventoryList[min].getDescription().compareToIgnoreCase(inventoryList[j].getDescription())>0) 
+                    min = j;
+                Item temp = inventoryList[i];
+                inventoryList[i] = inventoryList[min];
+                inventoryList[min] = temp;
+            }
+        }
+        
+        return inventoryList;
+    }
 
 }
