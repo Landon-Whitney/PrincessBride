@@ -6,7 +6,7 @@
 package byui.cit260.princessBride.control;
 
 import byui.cit260.princessBride.model.Game;
-import byui.cit260.princessBride.model.Inventory;
+import byui.cit260.princessBride.model.InventoryItem;
 import byui.cit260.princessBride.model.Item;
 import byui.cit260.princessBride.model.Map;
 import byui.cit260.princessBride.model.Player;
@@ -26,7 +26,7 @@ public class GameControl {
         
         game.setPlayer(player);    
         
-        Inventory[] inventoryList = GameControl.createInventoryList();
+        InventoryItem[] inventoryList = GameControl.createInventoryList();
         game.setInventory(inventoryList);
         
         Map map = MapControl.createMap();
@@ -35,7 +35,7 @@ public class GameControl {
         MapControl.moveActorsToStartingLocation(map);
     }
     
-    public static Inventory[] createInventoryList(){
+    public static InventoryItem[] createInventoryList(){
            System.out.println("** called createInventoryList in GameControl**");
            return null;
        
@@ -45,13 +45,12 @@ public class GameControl {
        
     }
     
-     public static Item[] getSortedInventoryList() {
+     public static InventoryItem[] getSortedInventoryList() {
         //get inventory list for the current game
-        Item[] originalInventoryList =
-                PrincessBride.getCurrentGame().getInventory();
+        InventoryItem[] originalInventoryList = PrincessBride.getCurrentGame().getinventoryList();
         
         //clone (make a copy) of the oringinal list
-        Item[] inventoryList = originalInventoryList.clone();
+        InventoryItem[] inventoryList = originalInventoryList.clone();
         
         //using a selection sort to sort the list of inventoryList by name
         Item tempInventoryItem;
@@ -60,7 +59,7 @@ public class GameControl {
             for (int j = i+1; j < inventoryList.length; j++) {
                 if (inventoryList[min].getDescription().compareToIgnoreCase(inventoryList[j].getDescription())>0) 
                     min = j;
-                Item temp = inventoryList[i];
+                InventoryItem temp = inventoryList[i];
                 inventoryList[i] = inventoryList[min];
                 inventoryList[min] = temp;
             }

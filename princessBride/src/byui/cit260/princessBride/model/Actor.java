@@ -23,7 +23,7 @@ public enum Actor implements Serializable{
     private final String description;
     private final Point coordinates;
     
-    private Inventory[] inventory;
+    private InventoryItem[] inventory;
     private Game[] game;
 
     Actor(String description) {

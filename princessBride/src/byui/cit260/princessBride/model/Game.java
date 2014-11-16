@@ -16,12 +16,11 @@ public class Game implements Serializable {
     private double completedScenes;
     private Player player;
     private Map map;
-    private Inventory[] inventoryList;
-
+    private InventoryItem[] inventoryList;
+    
     public Game() {
+        
     }
-    
-    
 
     public double getTotalTime() {
         return totalTime;
@@ -47,10 +46,10 @@ public class Game implements Serializable {
         this.player = player;
     }
     
-    public Inventory[] getinventoryList(){
+    public InventoryItem[] getinventoryList(){
         return inventoryList;
     }
-    public void setInventory(Inventory[] inventoryList) {
+    public void setInventory(InventoryItem[] inventoryList) {
         this.inventoryList = inventoryList;
     }
     

@@ -11,39 +11,40 @@ import java.io.Serializable;
  *
  * @author Robbie
  */
-public class Inventory implements Serializable {
+public class InventoryItem implements Serializable {
     private double quantity;
-
-<<<<<<< HEAD
-    public static Inventory[] createInventoryList() {
+    private String description;
+    
+    
+    public static InventoryItem[] createInventoryList() {
         
-        Inventory [] inventory = new Inventory[4];
+        InventoryItem [] inventory = new InventoryItem[4];
         
-        Inventory goblet = new Inventory();
+        InventoryItem goblet = new InventoryItem();
         goblet.setDescription("goblet of water");
         goblet.setQuantity(0);
         goblet.setRequiredAmount(1);
         inventory[Item.goblet.ordinal()] = goblet;
         
-        Inventory rocks = new Inventory();
+        InventoryItem rocks = new InventoryItem();
         rocks.setDescription("bag of rocks");
         rocks.setQuantity(0);
         rocks.setRequiredAmount(1);
         inventory[Item.rocks.ordinal()] = rocks;
         
-        Inventory rope = new Inventory();
+        InventoryItem rope = new InventoryItem();
         rope.setDescription("coil of rope");
         rope.setQuantity(0);
         rope.setRequiredAmount(1);
         inventory[Item.rope.ordinal()] = rope;
         
-        Inventory cloak = new Inventory();
+        InventoryItem cloak = new InventoryItem();
         cloak.setDescription("holocaust cloak made of fireproof material");
         cloak.setQuantity(0);
         cloak.setRequiredAmount(1);
         inventory[Item.cloak.ordinal()] = cloak;
         
-        Inventory pill = new Inventory();
+        InventoryItem pill = new InventoryItem();
         pill.setDescription("a miracle pill that brings the motly dead back to life");
         pill.setQuantity(0);
         pill.setRequiredAmount(1);
@@ -53,20 +54,6 @@ public class Inventory implements Serializable {
         
     }
       
-=======
-    private Item[] item;
-
-    public Inventory() {
-    }
-    
-    public Item[] getItem() {
-        return item;
-    }
-
-    public void setItem(Item[] item) {
-        this.item = item;
-    }
->>>>>>> origin/master
 
     public double getQuantity() {
         return quantity;
@@ -96,7 +83,7 @@ public class Inventory implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Inventory other = (Inventory) obj;
+        final InventoryItem other = (InventoryItem) obj;
         if (Double.doubleToLongBits(this.quantity) != Double.doubleToLongBits(other.quantity)) {
             return false;
         }
@@ -104,9 +91,13 @@ public class Inventory implements Serializable {
     }
 
     private void setDescription(String description) {
-        
+        this.description = description;
     }
 
+    public String getDescription(){
+        return description;
+    }
+    
     private void setRequiredAmount(int i) {
         
     }
