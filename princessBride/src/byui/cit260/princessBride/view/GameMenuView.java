@@ -6,6 +6,7 @@
 package byui.cit260.princessBride.view;
 
 import byui.cit260.princessBride.control.GameControl;
+import byui.cit260.princessBride.model.InventoryItem;
 import byui.cit260.princessBride.model.Item;
 import byui.cit260.princessBride.model.Location;
 import byui.cit260.princessBride.model.Map;
@@ -63,19 +64,18 @@ public class GameMenuView extends View {
         //display row of column numbers
         System.out.println();
         //iterate through every row and column
-        int rowCount = currentMap.getRowCount();
-        int columnCount = currentMap.getColumnCount();
-        for (int row = 0; row < rowCount; row++) {
+        Location location[][] = currentMap.getLocations();
+        for (int row = 0; row < location.length; row++) {
             System.out.println("------------------------------------------------");
             System.out.println(row);
             
-            for (int column = 0; column < columnCount; column++) {
+            for (int column = 0; column < location[row].length; column++) {
                 System.out.println("|");
-                location = location [][];
+                
                 
                 //for every column display description if location is not blocked and X if it is
-                if (location.getBlocked == true) {
-                    System.out.println(location.getDescription());
+                if (location[row][column].getBlocked()) {
+                    System.out.println(location[row][column].getDescription());
                 }
                 else {
                     System.out.println("X");
@@ -90,7 +90,7 @@ public class GameMenuView extends View {
 
     private void viewInventory() {
         //get the sorted list of inventory items for the current game
-        Item[] inventory = GameControl.getSortedInventoryList();
+        InventoryItem[] inventory = GameControl.getSortedInventoryList();
         
         System.out.println("\nList of Inventory Items");
         System.out.println("Description" + "\t" +
@@ -98,7 +98,7 @@ public class GameMenuView extends View {
                             "In Stock");
         
         //for each inventory item
-        for (Item inventoryItem : inventory) {
+        for (InventoryItem inventoryItem : inventory) {
             //DISPLAY the description, the required amount and amount in stock
             System.out.println(inventoryItem.getDescription());
         }
