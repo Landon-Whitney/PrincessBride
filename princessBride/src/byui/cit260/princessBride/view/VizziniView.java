@@ -42,7 +42,7 @@ public class VizziniView extends View {
         else if ("no".equals(answer)||"No".equals(answer)){
             System.out.println("As you wish");
             GameMenuView gameMenu = new GameMenuView();
-            gameMenu.displayMenu();
+            gameMenu.display();
         }
         else {
             System.out.println("Please answer yes or no.");
@@ -71,7 +71,7 @@ public class VizziniView extends View {
             inventory.addItem("Knife");
             
             GameMenuView gameMenu = new GameMenuView();
-            gameMenu.displayMenu();
+            gameMenu.display();
         }
         else {
             DefeatMenuView defeatMenu = new DefeatMenuView();
