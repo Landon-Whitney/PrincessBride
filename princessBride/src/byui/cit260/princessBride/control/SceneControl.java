@@ -5,6 +5,8 @@
  */
 package byui.cit260.princessBride.control;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Robbie
@@ -25,20 +27,7 @@ public class SceneControl {
     return roundedPercent;
     
     }
-    public double computerRhymingWord(int gameScore){
 
-
-        if(gameScore < 0 || gameScore > 100){ //No score or too high a score
-            return -1;
-        }
-    double gameScores = gameScore;
-    double averageScore = gameScores/3;//average the three games
-    double percentScore = averageScore * 0.1;//calculate 10 percent
-    double rhymingWordScore = averageScore - percentScore;//reduce the average by 10%
-
-    return rhymingWordScore;
-    
-    }
  
     public double calculateIngredientVolume(int radius, int height){
         if(radius < 0 || radius > 100) {
@@ -59,18 +48,52 @@ public class SceneControl {
     
     public int checkPlayerRhymingWord(){
         
-    String pest[] = {"best","blessed","blest","breast","chest","crest","dressed","geste","guessed","guest","jest","lest","messed","nest","pressed","quest","rest","stressed","test","vest","west","wrest","zest"};
-    String eel[] = {"creel","deal","feel","he'll","heal","heel","keel","kneel","meal","peal","peel","real","reel","seal","she'll","speel","spiel","squeal","steal","steel","teal","veal","wheel","zeal"};
-    String wed[] = {"bed","bled","bread","bred","dead","dread","fed","fled","fred","head","lead","led","ped","pled","read","red","redd","said","shed","shred","sled","sped","spread","stead","thread","tread","zed"};
+        String pest[] = {"best","blessed","blest","breast","chest","crest","dressed","geste","guessed","guest","jest","lest","messed","nest","pressed","quest","rest","stressed","test","vest","west","wrest","zest"};
+        String eel[] = {"creel","deal","feel","he'll","heal","heel","keel","kneel","meal","peal","peel","real","reel","seal","she'll","speel","spiel","squeal","steal","steel","teal","veal","wheel","zeal"};
+        String wed[] = {"bed","bled","bread","bred","dead","dread","fed","fled","fred","head","lead","led","ped","pled","read","red","redd","said","shed","shred","sled","sped","spread","stead","thread","tread","zed"};
     
-    double wordCountPest = pest.length;//to tell the player how many rhyming words are available
-    double wordCountEel = eel.length;
-    double wordCountWed = wed.length;
+        double wordCountPest = pest.length;//to tell the player how many rhyming words are available
+        double wordCountEel = eel.length;
+        double wordCountWed = wed.length;
+        int playerScore;
+    
+        boolean valid = false;//no input has put in by the player
+        String playersRhyme = null;
+        Scanner keyboard = new Scanner(System.in);
+    
+    while (!valid){
         
-    int gameScore = 0;
-        return gameScore;
+        System.out.println("Find a one sylable word that rhymes");
+        
+        playersRhyme = keyboard.nextLine();
+        playersRhyme = playersRhyme.trim();
+        
+        if (playersRhyme.length()< 1){//player hits enter with no word
+            System.out.println("You need to put in a word for this to work");
+            continue;
+           
+        }
+        
+        
     
+    }
+        
+
+        return 0;
     
+    }
+        public double computerRhymingWord(int gameScore){
+
+
+        if(gameScore < 0 || gameScore > 100){ //No score or too high a score
+            return -1;
+        }
+    double gameScores = gameScore;
+    double averageScore = gameScores/3;//average the three games
+    double percentScore = averageScore * 0.1;//calculate 10 percent
+    double rhymingWordScore = averageScore - percentScore;//reduce the average by 10%
+
+    return rhymingWordScore;
     
     }
 }
