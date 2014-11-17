@@ -34,9 +34,9 @@ public class SceneControl {
     double gameScores = gameScore;
     double averageScore = gameScores/3;//average the three games
     double percentScore = averageScore * 0.1;//calculate 10 percent
-    double computerRhymingWord = averageScore - percentScore;//reduce the average by 10%
+    double rhymingWordScore = averageScore - percentScore;//reduce the average by 10%
 
-    return computerRhymingWord;
+    return rhymingWordScore;
     
     }
  
@@ -55,5 +55,22 @@ public class SceneControl {
     
     public boolean validScene(String scene) {
         return true;
+    }
+    
+    public int checkPlayerRhymingWord(){
+        
+    String pest[] = {"best","blessed","blest","breast","chest","crest","dressed","geste","guessed","guest","jest","lest","messed","nest","pressed","quest","rest","stressed","test","vest","west","wrest","zest"};
+    String eel[] = {"creel","deal","feel","he'll","heal","heel","keel","kneel","meal","peal","peel","real","reel","seal","she'll","speel","spiel","squeal","steal","steel","teal","veal","wheel","zeal"};
+    String wed[] = {"bed","bled","bread","bred","dead","dread","fed","fled","fred","head","lead","led","ped","pled","read","red","redd","said","shed","shred","sled","sped","spread","stead","thread","tread","zed"};
+    
+    double wordCountPest = pest.length;//to tell the player how many rhyming words are available
+    double wordCountEel = eel.length;
+    double wordCountWed = wed.length;
+        
+    int gameScore = 0;
+        return gameScore;
+    
+    
+    
     }
 }
