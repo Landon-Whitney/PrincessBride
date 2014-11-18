@@ -7,9 +7,7 @@ package byui.cit260.princessBride.control;
 
 import byui.cit260.princessBride.model.Game;
 import byui.cit260.princessBride.model.InventoryItem;
-import byui.cit260.princessBride.model.Item;
 import byui.cit260.princessBride.model.Map;
-import byui.cit260.princessBride.model.Player;
 import byui.cit260.princessBride.model.Scene;
 import byui.cit260.princessBride.model.Item;
 import byui.cit260.princessBride.model.Player;
@@ -33,8 +31,7 @@ public class GameControl {
         
         Map map = MapControl.createMap();
         game.setMap(map);
-        
-        MapControl.moveActorsToStartingLocation(map);
+       
     }
     
     public static InventoryItem[] createInventoryList(){

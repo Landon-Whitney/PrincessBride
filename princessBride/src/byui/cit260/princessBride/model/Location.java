@@ -6,7 +6,6 @@
 package byui.cit260.princessBride.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Objects;
 /**
  *
@@ -19,7 +18,7 @@ public class Location implements Serializable{
     private String description;
     
     private Scene scene;
-    private ArrayList<Actor> actors;
+    private Player player;
 
     public Location() {
     }
@@ -61,11 +60,13 @@ public class Location implements Serializable{
     public void setScene(Scene scene){
         this.scene = scene;
     }
-    public ArrayList<Actor> getActors(){
-        return actors;
+
+    public Player getPlayer() {
+        return player;
     }
-    public void setActors (ArrayList<Actor> actors){
-        this.actors = actors;
+
+    public void setPlayer(Player player) {
+        this.player = player;
     }
 
     @Override

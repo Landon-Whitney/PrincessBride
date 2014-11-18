@@ -15,6 +15,7 @@ public class Player implements Serializable{
     private String name;
     private double bestTime;
     private Game game;
+    private Location location;
 
     public Player() {
     }
@@ -34,6 +35,24 @@ public class Player implements Serializable{
     public void setBestTime(double bestTime) {
         this.bestTime = bestTime;
     }
+
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+    
+    
 
     @Override
     public String toString() {

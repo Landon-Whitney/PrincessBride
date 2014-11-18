@@ -13,16 +13,37 @@ import java.util.Scanner;
  *
  * @author whitneydavis
  */
-public class StartProgramView {
-    
-    public StartProgramView(){   
-    }
-    
-    public void startProgram(){
+public class StartProgramView extends View {
 
-        // Display the banner screen
-        this.displayBanner();
-        // Get the players name
+    public StartProgramView() {
+        super(
+                "\n\n****************************************************"
+                + "*                                                  *"
+                + "\n* This is the game Princess Bride Adventure.       *"
+                + "\n* Buttercup has found her true love in Westley,    *"
+                + "\n* the farm boy. Without any money, Westley         *"
+                + "\n* travels to the sea to seek his fortune, with     *"
+                + "\n* with a plan to come back for her, his true       *"
+                + "\n* love.  Westley's ship was attacked by the        *"
+                + "\n* Dread Pirate Robert, who never leaves survivors. *"
+                + "\n* Meanwhile the evil Prince Humperdink announces   *"
+                + "\n* his engagement to Princess Buttercup who did not *"
+                + "\n* love him.  While riding her horse Buttercup is   *"
+                + "\n* kidnapped by a group of 'circus workers' who are *"
+                + "\n* trying to start a war between countries.         *"
+                + "\n\n****************************************************"
+                + "\n\nWould you like to play the game? Enter Y or N"
+             );
+    }
+
+
+    @Override
+    public void doAction(char value) {
+        
+        if (value == 'N') {
+            return;
+        }
+        
         String playersName = this.getPlayersName();
         // Create a new player 
         Player player = ProgramControl.createPlayer(playersName);
@@ -33,27 +54,8 @@ public class StartProgramView {
         mainMenu.display();
     }
 
-    public void displayBanner() {
-        System.out.println("\n\n****************************************************");
-        
-        System.out.println("*                                                  *"
-                       + "\n* This is the game Princess Bride Adventure.       *"
-                       + "\n* Buttercup has found her true love in Westley,    *"
-                       + "\n* the farm boy. Without any money, Westley         *"
-                       + "\n* travels to the sea to seek his fortune, with     *"
-                       + "\n* with a plan to come back for her, his true       *"
-                       + "\n* love.  Westley's ship was attacked by the        *"
-                       + "\n* Dread Pirate Robert, who never leaves survivors. *"
-                       + "\n* Meanwhile the evil Prince Humperdink announces   *"
-                       + "\n* his engagement to Princess Buttercup who did not *"
-                       + "\n* love him.  While riding her horse Buttercup is   *"
-                       + "\n* kidnapped by a group of 'circus workers' who are *"
-                       + "\n* trying to start a war between countries.         *");
-        
-        System.out.println("\n\n****************************************************");
-      
-    }
 
+   
     public String getPlayersName() {
         boolean valid = false; //indicates the name has not been retrived
         String playersName = null;
@@ -76,13 +78,14 @@ public class StartProgramView {
         return playersName;
         
     }
-
-    public void displayWelcomeMessage(Player player) {
+    
+    private void displayWelcomeMessage(Player player) {
         System.out.println("\n\n===================================================");
         System.out.println("\t Good luck, Dread Pirate " + player.getName());
         System.out.println("\t We hope you will have a lot of fun!");
         System.out.println("===================================================");
     }
-
+    
+    
 }
 

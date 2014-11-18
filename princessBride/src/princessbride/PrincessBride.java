@@ -5,21 +5,9 @@
  */
 package princessbride;
 
-import byui.cit260.princessBride.control.SceneControl;
-import byui.cit260.princessBride.model.Actor;
 import byui.cit260.princessBride.model.Game;
-import byui.cit260.princessBride.model.Item;
 import byui.cit260.princessBride.model.Player;
-import byui.cit260.princessBride.model.Map;
-import byui.cit260.princessBride.model.Location;
-import byui.cit260.princessBride.model.Scene;
-import byui.cit260.princessBride.model.Messages;
 import byui.cit260.princessBride.view.FireswampView;
-import byui.cit260.princessBride.view.FirstNavMenuView;
-import byui.cit260.princessBride.view.MainMenuView;
-import byui.cit260.princessBride.view.MiracleMaxView;
-import byui.cit260.princessBride.view.PitOfDespairView;
-
 import byui.cit260.princessBride.view.StartProgramView;
 
 /**
@@ -52,12 +40,8 @@ public class PrincessBride {
      */
     public static void main(String[] args) {
         //create StartProgramView and start the program
-        //MainMenuView mainMenu = new MainMenuView();
-        //mainMenu.display();
-        //FirstNavMenuView navMenu = new FirstNavMenuView();
-        //navMenu.display();
-        FireswampView swamp = new FireswampView();
-        swamp.display();
+        StartProgramView startProgramView = new StartProgramView();
+        startProgramView.display();
     }
     
 }

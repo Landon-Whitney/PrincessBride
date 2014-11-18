@@ -5,7 +5,6 @@
  */
 package byui.cit260.princessBride.model;
 
-import byui.cit260.princessBride.control.GameControl;
 import java.io.Serializable;
 import java.util.Objects;
 /**
@@ -45,21 +44,7 @@ public class Map implements Serializable{
         }
     }
     
-    private static Map createMap(){
-        //create the map for the game
-        Map map = new Map (20,20);
-        //create the scenes for the game
-        Scene[] scenes = createScenes();
-        //assign scenes to locations
-        GameControl.assignScenesToLocations(map, scenes);
-        
-        return map;
-    }
-    
-    private static Scene[] createScenes() {
-        return null;
-    }
-
+  
     public Location[][] getLocations() {
         return locations;
     }

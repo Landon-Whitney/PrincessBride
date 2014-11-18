@@ -23,7 +23,8 @@ public class FirstNavMenuView extends View {
             +"\nE - Exit the menu"
             +"\n-------------------------------------------------");
     }
-    public void doAction(char selection){
+    public void doAction(String value){
+        char selection = value.charAt(0);
         switch (selection) {
             case 'I':
                 this.inigoView();
@@ -76,5 +77,10 @@ public class FirstNavMenuView extends View {
             VizziniView vizzini = new VizziniView();
             vizzini.faceVizzini();
         }   
+
+    @Override
+    public void doAction(char value) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
 

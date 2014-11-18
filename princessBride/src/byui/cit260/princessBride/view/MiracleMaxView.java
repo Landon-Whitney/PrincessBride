@@ -7,13 +7,13 @@ package byui.cit260.princessBride.view;
 
 import byui.cit260.princessBride.control.InventoryControl;
 import byui.cit260.princessBride.control.SceneControl;
-import byui.cit260.princessBride.model.Scene;
-import java.util.Scanner;
 /**
  *
  * @author whitneydavis
  */
-public class MiracleMaxView {
+public class MiracleMaxView extends View {
+
+    
     private final String RECIPE = "\n"
             + "\n----------------------------------------"
             + "\n           Miracle Pill Recipe          "
@@ -29,39 +29,12 @@ public class MiracleMaxView {
             + "\nE - Exit "
             + "\n----------------------------------------";
     
-    public void miracleMaxScene () {
-        
-        String selection = null;
-        Scanner keyboard = new Scanner(System.in);
-        
-        //Display storyline continuation
-        this.displayStoryline();
-        //Ask player if they would like to continue
-        System.out.println("Would you like to mix the miracle pill for Max?");
-            
-        selection = keyboard.nextLine();
-        selection = selection.trim();
-            
-        if ("yes".equals(selection) || "Yes".equals(selection)){
-            this.displayIngredientList();
-        }
-        else if ("no".equals(selection)|| "No".equals(selection)) {
-            System.out.println("As you wish. Returning to the Game Menu.");
-            GameMenuView gameMenuView = new GameMenuView();
-            gameMenuView.display();
-        }
-        else {
-            System.out.println("What do you mean? Enter yes or no.");
-        }
-            
-    }
+ 
 
-    private void displayStoryline() {
-        System.out.println("\n\n*************************************************");
-        
-        System.out.println("\n\n*                 Miracle Max                    *");
-        
-        System.out.println("*                                               *"
+    public MiracleMaxView(String promptMessage) {
+        super("\n\n*************************************************"
+                + "\n\n*                 Miracle Max                    *" 
+                + "*                                               *"
                 + "\n* Fezzik and Inigo have had a change of heart   *"
                 + "\n* and want to help you rescue Buttercup. They   *"
                 + "\n* have dragged you from the Pit of Despair to a *"
@@ -77,12 +50,13 @@ public class MiracleMaxView {
                 + "\n* the Miracle Pill, you must give the correct   *"
                 + "\n* radius and height of the measuring cup so     *"
                 + "\n* Miracle Max can mix it.                       *"
-        );
-        
-        System.out.println("\n\n*************************************************");
+                + "\n\n*************************************************"
+                + "\n\nWould you like to mix the miracle pill for Max?"
+                + "\nEnter Y or N");
     }
 
 
+    
     public void displayIngredientList () {
         int ingredients = 0;
         char selection = ' ';
@@ -138,25 +112,7 @@ public class MiracleMaxView {
         gameMenu.display();
     }
     
-    private String getInput() {
-        boolean valid = false;
-        String selection = null;
-        Scanner keyboard = new Scanner(System.in);
-        
-        while (!valid) {
-            System.out.println("Select an ingredient to add from the recipe:");
-            
-            selection = keyboard.nextLine();
-            selection = selection.trim();
-            
-            if (selection.length() > 1 || selection.length() < 1){
-                System.out.println("Inconcievable! Please select an option from the recipe.");
-                continue;
-            }
-            break;
-        }
-        return selection;
-    }
+    
     
     private double findNeededVolume(char selection) {
         double neededVolume = 0.0;
@@ -182,21 +138,21 @@ public class MiracleMaxView {
         return neededVolume;
     }
 
-    private int getNumInput() {
-        boolean valid = false;
-        int input = 0;
-        Scanner keyboard = new Scanner(System.in);
-        
-        while (!valid) {
-            
-            input = keyboard.nextInt();
-            break;
-        }
-        return input;    
-    }
+
 
     private void displayDefeatMenu() {
         DefeatMenuView defeatMenu = new DefeatMenuView();
         defeatMenu.displayMenu();
+    }
+
+    @Override
+    public void doAction(char value) {
+        // if value is N then return to main menu view
+        if (value == 'N') {
+            // display game menu view
+        }
+            
+        
+        displayIngredientList ();
     }
 }

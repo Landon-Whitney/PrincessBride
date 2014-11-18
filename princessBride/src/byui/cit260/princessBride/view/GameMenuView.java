@@ -64,24 +64,26 @@ public class GameMenuView extends View {
         //display row of column numbers
         System.out.println();
         //iterate through every row and column
-        Location location[][] = currentMap.getLocations();
-        for (int row = 0; row < location.length; row++) {
-            System.out.println("------------------------------------------------");
+        Location locations[][] = currentMap.getLocations();
+        System.out.println("   0     1     2   ");
+        System.out.println("------------------------------------------------");
+        for (int row = 0; row < locations.length; row++) {
+            
             System.out.println(row);
             
-            for (int column = 0; column < location[row].length; column++) {
-                System.out.println("|");
+            for (int column = 0; column < locations[row].length; column++) {
+                System.out.print("|");
                 
                 
                 //for every column display description if location is not blocked and X if it is
-                if (location[row][column].getBlocked()) {
-                    System.out.println(location[row][column].getDescription());
+                if (locations[row][column].getBlocked()) {
+                    System.out.print(locations[row][column].getDescription());
                 }
                 else {
-                    System.out.println("X");
+                    System.out.print("X");
                 }
                 //display ending column divider
-                System.out.println("|");
+                System.out.print("|");
             }
             //display ending row divider
             System.out.println("------------------------------------------------");
