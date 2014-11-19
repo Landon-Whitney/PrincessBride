@@ -59,6 +59,12 @@ public class SceneControl {
         int playerScore = 0;
         boolean wrongAnswer = false;
         boolean valid = false;//no input has put in by the player
+        boolean[] pestCheck;//an array of booleans to make sure the player doesn't use the same word twice
+        pestCheck = new boolean[pest.length];
+        boolean [] eelCheck;
+        eelCheck = new boolean[eel.length];
+        boolean [] wedCheck;
+        wedCheck = new boolean[wed.length];
         Scanner keyboard = new Scanner(System.in);
     
     while (!valid && wrongAnswer){
@@ -70,7 +76,7 @@ public class SceneControl {
         
         if (playersRhyme.length()< 1){//player hits enter with no word
             System.out.println("You stumped already?  I will defeat you!");
-            wrongAnswer = true;
+                wrongAnswer = true;
             
            }
         for(String word : pest){
@@ -80,7 +86,7 @@ public class SceneControl {
             }
             else
             System.out.println("That all you got?  On to the next word.");
-            wrongAnswer = true;
+                wrongAnswer = true;
                 
           }
        }
@@ -94,7 +100,7 @@ public class SceneControl {
         
         if (playersRhyme.length()< 1){//player hits enter with no word
             System.out.println("You stumped already?  I will defeat you!");
-            wrongAnswer = true;
+                wrongAnswer = true;
             
            }
         for(String word : eel){
@@ -104,7 +110,7 @@ public class SceneControl {
             }
             else
             System.out.println("You sure that's all you know?  Let's try one more word.");
-            wrongAnswer = true;    
+                wrongAnswer = true;    
           }
        } 
        
@@ -117,7 +123,7 @@ public class SceneControl {
         
         if (playersRhyme.length()< 1){//player hits enter with no word
             System.out.println("You stumped already?  I will defeat you!");
-            wrongAnswer = true;
+                wrongAnswer = true;
             
            }
         for(String word : wed){
