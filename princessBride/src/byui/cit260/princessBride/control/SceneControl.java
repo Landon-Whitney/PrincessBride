@@ -79,7 +79,8 @@ public class SceneControl {
             System.out.println("You have "+playerScore+" rhymed words");
             }
             else
-                System.out.println("That all you got?  On to the next word.");
+            System.out.println("That all you got?  On to the next word.");
+            wrongAnswer = true;
                 
           }
        }
@@ -102,8 +103,8 @@ public class SceneControl {
             System.out.println("You have "+playerScore+" rhymed words");
             }
             else
-                System.out.println("You sure that's all you know?  Let's try one more word.");
-                
+            System.out.println("You sure that's all you know?  Let's try one more word.");
+            wrongAnswer = true;    
           }
        } 
        
