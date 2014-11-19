@@ -5,6 +5,7 @@
  */
 package byui.cit260.princessBride.control;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -55,7 +56,7 @@ public class SceneControl {
         double wordCountPest = pest.length;//to tell the player how many rhyming words are available
         double wordCountEel = eel.length;
         double wordCountWed = wed.length;
-        int playerScore;
+        int playerScore = 0;
     
         boolean valid = false;//no input has put in by the player
         String playersRhyme = null;
@@ -63,20 +64,23 @@ public class SceneControl {
     
     while (!valid){
         
-        System.out.println("Find a one sylable word that rhymes");
-        
+        System.out.println("Find a one sylable word that rhymes with pest");
+        System.out.println("I know "+wordCountPest+" words that rhyme");
         playersRhyme = keyboard.nextLine();
         playersRhyme = playersRhyme.trim();
         
         if (playersRhyme.length()< 1){//player hits enter with no word
             System.out.println("You need to put in a word for this to work");
             continue;
-           
+           }
+        for(String word : pest){
+            if(playersRhyme.matches(word)){
+            playerScore++;
+            }
+                
+            }
         }
         
-        
-    
-    }
         
 
         return 0;
