@@ -57,33 +57,80 @@ public class SceneControl {
         double wordCountEel = eel.length;
         double wordCountWed = wed.length;
         int playerScore = 0;
-    
+        boolean wrongAnswer = false;
         boolean valid = false;//no input has put in by the player
-        String playersRhyme = " ";
         Scanner keyboard = new Scanner(System.in);
     
-    while (!valid){
+    while (!valid && wrongAnswer){
         
         System.out.println("Find a one sylable word that rhymes with pest");
         System.out.println("I know "+wordCountPest+" words that rhyme");
-        playersRhyme = keyboard.nextLine();
+        String playersRhyme = keyboard.nextLine();
         playersRhyme = playersRhyme.trim();
         
         if (playersRhyme.length()< 1){//player hits enter with no word
             System.out.println("You stumped already?  I will defeat you!");
-            ;
+            wrongAnswer = true;
+            
            }
         for(String word : pest){
             if(playersRhyme.matches(word)){
             playerScore++;
+            System.out.println("You have "+playerScore+" rhymed words");
             }
+            else
+                System.out.println("That all you got?  On to the next word.");
                 
-            }
-        }
+          }
+       }
+    
+       while (!valid && wrongAnswer){
         
+        System.out.println("Find a one sylable word that rhymes with eel");
+        System.out.println("I know "+wordCountEel+" words that rhyme");
+        String playersRhyme = keyboard.nextLine();
+        playersRhyme = playersRhyme.trim();
+        
+        if (playersRhyme.length()< 1){//player hits enter with no word
+            System.out.println("You stumped already?  I will defeat you!");
+            wrongAnswer = true;
+            
+           }
+        for(String word : eel){
+            if(playersRhyme.matches(word)){
+            playerScore++;
+            System.out.println("You have "+playerScore+" rhymed words");
+            }
+            else
+                System.out.println("You sure that's all you know?  Let's try one more word.");
+                
+          }
+       } 
+       
+       while (!valid && wrongAnswer){
+        
+        System.out.println("How about one about a wedding?  Find one syllable words that rhyme with wed");
+        System.out.println("I know "+wordCountWed+" words that rhyme");
+        String playersRhyme = keyboard.nextLine();
+        playersRhyme = playersRhyme.trim();
+        
+        if (playersRhyme.length()< 1){//player hits enter with no word
+            System.out.println("You stumped already?  I will defeat you!");
+            wrongAnswer = true;
+            
+           }
+        for(String word : wed){
+            if(playersRhyme.matches(word)){
+            playerScore++;
+            System.out.println("You have "+playerScore+" rhymed words");
+            }
+            else
+               System.out.println("Let's see...");  
+          }
+       }
         
 
-        return 0;
+        return playerScore;
     
     }
         public double computerRhymingWord(int gameScore){
