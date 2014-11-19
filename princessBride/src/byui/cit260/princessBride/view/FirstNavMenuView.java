@@ -13,7 +13,7 @@ import java.util.Scanner;
  */
 public class FirstNavMenuView extends View {
    
-    public FirstNavMenuView() {
+    public FirstNavMenuView () {
        super("\n-------------------------------------------------"
             +"\n| Navigation Menu                               |"
             +"\n-------------------------------------------------"

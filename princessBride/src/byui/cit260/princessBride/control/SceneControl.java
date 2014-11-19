@@ -59,7 +59,7 @@ public class SceneControl {
         int playerScore = 0;
     
         boolean valid = false;//no input has put in by the player
-        String playersRhyme = null;
+        String playersRhyme = " ";
         Scanner keyboard = new Scanner(System.in);
     
     while (!valid){
@@ -70,8 +70,8 @@ public class SceneControl {
         playersRhyme = playersRhyme.trim();
         
         if (playersRhyme.length()< 1){//player hits enter with no word
-            System.out.println("You need to put in a word for this to work");
-            continue;
+            System.out.println("You stumped already?  I will defeat you!");
+            ;
            }
         for(String word : pest){
             if(playersRhyme.matches(word)){
