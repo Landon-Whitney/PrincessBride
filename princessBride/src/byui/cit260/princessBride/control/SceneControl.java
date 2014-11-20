@@ -151,4 +151,19 @@ public class SceneControl {
     return rhymingWordScore;
     
     }
+
+    public int[] createScoreArray(int[] array, int i) {
+        int randomSelection = (int)(Math.random()*2);
+        array[i] = randomSelection;
+        return array;
+    }
+
+    public int winOrLose(int[] score) {
+        int arraySum = 0;
+        
+        for(int i = 0; i < score.length; i++) {
+            arraySum += score[i];
+        }
+        return arraySum;
+    }
 }

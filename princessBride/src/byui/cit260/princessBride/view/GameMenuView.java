@@ -23,6 +23,7 @@ public class GameMenuView extends View {
             + "\n              Game Menu              "
             + "\n-------------------------------------"
             + "\nM - View map"
+            + "\nF - Go to Fezzick's Challenge"
             + "\nI - View inventory"
             + "\nA - View list of actors"
             + "\nL - Move to a new location"
@@ -36,6 +37,9 @@ public class GameMenuView extends View {
             case 'M': //view map
                 this.displayMap();
                 break;
+            case 'F': //go to fezzick's challenge
+                FezzicksChallengeView fezzicksChallenge = new FezzicksChallengeView();
+                fezzicksChallenge.display();
             case 'I': //view inventory
                 this.viewInventory();
                 break;
