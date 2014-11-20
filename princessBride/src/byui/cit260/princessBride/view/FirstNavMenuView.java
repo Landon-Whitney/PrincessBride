@@ -13,7 +13,7 @@ import java.util.Scanner;
  */
 public class FirstNavMenuView extends View {
    
-    public FirstNavMenuView () {
+    public FirstNavMenuView (String promptMessage) {
        super("\n-------------------------------------------------"
             +"\n| Navigation Menu                               |"
             +"\n-------------------------------------------------"
@@ -24,10 +24,11 @@ public class FirstNavMenuView extends View {
             +"\n-------------------------------------------------");
     }
     public void doAction(String value){
+        System.out.println(this.promptMessage);
         char selection = value.charAt(0);
         switch (selection) {
             case 'I':
-                this.inigoView();
+                this.InigosGrottoView();
                 break;
             case 'F':
                 this.fezzikView();
@@ -67,8 +68,8 @@ public class FirstNavMenuView extends View {
   
   
          
-         private void inigoView() {
-        System.out.println("inigoView function called");
+         private void InigosGrottoView() {
+             
          }
          private void fezzikView() {
         System.out.println("fezzikView function called");

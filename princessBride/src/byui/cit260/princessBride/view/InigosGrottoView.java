@@ -13,6 +13,12 @@ import byui.cit260.princessBride.control.SceneControl;
  */
 public class InigosGrottoView extends View{
     
+    //public static void main (String args[]){ Test 
+    //    View test = new InigosGrottoView("");
+    //    Scanner keyboard = new Scanner(System.in);
+    //   test.doAction(keyboard.nextLine().charAt(0));
+    //}
+    
     public InigosGrottoView(String promptMessage){
         
         super("\n"
@@ -33,25 +39,23 @@ public class InigosGrottoView extends View{
                 + "\n get one point for every word that you know that rhymes.   "
                 +"\n Would you like to play Inigo's game? Y/N                   "
         );
-        
+        System.out.println(this.promptMessage);
         
     
     }
 
     @Override
     public void doAction(char value) {
-        switch (value){
+        switch (Character.toUpperCase(value)){
             case 'Y':
-                SceneControl checkPlayerRhymingWord = new SceneControl();
-                break;
-            case 'y':
-                System.out.println("Please print a capital Y or N");
+                SceneControl scene = new SceneControl();
+                scene.checkPlayerRhymingWord();
                 break;
             case 'N':
-                FirstNavMenuView FirstNavMenuView = new FirstNavMenuView();
+                System.out.println("FirstNavMenu ");
                 break;
-            case 'n':
-                System.out.println("Please print a capital Y or N");
+            default:
+                System.out.println("Please print Y or N");
                 break;
         }
     }

@@ -13,7 +13,7 @@ import java.util.Scanner;
  */
 public abstract class View implements ViewInterface {
     
-    private final String promptMessage;
+    final String promptMessage;
     
     public View(String promptMessage) {
         this.promptMessage = promptMessage;

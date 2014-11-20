@@ -5,7 +5,8 @@
  */
 package byui.cit260.princessBride.control;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -53,21 +54,25 @@ public class SceneControl {
         String eel[] = {"creel","deal","feel","he'll","heal","heel","keel","kneel","meal","peal","peel","real","reel","seal","she'll","speel","spiel","squeal","steal","steel","teal","veal","wheel","zeal"};
         String wed[] = {"bed","bled","bread","bred","dead","dread","fed","fled","fred","head","lead","led","ped","pled","read","red","redd","said","shed","shred","sled","sped","spread","stead","thread","tread","zed"};
     
-        double wordCountPest = pest.length;//to tell the player how many rhyming words are available
-        double wordCountEel = eel.length;
-        double wordCountWed = wed.length;
+        List<String> pestGuess = new ArrayList<>();
+        List<String> eelGuess = new ArrayList<>();
+        List<String> wedGuess = new ArrayList<>();
+        
+        int wordCountPest = pest.length;//to tell the player how many rhyming words are available
+        int wordCountEel = eel.length;
+        int wordCountWed = wed.length;
         int playerScore = 0;
         boolean wrongAnswer = false;
         boolean valid = false;//no input has put in by the player
-        boolean[] pestCheck;//an array of booleans to make sure the player doesn't use the same word twice
-        pestCheck = new boolean[pest.length];
-        boolean [] eelCheck;
-        eelCheck = new boolean[eel.length];
-        boolean [] wedCheck;
-        wedCheck = new boolean[wed.length];
+        //boolean[] pestCheck;//an array of booleans to make sure the player doesn't use the same word twice
+        //pestCheck = new boolean[pest.length];
+        //boolean [] eelCheck;
+        //eelCheck = new boolean[eel.length];
+        //boolean [] wedCheck;
+        //wedCheck = new boolean[wed.length];
         Scanner keyboard = new Scanner(System.in);
     
-    while (!valid && wrongAnswer){
+    while (!valid && !wrongAnswer){
         
         System.out.println("Find a one sylable word that rhymes with pest");
         System.out.println("I know "+wordCountPest+" words that rhyme");
@@ -76,22 +81,21 @@ public class SceneControl {
         
         if (playersRhyme.length()< 1){//player hits enter with no word
             System.out.println("You stumped already?  I will defeat you!");
-                wrongAnswer = true;
+            wrongAnswer = true;
             
            }
         for(String word : pest){
-            if(playersRhyme.matches(word)){
-            playerScore++;
-            System.out.println("You have "+playerScore+" rhymed words");
+            if(playersRhyme.matches(word) && !pestGuess.contains(playersRhyme)){
+               pestGuess.add(playersRhyme);
+               playerScore++;
+               System.out.println("You have "+playerScore+" rhymed words");
             }
-            else
-            System.out.println("That all you got?  On to the next word.");
-                wrongAnswer = true;
+        
                 
           }
        }
-    
-       while (!valid && wrongAnswer){
+        wrongAnswer = false;
+       while (!valid && !wrongAnswer){
         
         System.out.println("Find a one sylable word that rhymes with eel");
         System.out.println("I know "+wordCountEel+" words that rhyme");
@@ -104,17 +108,15 @@ public class SceneControl {
             
            }
         for(String word : eel){
-            if(playersRhyme.matches(word)){
+            if(playersRhyme.matches(word)&& !eelGuess.contains(playersRhyme)){
             playerScore++;
             System.out.println("You have "+playerScore+" rhymed words");
             }
-            else
-            System.out.println("You sure that's all you know?  Let's try one more word.");
-                wrongAnswer = true;    
+              
           }
        } 
-       
-       while (!valid && wrongAnswer){
+       wrongAnswer = false;
+       while (!valid && !wrongAnswer){
         
         System.out.println("How about one about a wedding?  Find one syllable words that rhyme with wed");
         System.out.println("I know "+wordCountWed+" words that rhyme");
@@ -127,12 +129,11 @@ public class SceneControl {
             
            }
         for(String word : wed){
-            if(playersRhyme.matches(word)){
+            if(playersRhyme.matches(word)&& !wedGuess.contains(playersRhyme)){
             playerScore++;
             System.out.println("You have "+playerScore+" rhymed words");
             }
-            else
-               System.out.println("Let's see...");  
+           
           }
        }
         
