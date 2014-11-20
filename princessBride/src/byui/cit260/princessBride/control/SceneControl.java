@@ -103,6 +103,7 @@ public class SceneControl {
            }
         for(String word : eel){
             if(playersRhyme.matches(word)&& !eelGuess.contains(playersRhyme)){
+               eelGuess.add(playersRhyme); 
             playerScore++;
             System.out.println("You have "+playerScore+" rhymed words");
             }
@@ -124,6 +125,7 @@ public class SceneControl {
            }
         for(String word : wed){
             if(playersRhyme.matches(word)&& !wedGuess.contains(playersRhyme)){
+               wedGuess.add(playersRhyme); 
             playerScore++;
             System.out.println("You have "+playerScore+" rhymed words");
             }
