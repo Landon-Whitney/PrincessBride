@@ -54,7 +54,7 @@ public class SceneControl {
         String eel[] = {"creel","deal","feel","he'll","heal","heel","keel","kneel","meal","peal","peel","real","reel","seal","she'll","speel","spiel","squeal","steal","steel","teal","veal","wheel","zeal"};
         String wed[] = {"bed","bled","bread","bred","dead","dread","fed","fled","fred","head","lead","led","ped","pled","read","red","redd","said","shed","shred","sled","sped","spread","stead","thread","tread","zed"};
     
-        List<String> pestGuess = new ArrayList<>();
+        List<String> pestGuess = new ArrayList<>();//to create an array that keeps track of the players guesses
         List<String> eelGuess = new ArrayList<>();
         List<String> wedGuess = new ArrayList<>();
         
@@ -64,12 +64,6 @@ public class SceneControl {
         int playerScore = 0;
         boolean wrongAnswer = false;
         boolean valid = false;//no input has put in by the player
-        //boolean[] pestCheck;//an array of booleans to make sure the player doesn't use the same word twice
-        //pestCheck = new boolean[pest.length];
-        //boolean [] eelCheck;
-        //eelCheck = new boolean[eel.length];
-        //boolean [] wedCheck;
-        //wedCheck = new boolean[wed.length];
         Scanner keyboard = new Scanner(System.in);
     
     while (!valid && !wrongAnswer){
