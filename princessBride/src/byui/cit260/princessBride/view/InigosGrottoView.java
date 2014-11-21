@@ -6,6 +6,7 @@
 package byui.cit260.princessBride.view;
 
 import byui.cit260.princessBride.control.SceneControl;
+import java.util.Scanner;
 
 /**
  *
@@ -13,7 +14,7 @@ import byui.cit260.princessBride.control.SceneControl;
  */
 public class InigosGrottoView extends View{
     
-    //public static void main (String args[]){ Test 
+    //public static void main (String args[]){  
     //    View test = new InigosGrottoView("");
     //    Scanner keyboard = new Scanner(System.in);
     //   test.doAction(keyboard.nextLine().charAt(0));
@@ -52,7 +53,9 @@ public class InigosGrottoView extends View{
                 scene.checkPlayerRhymingWord();
                 break;
             case 'N':
-                System.out.println("FirstNavMenu ");
+                System.out.println("As you wish.");
+                GameMenuView gameMenu = new GameMenuView();
+                gameMenu.display();
                 break;
             default:
                 System.out.println("Please print Y or N");

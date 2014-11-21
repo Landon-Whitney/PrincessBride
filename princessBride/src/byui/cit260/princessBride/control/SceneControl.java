@@ -54,7 +54,7 @@ public class SceneControl {
         String eel[] = {"creel","deal","feel","he'll","heal","heel","keel","kneel","meal","peal","peel","real","reel","seal","she'll","speel","spiel","squeal","steal","steel","teal","veal","wheel","zeal"};
         String wed[] = {"bed","bled","bread","bred","dead","dread","fed","fled","fred","head","lead","led","ped","pled","read","red","redd","said","shed","shred","sled","sped","spread","stead","thread","tread","zed"};
     
-        List<String> pestGuess = new ArrayList<>();//to create an array that keeps track of the players guesses
+        List<String> pestGuess = new ArrayList<>();//to create an array that keeps track of the player's correct guesses
         List<String> eelGuess = new ArrayList<>();
         List<String> wedGuess = new ArrayList<>();
         
@@ -62,6 +62,7 @@ public class SceneControl {
         int wordCountEel = eel.length;
         int wordCountWed = wed.length;
         int playerScore = 0;
+        int bonusPoints = 10;
         boolean wrongAnswer = false;
         boolean valid = false;//no input has put in by the player
         Scanner keyboard = new Scanner(System.in);
@@ -74,18 +75,21 @@ public class SceneControl {
         playersRhyme = playersRhyme.trim();
         
         if (playersRhyme.length()< 1){//player hits enter with no word
-            System.out.println("You stumped already?  I will defeat you!");
+            System.out.println("You stumped already?  I will defeat you! Lets try another word.");
             wrongAnswer = true;
             
            }
         for(String word : pest){
             if(playersRhyme.matches(word) && !pestGuess.contains(playersRhyme)){
-               pestGuess.add(playersRhyme);
+               pestGuess.add(playersRhyme);//adds players input to array to check against rhyme array
                playerScore++;
                System.out.println("You have "+playerScore+" rhymed words");
+               if(pestGuess.size() == pest.length){
+               System.out.println("You got all of the same words as I did! Where did you get your training?!");
+               wrongAnswer = true;
+               }
             }
-        
-                
+                 
           }
        }
         wrongAnswer = false;
@@ -97,7 +101,7 @@ public class SceneControl {
         playersRhyme = playersRhyme.trim();
         
         if (playersRhyme.length()< 1){//player hits enter with no word
-            System.out.println("You stumped already?  I will defeat you!");
+            System.out.println("You stumped already?  I will defeat you! Let's try another word.");
                 wrongAnswer = true;
             
            }
@@ -106,6 +110,10 @@ public class SceneControl {
                eelGuess.add(playersRhyme); 
             playerScore++;
             System.out.println("You have "+playerScore+" rhymed words");
+             if(eelGuess.size() == eel.length){
+               System.out.println("You got all of the same words as I did! Where did you get your training?!");
+               wrongAnswer = true;
+             }
             }
               
           }
@@ -128,8 +136,11 @@ public class SceneControl {
                wedGuess.add(playersRhyme); 
             playerScore++;
             System.out.println("You have "+playerScore+" rhymed words");
+             if(wedGuess.size() == wed.length){
+               System.out.println("You got all of the same words as I did! Where did you get your training?!");
+               wrongAnswer = true;
             }
-           
+            }
           }
        }
         
