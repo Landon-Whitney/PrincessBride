@@ -20,18 +20,18 @@ public class FezzicksChallengeView extends View {
             + "\n----------------------------------------------------------";
     
     public FezzicksChallengeView() {
-        super("\n\n*************************************************************"
-                + "\n\n*                Fezzicks Challenge                     *" 
-                + "*                                                           *"
+        super("\n\n***********************************************************"
+                + "\n*                  Fezzicks Challenge                     *" 
+                + "\n*                                                         *"
                 + "\n* We must face each other as God intended. Sportsman like.*"
                 + "\n* No tricks, no weapons, skill against skill alone. It's  *"
                 + "\n* not my fault being the biggest and the strongest. I     *"
                 + "\n* don't even exercise. I challenge you to a competition of*"
-                + "\n* Rock, Paper, Scissors!                                  *"
+                + "\n* Rock, Paper, Scissors. Best two out of three wins!      *"
                 + "\n*                                                         *"
                 + "\n* Will you accept this challenge from Fezzick?            *"
                 + "\n* (Enter Y or N)                                          *"
-                + "\n\n*********************************************************");
+                + "\n***********************************************************");
 }
     
     public void doAction(char selection) {
@@ -52,12 +52,11 @@ public class FezzicksChallengeView extends View {
 
     private void fezzickChallenge() {
         String playerSelection;
-        int compSelection;
         int[] score;
         score = new int[3];
         int sum;
         
-        for (int i = 0; i < 4; i++){
+        for (int i = 0; i < 3; i++){
             System.out.println(GAMEMENU);
             playerSelection = super.getInput();
             
@@ -67,26 +66,26 @@ public class FezzicksChallengeView extends View {
             if (score[i] == 1) {
                 switch (playerSelection) {
                     case "R":
-                        System.out.println("Fezzick has played scissors!\nI just want you to feel you are doing well. I don't want people to die embarrassed.");
+                        System.out.println("\nFezzick has played scissors and lost!\nI just want you to feel you are doing well. I don't want people to die embarrassed.");
                         break;
                     case "P":
-                        System.out.println("Fezzick has played rock!\nI just want you to feel you are doing well. I don't want people to die embarrassed.");
+                        System.out.println("\nFezzick has played rock and lost!\nI just want you to feel you are doing well. I don't want people to die embarrassed.");
                         break;
                     case "S":
-                        System.out.println("Fezzick has played paper!\nI just want you to feel you are doing well. I don't want people to die embarrassed.");
+                        System.out.println("\nFezzick has played paper and lost!\nI just want you to feel you are doing well. I don't want people to die embarrassed.");
                         break;
                 }
             }
             else if (score[i] == 0) {
                 switch (playerSelection) {
                     case "R":
-                        System.out.println("Fezzick has played paper!\nIt's not my fault being the biggest and the strongest; I don't even exercise.");
+                        System.out.println("\nFezzick has played paper and won!\nIt's not my fault being the biggest and the strongest; I don't even exercise.");
                         break;
                     case "P":
-                        System.out.println("Fezzick has played scissors!\nIt's not my fault being the biggest and the strongest; I don't even exercise.");
+                        System.out.println("\nFezzick has played scissors and won!\nIt's not my fault being the biggest and the strongest; I don't even exercise.");
                         break;
                     case "S":
-                        System.out.println("Fezzick has played rock!\nIt's not my fault being the biggest and the strongest; I don't even exercise.");
+                        System.out.println("\nFezzick has played rock and won!\nIt's not my fault being the biggest and the strongest; I don't even exercise.");
                         break;
                 }
             }

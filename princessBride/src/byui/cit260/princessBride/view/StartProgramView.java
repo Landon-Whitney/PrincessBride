@@ -17,8 +17,8 @@ public class StartProgramView extends View {
 
     public StartProgramView() {
         super(
-                "\n\n****************************************************"
-                + "*                                                  *"
+                "\n              Princess Bride Adventure              "
+                + "\n****************************************************"
                 + "\n* This is the game Princess Bride Adventure.       *"
                 + "\n* Buttercup has found her true love in Westley,    *"
                 + "\n* the farm boy. Without any money, Westley         *"
@@ -31,7 +31,7 @@ public class StartProgramView extends View {
                 + "\n* love him.  While riding her horse Buttercup is   *"
                 + "\n* kidnapped by a group of 'circus workers' who are *"
                 + "\n* trying to start a war between countries.         *"
-                + "\n\n****************************************************"
+                + "\n****************************************************"
                 + "\n\nWould you like to play the game? Enter Y or N"
              );
     }

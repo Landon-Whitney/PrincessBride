@@ -14,7 +14,7 @@ import java.util.Scanner;
 public class DefeatMenuView {
     private final String MENU = "\n"
             + "\n---------------------------------------"
-            + "\n             Defeat Menu               "
+            + "\n            Defeat Menu                       "
             + "\n---------------------------------------"
             + "\nS - Start game from last save          "
             + "\nM - Return to Main Menu                "
