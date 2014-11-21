@@ -54,15 +54,27 @@ public abstract class View implements ViewInterface {
     }
 
     public int getNumInput() {
-        boolean valid = false;
-        int input = 0;
-        Scanner keyboard = new Scanner(System.in);
-        
-        while (!valid) {
-            input = keyboard.nextInt();
-            break;
+        Integer number = null;
+        while (number == null){
+            String value = this.getInput();
+            value = value.trim().toUpperCase();
+        try{
+            number = Integer.parseInt(value);
+        }catch (NumberFormatException nf) {
+            
+            System.out.println("\n You must enter a valid number.");
         }
-        return input;
+        }
+        return number;
+        //boolean valid = false;
+        //int input = 0;
+        //Scanner keyboard = new Scanner(System.in);
+        
+       // while (!valid) {
+        //    input = keyboard.nextInt();
+        //    break;
+        //}
+       // return input;
     }
  }
 

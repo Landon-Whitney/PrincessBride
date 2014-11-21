@@ -31,7 +31,7 @@ public class MiracleMaxView extends View {
     
  
 
-    public MiracleMaxView(String promptMessage) {
+    public MiracleMaxView() {
         super("\n\n*************************************************"
                 + "\n\n*                 Miracle Max                    *" 
                 + "*                                               *"
