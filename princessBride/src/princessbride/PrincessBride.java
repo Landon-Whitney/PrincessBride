@@ -8,6 +8,7 @@ package princessbride;
 import byui.cit260.princessBride.model.Game;
 import byui.cit260.princessBride.model.Player;
 import byui.cit260.princessBride.view.FireswampView;
+import byui.cit260.princessBride.view.MiracleMaxView;
 import byui.cit260.princessBride.view.StartProgramView;
 
 /**
@@ -41,7 +42,13 @@ public class PrincessBride {
     public static void main(String[] args) {
         //create StartProgramView and start the program
         StartProgramView startProgramView = new StartProgramView();
+        try{
         startProgramView.display();
+        }catch (Throwable te){
+            System.out.println(te.getMessage());
+            te.printStackTrace();
+            startProgramView.display();
+        }
     }
     
 }

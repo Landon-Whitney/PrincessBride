@@ -6,10 +6,14 @@
 package byui.cit260.princessBride.view;
 
 import byui.cit260.princessBride.control.GameControl;
+import byui.cit260.princessBride.control.MapControl;
+import byui.cit260.princessBride.exceptions.MapControlException;
+import byui.cit260.princessBride.model.Actor;
 import byui.cit260.princessBride.model.InventoryItem;
 import byui.cit260.princessBride.model.Item;
 import byui.cit260.princessBride.model.Location;
 import byui.cit260.princessBride.model.Map;
+import java.awt.Point;
 import princessbride.PrincessBride;
 
 /**
@@ -113,6 +117,14 @@ public class GameMenuView extends View {
     }
 
     private void moveLocations() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        //Actor [] actor;
+        //Point coordinates;
+        //try {
+           // MapControl.moveActorToLocation(actor, coordinates);
+            
+        //}catch (MapControlException me){
+            //System.out.println(me.getMessage());
+       // }
     }
 }
