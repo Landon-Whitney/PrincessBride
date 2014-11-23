@@ -65,32 +65,30 @@ public class GameMenuView extends View {
         Map currentMap = PrincessBride.getCurrentGame().getMap();
         //display title
         System.out.println("Princess Bride Game Map");
-        //display row of column numbers
-        System.out.println();
-        //iterate through every row and column
+        //iterate through every row and column and display
         Location locations[][] = currentMap.getLocations();
-        System.out.println("   0     1     2   ");
-        System.out.println("------------------------------------------------");
+        System.out.println("\n     0    1    2   ");
+        System.out.println("--------------------");
         for (int row = 0; row < locations.length; row++) {
             
-            System.out.println(row);
+            System.out.print(row + "  ");
             
             for (int column = 0; column < locations[row].length; column++) {
                 System.out.print("|");
                 
                 
                 //for every column display description if location is not blocked and X if it is
-                if (locations[row][column].getBlocked()) {
-                    System.out.print(locations[row][column].getDescription());
+                if (!locations[row][column].getScene().getBlocked()) {
+                    System.out.print(locations[row][column].getScene().getShortDescription());
                 }
                 else {
-                    System.out.print("X");
+                    System.out.print(" X ");
                 }
                 //display ending column divider
                 System.out.print("|");
             }
             //display ending row divider
-            System.out.println("------------------------------------------------");
+            System.out.println("\n--------------------");
         }
     }
 

@@ -19,13 +19,15 @@ public enum Scene implements Serializable{
     PitOfDespair("Prince Humperdink's secret lab.", "POD"),
     MiracleMax("A modest cottage covered by ivy.", "MMX"),
     CastleGate("An imposing gate with but one key and double the guards.", "CGT"),
-    CastleMaze("Stone walls with narrow passageways go off in every direction.  Which way do you go?", "CMZ");
+    CastleMaze("Stone walls with narrow passageways go off in every direction.  Which way do you go?", "CMZ"),
+    TrueLovesKiss("A ride into the sunset with a beautiful princess.", "TLK");
     
     private final String description;
     private final String shortDescription;
     private final Point coordinates;
     private Boolean blocked;
-    private Boolean status;
+    private Boolean completed;
+
     private Item[] item;
     private Location location;
 
@@ -39,11 +41,9 @@ public enum Scene implements Serializable{
         return description;
     }
     
-        public Point getCoordinates() {
+    public Point getCoordinates() {
         return coordinates;
         }
-
-    
 
     public Boolean getBlocked() {
         return blocked;
@@ -53,12 +53,12 @@ public enum Scene implements Serializable{
         this.blocked = blocked;
     }
 
-    public Boolean getStatus() {
-        return status;
+    public Boolean getCompleted() {
+        return completed;
     }
 
-    public void setStatus(Boolean status) {
-        this.status = status;
+    public void setCompleted(Boolean completed) {
+        this.completed = completed;
     }
     
     public Item[] getItem (){
@@ -79,7 +79,7 @@ public enum Scene implements Serializable{
 
     @Override
     public String toString() {
-        return "Scene{" + "description=" + description + ", blocked=" + blocked + ", status=" + status + '}';
+        return "Scene{" + "description=" + description + ", blocked=" + blocked + ", shortDescription=" + shortDescription + '}';
     }
 }
 

@@ -39,10 +39,6 @@ public class GameControl {
            return null;
        
     }
-
-    public static void assignScenesToLocations(Map map, Scene[] scenes) {
-       
-    }
     
      public static InventoryItem[] getSortedInventoryList() {
         //get inventory list for the current game
