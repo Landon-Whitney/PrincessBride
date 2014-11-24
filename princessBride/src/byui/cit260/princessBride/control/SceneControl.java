@@ -62,7 +62,6 @@ public class SceneControl {
         int wordCountEel = eel.length;
         int wordCountWed = wed.length;
         int playerScore = 0;
-        int bonusPoints = 10;
         boolean wrongAnswer = false;
         boolean valid = false;//no input has put in by the player
         Scanner keyboard = new Scanner(System.in);

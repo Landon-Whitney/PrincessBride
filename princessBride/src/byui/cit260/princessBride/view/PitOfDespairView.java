@@ -12,7 +12,7 @@ import java.util.Scanner;
  *
  * @author Robbie
  */
-public class PitOfDespairView {
+public class PitOfDespairView extends View{
     
     //TESTER
     //public static void main(String args[]){
@@ -25,13 +25,11 @@ public class PitOfDespairView {
     //put an inital value on health
     int health = 100;
     
-    public void pitOfDespairScene(){
-        this.displayStoryline();
     
-    }
-    public void displayStoryline (){
+    
+    public PitOfDespairView (){
             
-         System.out.println("\n**************************************"
+                      super("\n**************************************"
                         +"\n* You awake to find yourself in a lab   *" 
                         +"\n* An albino servant informs you that    *"
                         +"\n* you are in the pit of despair, Prince *"
@@ -64,12 +62,17 @@ public class PitOfDespairView {
         
         if(health < 0){
             System.out.println("You died!");
+            this.displayDefeatMenu();
         } 
         else if(health < 1){
             System.out.println("You got so healthy that Prince Humperdink had to kill you!");
+            this.displayDefeatMenu();
         }
         else
             System.out.println("You survived the Pit of Despair by by becomming mostly dead");
+        
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
     
 public int leverPull(int leverChoice){        
@@ -100,4 +103,14 @@ public int leverPull(int leverChoice){
                 System.out.println("Inconcievable! Enter a number between 1 - 5 that you haven't pulled.");
         return healthChange;
 }
+
+    @Override
+    public void doAction(char value) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void displayDefeatMenu() {
+        DefeatMenuView defeatMenu = new DefeatMenuView();
+        defeatMenu.displayMenu();
+    }
 }

@@ -20,7 +20,7 @@ public class InigosGrottoView extends View{
     //   test.doAction(keyboard.nextLine().charAt(0));
     //}
     
-    public InigosGrottoView(String promptMessage){
+    public InigosGrottoView(){
         
         super("\n"
                 + "\n-----------------------------------------------------------"
@@ -49,8 +49,8 @@ public class InigosGrottoView extends View{
     public void doAction(char value) {
         switch (Character.toUpperCase(value)){
             case 'Y':
-                SceneControl scene = new SceneControl();
-                scene.checkPlayerRhymingWord();
+                SceneControl inigosGrottoControl = new SceneControl();
+                inigosGrottoControl.checkPlayerRhymingWord();
                 break;
             case 'N':
                 System.out.println("As you wish.");
