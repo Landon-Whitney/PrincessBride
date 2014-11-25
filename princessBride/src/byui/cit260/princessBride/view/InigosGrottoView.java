@@ -14,11 +14,11 @@ import java.util.Scanner;
  */
 public class InigosGrottoView extends View{
     
-    //public static void main (String args[]){  
-    //    View test = new InigosGrottoView("");
-    //    Scanner keyboard = new Scanner(System.in);
-    //   test.doAction(keyboard.nextLine().charAt(0));
-    //}
+    public static void main (String args[]){  
+        View test = new InigosGrottoView();
+        Scanner keyboard = new Scanner(System.in);
+       test.doAction(keyboard.nextLine().charAt(0));
+    }
     
     public InigosGrottoView(){
         
@@ -49,9 +49,14 @@ public class InigosGrottoView extends View{
     public void doAction(char value) {
         switch (Character.toUpperCase(value)){
             case 'Y':
-                SceneControl inigosGrottoControl = new SceneControl();
-                inigosGrottoControl.checkPlayerRhymingWord();
-                break;
+                double average = 0;
+                while(average < 18){
+                    SceneControl inigosGrottoControl = new SceneControl();
+                    int score = inigosGrottoControl.checkPlayerRhymingWord();
+                    average = inigosGrottoControl.computerRhymingWord(score);
+                    System.out.println("your average score is: " + average + (average >= 18 ? " You win!" : " You did not find enough words, try again."));
+                }
+            break;
             case 'N':
                 System.out.println("As you wish.");
                 GameMenuView gameMenu = new GameMenuView();
@@ -61,6 +66,7 @@ public class InigosGrottoView extends View{
                 System.out.println("Please print Y or N");
                 break;
         }
+        
     }
     
 }
