@@ -5,6 +5,7 @@
  */
 package byui.cit260.princessBride.control;
 
+import byui.cit260.princessBride.exceptions.SceneControlException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -14,13 +15,14 @@ import java.util.Scanner;
  * @author Robbie
  */
 public class SceneControl {
-    public double percentSolution(int gramsIocane,int gramsWine){
+    public double percentSolution(int gramsIocane,int gramsWine)
+            throws SceneControlException{
     
         if(gramsIocane < 0 || gramsIocane > 20 ){ //No Iocane or too much
-            return -1;
+        throw new SceneControlException("You have no Iocane powder or way too much!!");
         }
         if(gramsWine < 0 || gramsWine > 1000){//No wine or too much
-            return -1;
+        throw new SceneControlException("You have no wine or way too much!");
         }
 
     double percentSolution = gramsIocane / (gramsIocane + gramsWine) * 100;
@@ -31,12 +33,13 @@ public class SceneControl {
     }
 
  
-    public double calculateIngredientVolume(int radius, int height){
+    public double calculateIngredientVolume(int radius, int height)
+            throws SceneControlException{
         if(radius < 0 || radius > 100) {
-            return -1;
+            throw new SceneControlException("Please put in a valid radius!");
         }
         if(height < 0 || height > 100) {
-            return -1;
+            throw new SceneControlException("Please put in a valid height!");
         }
         
         double volume = (double)((Math.PI * Math.pow(radius, 2) * height)/1000);
@@ -75,7 +78,7 @@ public class SceneControl {
         
         if (playersRhyme.length()< 1){//player hits enter with no word
             System.out.println("You stumped already?  I will defeat you! Lets try another word.");
-            wrongAnswer = true;
+            wrongAnswer = true; 
             
            }
         for(String word : pest){
@@ -147,11 +150,12 @@ public class SceneControl {
         return playerScore;
     
     }
-        public double computerRhymingWord(int gameScore){
+        public double computerRhymingWord(int gameScore) 
+                throws SceneControlException{
 
 
         if(gameScore < 0 || gameScore > 100){ //No score or too high a score
-            return -1;
+            throw new SceneControlException("Score is not valid");
         }
     double gameScores = gameScore;
     double averageScore = gameScores/3;//average the three games

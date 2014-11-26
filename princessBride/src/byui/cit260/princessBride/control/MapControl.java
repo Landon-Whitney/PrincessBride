@@ -69,11 +69,11 @@ public class MapControl {
 
     }
 
-    /*
+    
     private static Scene[] createScenes() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    */
+    
     
     private static void assignScenesToLocations(Map map) {
         Location location = map.getLocations()[0][0];
