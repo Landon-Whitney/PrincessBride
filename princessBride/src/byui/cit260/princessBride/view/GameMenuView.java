@@ -14,6 +14,8 @@ import byui.cit260.princessBride.model.Item;
 import byui.cit260.princessBride.model.Location;
 import byui.cit260.princessBride.model.Map;
 import java.awt.Point;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import princessbride.PrincessBride;
 
 /**
@@ -50,8 +52,14 @@ public class GameMenuView extends View {
             case 'A': //view actors
                 this.viewActors();
                 break;
-            case 'L': //move to a new location
+            case 'L': {
+            try {
+                //move to a new location
                 this.moveLocations();
+            } catch (MapControlException ex) {
+                Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
                 break;
             case 'H'://display help menu
                 HelpMenuView helpMenu = new HelpMenuView();
@@ -116,8 +124,15 @@ public class GameMenuView extends View {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private void moveLocations() {
+    private void moveLocations() throws MapControlException {
         
+        System.out.println("Enter the x coordinate of your destination: ");
+        int row = super.getNumInput();
+        
+        System.out.println("Enter the y coordinate of your destination: ");
+        int column = super.getNumInput();
+        
+        MapControl.movePlayerToLocation(row, column);
         //Actor [] actor;
         //Point coordinates;
         //try {

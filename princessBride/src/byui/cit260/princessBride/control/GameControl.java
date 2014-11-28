@@ -5,6 +5,7 @@
  */
 package byui.cit260.princessBride.control;
 
+import byui.cit260.princessBride.exceptions.MapControlException;
 import byui.cit260.princessBride.model.Game;
 import byui.cit260.princessBride.model.InventoryItem;
 import byui.cit260.princessBride.model.Map;
@@ -20,17 +21,22 @@ import princessbride.PrincessBride;
  */
 public class GameControl {
     
-    public static void createNewGame(Player player) {
-        Game game = new Game ();
-        PrincessBride.setCurrentGame(game);
+    public static void createNewGame(Player player) throws MapControlException {
+        Game game = new Game ();//new game
+        PrincessBride.setCurrentGame(game);//save game
         
-        game.setPlayer(player);    
+        game.setPlayer(player);//save player in game   
         
+        //create the inventory list and save in game
         InventoryItem[] inventoryList = GameControl.createInventoryList();
         game.setInventory(inventoryList);
         
-        Map map = MapControl.createMap();
-        game.setMap(map);
+        Map map = MapControl.createMap();//create new wagon
+        game.setMap(map);//save map in game
+        
+        //move player to starting position in game
+        //MapControl.moveActorsToStartingLocation(map); Actors dont move in our game
+        
        
     }
     

@@ -16,9 +16,10 @@ import java.util.Objects;
 public enum Actor implements Serializable{
     Vizzini("The mastermind"),
     Fezzick("The muscle"),
-    Miracle_Max("The healer for the mostly dead"),
+    Inigo("The swordsman"),
+    Miracle_Max("The healer"),
     Prince_Humperdink("The evil villian"),
-    Princess_Buttercup("She need rescuing");
+    Princess_Buttercup("The long-lost love");
     
     private final String description;
     private final Point coordinates;
