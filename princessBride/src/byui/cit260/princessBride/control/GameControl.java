@@ -5,11 +5,10 @@
  */
 package byui.cit260.princessBride.control;
 
-import byui.cit260.princessBride.exceptions.MapControlException;
+import byui.cit260.princessBride.exceptions.GameControlException;
 import byui.cit260.princessBride.model.Game;
 import byui.cit260.princessBride.model.InventoryItem;
 import byui.cit260.princessBride.model.Map;
-import byui.cit260.princessBride.model.Scene;
 import byui.cit260.princessBride.model.Item;
 import byui.cit260.princessBride.model.Player;
 import princessbride.PrincessBride;
@@ -21,7 +20,7 @@ import princessbride.PrincessBride;
  */
 public class GameControl {
     
-    public static void createNewGame(Player player) throws MapControlException {
+    public static void createNewGame(Player player) {
         Game game = new Game ();//new game
         PrincessBride.setCurrentGame(game);//save game
         
@@ -36,8 +35,7 @@ public class GameControl {
         
         //move player to starting position in game
         //MapControl.moveActorsToStartingLocation(map); Actors dont move in our game
-        
-       
+
     }
     
     public static InventoryItem[] createInventoryList(){

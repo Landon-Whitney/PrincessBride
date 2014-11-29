@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package byui.cit260.princessBride.control;
+import byui.cit260.princessBride.exceptions.InventoryControlException;
 
 /**
  *
@@ -11,7 +12,7 @@ package byui.cit260.princessBride.control;
  */
 public class InventoryControl {
 
-    public void addItem(String miracle_Pill) {
+    public void addItem(String item) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
