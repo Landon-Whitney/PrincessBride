@@ -7,6 +7,10 @@ package byui.cit260.princessBride.view;
 
 import byui.cit260.princessBride.control.InventoryControl;
 import byui.cit260.princessBride.control.SceneControl;
+import byui.cit260.princessBride.exceptions.SceneControlException;
+import byui.cit260.princessBride.model.Scene;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author whitneydavis
@@ -29,8 +33,6 @@ public class MiracleMaxView extends View {
             + "\nE - Exit "
             + "\n----------------------------------------";
     
- 
-
     public MiracleMaxView() {
         super("\n\n*************************************************"
                 + "\n\n*                 Miracle Max                    *" 
@@ -55,9 +57,7 @@ public class MiracleMaxView extends View {
                 + "\nEnter Y or N");
     }
 
-
-    
-    public void displayIngredientList () {
+    public void displayIngredientList () throws SceneControlException {
         int ingredients = 0;
         char selection = ' ';
         double neededVolume;
@@ -103,6 +103,11 @@ public class MiracleMaxView extends View {
             }
         }
         System.out.println("You've sucessfully mixed the Miracle Pill! This pill will restore your mostly dead self to mostly alive!");
+        
+        //set scene to completed
+        Scene.MiracleMax.setCompleted(Boolean.TRUE);
+        
+        //add items to inventory
         InventoryControl inventory = new InventoryControl();
         inventory.addItem("Miracle Pill");
         inventory.addItem("Holocaust Cloak");
@@ -110,9 +115,7 @@ public class MiracleMaxView extends View {
         //display Game Menu
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
-    }
-    
-    
+    }  
     
     private double findNeededVolume(char selection) {
         double neededVolume = 0.0;
@@ -138,21 +141,25 @@ public class MiracleMaxView extends View {
         return neededVolume;
     }
 
-
-
     private void displayDefeatMenu() {
         DefeatMenuView defeatMenu = new DefeatMenuView();
-        defeatMenu.displayMenu();
+        defeatMenu.display();
     }
 
     @Override
     public void doAction(char value) {
         // if value is N then return to main menu view
         if (value == 'N') {
-            // display game menu view
+            System.out.println("As you wish.");
+            GameMenuView gameMenu = new GameMenuView();
+            gameMenu.display();
         }
-            
-        
-        displayIngredientList ();
+        else {    
+            try {
+                this.displayIngredientList();
+            } catch (SceneControlException ex) {
+                Logger.getLogger(MiracleMaxView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
 }

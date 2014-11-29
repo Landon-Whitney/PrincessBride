@@ -13,12 +13,7 @@ import java.util.Scanner;
  * @author Roberta
  */
 public class InigosGrottoView extends View{
-    
-    public static void main (String args[]){  
-        View test = new InigosGrottoView();
-        Scanner keyboard = new Scanner(System.in);
-       test.doAction(keyboard.nextLine().charAt(0));
-    }
+
     
     public InigosGrottoView(){
         

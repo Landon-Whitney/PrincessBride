@@ -6,6 +6,7 @@
 package byui.cit260.princessBride.view;
 
 import byui.cit260.princessBride.control.SceneControl;
+import byui.cit260.princessBride.model.Scene;
 
 /**
  *
@@ -35,7 +36,7 @@ public class FezzicksChallengeView extends View {
 }
     
     public void doAction(char selection) {
-        switch (selection) {
+        switch (Character.toUpperCase(selection)) {
             case 'Y':
                 this.fezzickChallenge();
                 break;
@@ -59,32 +60,34 @@ public class FezzicksChallengeView extends View {
         for (int i = 0; i < 3; i++){
             System.out.println(GAMEMENU);
             playerSelection = super.getInput();
+            char charSelection = playerSelection.charAt(0);
+            Character.toUpperCase(charSelection);
             
             SceneControl scoreArray = new SceneControl();
             score = scoreArray.createScoreArray(score, i);
             
             if (score[i] == 1) {
-                switch (playerSelection) {
-                    case "R":
+                switch (charSelection) {
+                    case 'R':
                         System.out.println("\nFezzick has played scissors and lost!\nI just want you to feel you are doing well. I don't want people to die embarrassed.");
                         break;
-                    case "P":
+                    case 'P':
                         System.out.println("\nFezzick has played rock and lost!\nI just want you to feel you are doing well. I don't want people to die embarrassed.");
                         break;
-                    case "S":
+                    case 'S':
                         System.out.println("\nFezzick has played paper and lost!\nI just want you to feel you are doing well. I don't want people to die embarrassed.");
                         break;
                 }
             }
             else if (score[i] == 0) {
-                switch (playerSelection) {
-                    case "R":
+                switch (charSelection) {
+                    case 'R':
                         System.out.println("\nFezzick has played paper and won!\nIt's not my fault being the biggest and the strongest; I don't even exercise.");
                         break;
-                    case "P":
+                    case 'P':
                         System.out.println("\nFezzick has played scissors and won!\nIt's not my fault being the biggest and the strongest; I don't even exercise.");
                         break;
-                    case "S":
+                    case 'S':
                         System.out.println("\nFezzick has played rock and won!\nIt's not my fault being the biggest and the strongest; I don't even exercise.");
                         break;
                 }
@@ -96,13 +99,16 @@ public class FezzicksChallengeView extends View {
         
         if (sum > 2) {
             System.out.println("Congratulations, you've won against Fezzick!\nI just figured out why you give my so much trouble: I haven't fought one person in so long.");
+            
+            Scene.FezzicksChallenge.setCompleted(Boolean.TRUE);
+            
             GameMenuView gameMenu = new GameMenuView();
             gameMenu.display();
         }
         else {
             System.out.println("You've been defeated by Fezzick!");
             DefeatMenuView defeatMenu = new DefeatMenuView();
-            defeatMenu.displayMenu();
+            defeatMenu.display();
         }
             
     }

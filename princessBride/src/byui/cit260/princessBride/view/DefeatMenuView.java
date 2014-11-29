@@ -11,51 +11,20 @@ import java.util.Scanner;
  *
  * @author whitneydavis
  */
-public class DefeatMenuView {
-    private final String MENU = "\n"
+public class DefeatMenuView extends View{
+    public DefeatMenuView() {
+            super("\nYou have failed to defeat the challenge!"
+            + "\n"
             + "\n---------------------------------------"
-            + "\n            Defeat Menu                       "
+            + "\n            Defeat Menu                "
             + "\n---------------------------------------"
             + "\nS - Start game from last save          "
             + "\nM - Return to Main Menu                "
             + "\nE - Exit                               "
-            + "\n---------------------------------------";
-    
-    public void displayMenu(){
-        System.out.println("You've failed to defeat the challenge!");
-        
-        char selection = ' ';
-        do {
-            System.out.println(MENU);
-            
-            String input = this.getInput();
-            selection = input.charAt(0);
-            
-            this.doAction(selection);
-        } while (selection != 'E');
+            + "\n---------------------------------------");
     }
-    
-    private String getInput() {
-        boolean valid = false;
-        String selection = null;
-        Scanner keyboard = new Scanner(System.in);
-        
-        while (!valid) {
-            System.out.println("Select an option from the Defeat Menu:");
-            
-            selection = keyboard.nextLine();
-            selection = selection.trim();
-            
-            if (selection.length() > 1 || selection.length() < 1){
-                System.out.println("Inconcievable! Please select an option from the Defeat Menu.");
-                continue;
-            }
-            break;
-        }
-        return selection;
-    }
-    
-    private void doAction(char selection) {
+
+    public void doAction(char selection) {
         switch (selection) {
             case 'S':
                 this.restartGame();

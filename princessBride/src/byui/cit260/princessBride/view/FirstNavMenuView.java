@@ -76,7 +76,7 @@ public class FirstNavMenuView extends View {
     }
         private void vizziniView() {
             VizziniView vizzini = new VizziniView();
-            vizzini.faceVizzini();
+            vizzini.display();
         }   
 
     @Override

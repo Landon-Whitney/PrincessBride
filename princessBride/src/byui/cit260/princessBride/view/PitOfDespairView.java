@@ -111,6 +111,6 @@ public int leverPull(int leverChoice){
 
     private void displayDefeatMenu() {
         DefeatMenuView defeatMenu = new DefeatMenuView();
-        defeatMenu.displayMenu();
+        defeatMenu.display();
     }
 }
