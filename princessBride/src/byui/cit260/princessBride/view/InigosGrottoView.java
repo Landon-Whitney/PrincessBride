@@ -6,7 +6,10 @@
 package byui.cit260.princessBride.view;
 
 import byui.cit260.princessBride.control.SceneControl;
+import byui.cit260.princessBride.exceptions.SceneControlException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -48,7 +51,11 @@ public class InigosGrottoView extends View{
                 while(average < 18){
                     SceneControl inigosGrottoControl = new SceneControl();
                     int score = inigosGrottoControl.checkPlayerRhymingWord();
-                    average = inigosGrottoControl.computerRhymingWord(score);
+            try {
+                average = inigosGrottoControl.computerRhymingWord(score);
+            } catch (SceneControlException ex) {
+                Logger.getLogger(InigosGrottoView.class.getName()).log(Level.SEVERE, null, ex);
+            }
                     System.out.println("your average score is: " + average + (average >= 18 ? " You win!" : " You did not find enough words, try again."));
                 }
             break;
