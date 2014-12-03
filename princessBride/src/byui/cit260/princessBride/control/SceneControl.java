@@ -80,13 +80,13 @@ public class SceneControl {
     try{
     while (!valid && !wrongAnswer){
         
-        System.out.println("Find a one sylable word that rhymes with pest");
-        System.out.println("I know "+wordCountPest+" words that rhyme");
+        this.console.println("Find a one sylable word that rhymes with pest");
+        this.console.println("I know "+wordCountPest+" words that rhyme");
         String playersRhyme = this.keyboard.readLine();
         playersRhyme = playersRhyme.trim();
         
         if (playersRhyme.length()< 1){//player hits enter with no word
-            System.out.println("You stumped already?  I will defeat you! Lets try another word.");
+            this.console.println("You stumped already?  I will defeat you! Lets try another word.");
             wrongAnswer = true; 
             
            }
@@ -94,9 +94,9 @@ public class SceneControl {
             if(playersRhyme.matches(word) && !pestGuess.contains(playersRhyme)){
                pestGuess.add(playersRhyme);//adds players input to array to check against rhyme array
                playerScore++;
-               System.out.println("You have "+playerScore+" rhymed words");
+               this.console.println("You have "+playerScore+" rhymed words");
                if(pestGuess.size() == pest.length){
-               System.out.println("You got all of the same words as I did! Where did you get your training?!");
+               this.console.println("You got all of the same words as I did! Where did you get your training?!");
                wrongAnswer = true;
                }
             }
@@ -104,7 +104,7 @@ public class SceneControl {
           }
        }
     }catch (Exception e){
-        System.out.println("Error reading input: " + e.getMessage());
+        this.console.println("Error reading input: " + e.getMessage());
     }
     
         wrongAnswer = false;
@@ -112,13 +112,13 @@ public class SceneControl {
        try{ 
        while (!valid && !wrongAnswer){
         
-        System.out.println("Find a one sylable word that rhymes with eel");
-        System.out.println("I know "+wordCountEel+" words that rhyme");
+        this.console.println("Find a one sylable word that rhymes with eel");
+        this.console.println("I know "+wordCountEel+" words that rhyme");
         String playersRhyme = this.keyboard.readLine();
         playersRhyme = playersRhyme.trim();
         
         if (playersRhyme.length()< 1){//player hits enter with no word
-            System.out.println("You stumped already?  I will defeat you! Let's try another word.");
+            this.console.println("You stumped already?  I will defeat you! Let's try another word.");
                 wrongAnswer = true;
             
            }
@@ -126,9 +126,9 @@ public class SceneControl {
             if(playersRhyme.matches(word)&& !eelGuess.contains(playersRhyme)){
                eelGuess.add(playersRhyme); 
             playerScore++;
-            System.out.println("You have "+playerScore+" rhymed words");
+            this.console.println("You have "+playerScore+" rhymed words");
              if(eelGuess.size() == eel.length){
-               System.out.println("You got all of the same words as I did! Where did you get your training?!");
+               this.console.println("You got all of the same words as I did! Where did you get your training?!");
                wrongAnswer = true;
              }
             }
@@ -136,20 +136,20 @@ public class SceneControl {
           }
        }
        }catch (Exception e){
-        System.out.println("Error reading input: " + e.getMessage());
+        this.console.println("Error reading input: " + e.getMessage());
     }
        wrongAnswer = false;
        
        try{
        while (!valid && !wrongAnswer){
         
-        System.out.println("How about one about a wedding?  Find one syllable words that rhyme with wed");
-        System.out.println("I know "+wordCountWed+" words that rhyme");
+        this.console.println("How about one about a wedding?  Find one syllable words that rhyme with wed");
+        this.console.println("I know "+wordCountWed+" words that rhyme");
         String playersRhyme = this.keyboard.readLine();
         playersRhyme = playersRhyme.trim();
         
         if (playersRhyme.length()< 1){//player hits enter with no word
-            System.out.println("You stumped already?  I will defeat you!");
+            this.console.println("You stumped already?  I will defeat you!");
                 wrongAnswer = true;
             
            }
@@ -157,16 +157,16 @@ public class SceneControl {
             if(playersRhyme.matches(word)&& !wedGuess.contains(playersRhyme)){
                wedGuess.add(playersRhyme); 
             playerScore++;
-            System.out.println("You have "+playerScore+" rhymed words");
+            this.console.println("You have "+playerScore+" rhymed words");
              if(wedGuess.size() == wed.length){
-               System.out.println("You got all of the same words as I did! Where did you get your training?!");
+               this.console.println("You got all of the same words as I did! Where did you get your training?!");
                wrongAnswer = true;
             }
             }
           }
        }
         }catch (Exception e){
-        System.out.println("Error reading input: " + e.getMessage());
+        this.console.println("Error reading input: " + e.getMessage());
     }
 
         return playerScore;
