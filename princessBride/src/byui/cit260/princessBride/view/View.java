@@ -5,7 +5,13 @@
  */
 package byui.cit260.princessBride.view;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import princessbride.PrincessBride;
 
 /**
  *
@@ -14,6 +20,8 @@ import java.util.Scanner;
 public abstract class View implements ViewInterface {
     
     final String promptMessage;
+    protected final BufferedReader keyboard = PrincessBride.getInFile();
+    protected final PrintWriter console = PrincessBride.getOutFile();
     
     public View(String promptMessage) {
         this.promptMessage = promptMessage;
@@ -23,7 +31,7 @@ public abstract class View implements ViewInterface {
      public void display () {
         char selection = ' ';
         do {
-            System.out.println(this.promptMessage);
+            this.console.println(this.promptMessage);
             
             String input = this.getInput();
             selection = input.charAt(0);
@@ -36,19 +44,23 @@ public abstract class View implements ViewInterface {
     public String getInput() {
         boolean valid = false;
         String selection = null;
-        Scanner keyboard = new Scanner(System.in);
+        try {
         
         while (!valid) {
             System.out.println("Select an option from the Menu:");
             
-            selection = keyboard.nextLine();
+            
+            selection = this.keyboard.readLine();
             selection = selection.trim();
             
             if (selection.length() > 1 || selection.length() < 1){
-                System.out.println("Inconcievable! Please select an option from the Menu.");
+                ErrorView.display(this.getClass().getName(),"Inconcievable! Please select an option from the Menu.");
                 continue;
             }
             break;
+        }
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(),"Error reading input: " + e.getMessage());
         }
         return selection;
     }

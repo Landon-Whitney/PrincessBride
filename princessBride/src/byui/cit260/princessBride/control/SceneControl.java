@@ -6,15 +6,23 @@
 package byui.cit260.princessBride.control;
 
 import byui.cit260.princessBride.exceptions.SceneControlException;
+import byui.cit260.princessBride.view.View;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
+import princessbride.PrincessBride;
 
 /**
  *
  * @author Robbie
  */
 public class SceneControl {
+    
+        protected final BufferedReader keyboard = PrincessBride.getInFile();
+        protected final PrintWriter console = PrincessBride.getOutFile();
+        
     public double percentSolution(int gramsIocane,int gramsWine)
             throws SceneControlException{
     
@@ -67,13 +75,14 @@ public class SceneControl {
         int playerScore = 0;
         boolean wrongAnswer = false;
         boolean valid = false;//no input has put in by the player
-        Scanner keyboard = new Scanner(System.in);
-    
+
+        
+    try{
     while (!valid && !wrongAnswer){
         
         System.out.println("Find a one sylable word that rhymes with pest");
         System.out.println("I know "+wordCountPest+" words that rhyme");
-        String playersRhyme = keyboard.nextLine();
+        String playersRhyme = this.keyboard.readLine();
         playersRhyme = playersRhyme.trim();
         
         if (playersRhyme.length()< 1){//player hits enter with no word
@@ -94,12 +103,18 @@ public class SceneControl {
                  
           }
        }
+    }catch (Exception e){
+        System.out.println("Error reading input: " + e.getMessage());
+    }
+    
         wrongAnswer = false;
+        
+       try{ 
        while (!valid && !wrongAnswer){
         
         System.out.println("Find a one sylable word that rhymes with eel");
         System.out.println("I know "+wordCountEel+" words that rhyme");
-        String playersRhyme = keyboard.nextLine();
+        String playersRhyme = this.keyboard.readLine();
         playersRhyme = playersRhyme.trim();
         
         if (playersRhyme.length()< 1){//player hits enter with no word
@@ -119,13 +134,18 @@ public class SceneControl {
             }
               
           }
-       } 
+       }
+       }catch (Exception e){
+        System.out.println("Error reading input: " + e.getMessage());
+    }
        wrongAnswer = false;
+       
+       try{
        while (!valid && !wrongAnswer){
         
         System.out.println("How about one about a wedding?  Find one syllable words that rhyme with wed");
         System.out.println("I know "+wordCountWed+" words that rhyme");
-        String playersRhyme = keyboard.nextLine();
+        String playersRhyme = this.keyboard.readLine();
         playersRhyme = playersRhyme.trim();
         
         if (playersRhyme.length()< 1){//player hits enter with no word
@@ -145,7 +165,9 @@ public class SceneControl {
             }
           }
        }
-        
+        }catch (Exception e){
+        System.out.println("Error reading input: " + e.getMessage());
+    }
 
         return playerScore;
     
