@@ -98,7 +98,7 @@ public int leverPull(int leverChoice){
             else if(leverChoice == 5 && !levers[4]){
                 healthChange = 6;
                 levers[4] = true;
-            }
+            } 
             else
                 System.out.println("Inconcievable! Enter a number between 1 - 5 that you haven't pulled.");
         return healthChange;
