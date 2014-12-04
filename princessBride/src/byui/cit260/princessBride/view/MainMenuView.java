@@ -46,7 +46,7 @@ public class MainMenuView extends View {
             case 'E':
                 return;
             default:
-                this.console.println("\nInconceivable! Please select an option from the Main Menu.");
+                ErrorView.display(this.getClass().getName(), "\nInconceivable! Please select an option from the Main Menu.");
                 break;
         }
     }
@@ -83,12 +83,11 @@ public class MainMenuView extends View {
     }
 
     private void saveGame() {
-                this.console.println("\n\nEnter the file path for file where the game "
+        this.console.println("\n\nEnter the file path for file where the game "
                                 + "is to be saved.");
         String filePath = this.getInput();
         
         try{
-            
             GameControl.saveGame(PrincessBride.getCurrentGame(), filePath);
         }catch (Exception ex){
             ErrorView.display("MainMenuView", ex.getMessage());

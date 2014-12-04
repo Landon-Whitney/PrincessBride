@@ -46,7 +46,7 @@ public class FireswampView extends View {
                 this.inventory();
                 break;
             default:
-                this.console.println("\n Please choose a G - for a goblet,"
+                ErrorView.display(this.getClass().getName(), "\n Please choose a G - for a goblet,"
                                    +"\n a B - for a bag of rocks, or    "
                                    +"\n a R - for a rope.");
            

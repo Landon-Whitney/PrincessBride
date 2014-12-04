@@ -5,7 +5,6 @@
  */
 package byui.cit260.princessBride.view;
 
-import java.util.Scanner;
 
 /**
  *
@@ -36,7 +35,7 @@ public class DefeatMenuView extends View{
             case 'E':
                 return;
             default:
-                this.console.println("\nInconceivable! Please select an option from the Defeat Menu.");
+                ErrorView.display(this.getClass().getName(), "\nInconceivable! Please select an option from the Defeat Menu.");
                 break;
         }
 }

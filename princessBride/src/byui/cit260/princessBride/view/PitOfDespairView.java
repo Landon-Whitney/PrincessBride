@@ -54,9 +54,9 @@ public class PitOfDespairView extends View{
                 health += leverPull(userInput.nextInt());
                 
            } catch (InputMismatchException IME){
-            this.console.println("\nNot a number!  Please put in a number between 1-5\n");
-             userInput.next();//to get the scanner to advance to the next input
-            }
+                ErrorView.display(this.getClass().getName(), "\nNot a number!  Please put in a number between 1-5\n");
+           }
+                userInput.next();//to get the scanner to advance to the next input
         this.console.println("Your health is "+ health);
         }while ((!levers[0] || !levers[1] || !levers[2] || !levers[3] || !levers[4]) && health > 0);
         
@@ -100,7 +100,7 @@ public int leverPull(int leverChoice){
                 levers[4] = true;
             } 
             else
-                this.console.println("Inconcievable! Enter a number between 1 - 5 that you haven't pulled.");
+                ErrorView.display(this.getClass().getName(), "Inconcievable! Enter a number between 1 - 5 that you haven't pulled.");
         return healthChange;
 }
 

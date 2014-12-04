@@ -65,7 +65,7 @@ public class InigosGrottoView extends View{
                 gameMenu.display();
                 break;
             default:
-                this.console.println("Please print Y or N");
+                ErrorView.display(this.getClass().getName(), "Please print Y or N");
                 break;
         }
         

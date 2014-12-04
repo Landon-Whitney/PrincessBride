@@ -57,7 +57,7 @@ public class GameMenuView extends View {
                 //move to a new location
                 this.moveLocations();
             } catch (MapControlException ex) {
-                Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
+                ErrorView.display(this.getClass().getName(), "Error reading input: "+ ex.getMessage());
             }
         }
                 break;
@@ -67,7 +67,7 @@ public class GameMenuView extends View {
             case 'Q':
                 return;
             default:
-                this.console.println("\nInconceivable! Please select an option from the Game Menu.");
+                ErrorView.display(this.getClass().getName(), "\nInconceivable! Please select an option from the Game Menu.");
                 break;
         }
     }
