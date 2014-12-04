@@ -26,6 +26,7 @@ import princessbride.PrincessBride;
  */
 public class GameControl {
     
+    
     public static void createNewGame(Player player) {
         Game game = new Game ();//new game
         PrincessBride.setCurrentGame(game);//save game

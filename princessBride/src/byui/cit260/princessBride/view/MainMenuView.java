@@ -46,7 +46,7 @@ public class MainMenuView extends View {
             case 'E':
                 return;
             default:
-                System.out.println("\nInconceivable! Please select an option from the Main Menu.");
+                this.console.println("\nInconceivable! Please select an option from the Main Menu.");
                 break;
         }
     }

@@ -38,7 +38,7 @@ public class InigosGrottoView extends View{
                 + "\n get one point for every word that you know that rhymes.   "
                 +"\n Would you like to play Inigo's game? Y/N                   "
         );
-        //System.out.println(this.promptMessage);
+        //this.console.println(this.promptMessage);
         
     
     }
@@ -56,16 +56,16 @@ public class InigosGrottoView extends View{
             } catch (SceneControlException ex) {
                 Logger.getLogger(InigosGrottoView.class.getName()).log(Level.SEVERE, null, ex);
             }
-                    System.out.println("your average score is: " + average + (average >= 18 ? " You win!" : " You did not find enough words, try again."));
+                    this.console.println("your average score is: " + average + (average >= 18 ? " You win!" : " You did not find enough words, try again."));
                 }
             break;
             case 'N':
-                System.out.println("As you wish.");
+                this.console.println("As you wish.");
                 GameMenuView gameMenu = new GameMenuView();
                 gameMenu.display();
                 break;
             default:
-                System.out.println("Please print Y or N");
+                this.console.println("Please print Y or N");
                 break;
         }
         

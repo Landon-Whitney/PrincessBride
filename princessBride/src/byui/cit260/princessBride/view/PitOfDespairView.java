@@ -41,10 +41,10 @@ public class PitOfDespairView extends View{
                         +"\n* all the levers and hope you escape!   *"
                         +"\n*****************************************");
 
-         System.out.println("Choose a lever 1-5.  Use each lever once.");
+         this.console.println("Choose a lever 1-5.  Use each lever once.");
     }
     
-    public void run (){
+    public void pit (){
         //use a scanner to recieve player input
         Scanner userInput = new Scanner(System.in);
    
@@ -54,22 +54,22 @@ public class PitOfDespairView extends View{
                 health += leverPull(userInput.nextInt());
                 
            } catch (InputMismatchException IME){
-            System.out.println("\nNot a number!  Please put in a number between 1-5\n");
+            this.console.println("\nNot a number!  Please put in a number between 1-5\n");
              userInput.next();//to get the scanner to advance to the next input
             }
-        System.out.println("Your health is "+ health);
+        this.console.println("Your health is "+ health);
         }while ((!levers[0] || !levers[1] || !levers[2] || !levers[3] || !levers[4]) && health > 0);
         
         if(health < 0){
-            System.out.println("You died!");
+            this.console.println("You died!");
             this.displayDefeatMenu();
         } 
         else if(health < 1){
-            System.out.println("You got so healthy that Prince Humperdink had to kill you!");
+            this.console.println("You got so healthy that Prince Humperdink had to kill you!");
             this.displayDefeatMenu();
         }
         else
-            System.out.println("You survived the Pit of Despair by by becomming mostly dead");
+            this.console.println("You survived the Pit of Despair by by becomming mostly dead");
         
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
@@ -100,7 +100,7 @@ public int leverPull(int leverChoice){
                 levers[4] = true;
             } 
             else
-                System.out.println("Inconcievable! Enter a number between 1 - 5 that you haven't pulled.");
+                this.console.println("Inconcievable! Enter a number between 1 - 5 that you haven't pulled.");
         return healthChange;
 }
 

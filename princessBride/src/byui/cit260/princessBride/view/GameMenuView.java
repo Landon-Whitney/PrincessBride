@@ -67,7 +67,7 @@ public class GameMenuView extends View {
             case 'Q':
                 return;
             default:
-                System.out.println("\nInconceivable! Please select an option from the Game Menu.");
+                this.console.println("\nInconceivable! Please select an option from the Game Menu.");
                 break;
         }
     }
@@ -76,31 +76,31 @@ public class GameMenuView extends View {
         //get the map locations from the current game
         Map currentMap = PrincessBride.getCurrentGame().getMap();
         //display title
-        System.out.println("Princess Bride Game Map");
+        this.console.println("Princess Bride Game Map");
         //iterate through every row and column and display
         Location locations[][] = currentMap.getLocations();
-        System.out.println("\n     0    1    2   ");
-        System.out.println("--------------------");
+        this.console.println("\n     0    1    2   ");
+        this.console.println("--------------------");
         for (int row = 0; row < locations.length; row++) {
             
-            System.out.print(row + "  ");
+            this.console.print(row + "  ");
             
             for (int column = 0; column < locations[row].length; column++) {
-                System.out.print("|");
+                this.console.print("|");
                 
                 
                 //for every column display description if location is not blocked and X if it is
                 if (!locations[row][column].getScene().getBlocked()) {
-                    System.out.print(locations[row][column].getScene().getShortDescription());
+                    this.console.print(locations[row][column].getScene().getShortDescription());
                 }
                 else {
-                    System.out.print(" X ");
+                    this.console.print(" X ");
                 }
                 //display ending column divider
-                System.out.print("|");
+                this.console.print("|");
             }
             //display ending row divider
-            System.out.println("\n--------------------");
+            this.console.println("\n--------------------");
         }
     }
 
@@ -108,15 +108,15 @@ public class GameMenuView extends View {
         //get the sorted list of inventory items for the current game
         InventoryItem[] inventory = GameControl.getSortedInventoryList();
         
-        System.out.println("\nList of Inventory Items");
-        System.out.println("Description" + "\t" +
+        this.console.println("\nList of Inventory Items");
+        this.console.println("Description" + "\t" +
                             "Required" + "\t" +
                             "In Stock");
         
         //for each inventory item
         for (InventoryItem inventoryItem : inventory) {
             //DISPLAY the description, the required amount and amount in stock
-            System.out.println(inventoryItem.getDescription());
+            this.console.println(inventoryItem.getDescription());
         }
     }
 
@@ -126,10 +126,10 @@ public class GameMenuView extends View {
 
     private void moveLocations() throws MapControlException {
         
-        System.out.println("Enter the x coordinate of your destination: ");
+        this.console.println("Enter the x coordinate of your destination: ");
         int row = super.getNumInput();
         
-        System.out.println("Enter the y coordinate of your destination: ");
+        this.console.println("Enter the y coordinate of your destination: ");
         int column = super.getNumInput();
         
         MapControl.movePlayerToLocation(row, column);
@@ -139,7 +139,7 @@ public class GameMenuView extends View {
            // MapControl.moveActorToLocation(actor, coordinates);
             
         //}catch (MapControlException me){
-            //System.out.println(me.getMessage());
+            //this.console.println(me.getMessage());
        // }
     }
 }

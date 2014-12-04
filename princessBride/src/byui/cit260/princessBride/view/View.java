@@ -47,7 +47,7 @@ public abstract class View implements ViewInterface {
         try {
         
         while (!valid) {
-            System.out.println("Select an option from the Menu:");
+            this.console.println("Select an option from the Menu:");
             
             
             selection = this.keyboard.readLine();
@@ -74,7 +74,7 @@ public abstract class View implements ViewInterface {
             number = Integer.parseInt(value);
         }catch (NumberFormatException nf) {
             
-            System.out.println("\n You must enter a valid number.");
+            this.console.println("\n You must enter a valid number.");
         }
         }
         return number;

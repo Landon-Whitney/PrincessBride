@@ -24,7 +24,7 @@ public class FirstNavMenuView extends View {
             +"\n-------------------------------------------------");
     }
     public void doAction(String value){
-        System.out.println(this.promptMessage);
+        this.console.println(this.promptMessage);
         char selection = value.charAt(0);
         switch (selection) {
             case 'I':
@@ -39,7 +39,7 @@ public class FirstNavMenuView extends View {
             case 'E':
                 return;
             default:
-                System.out.println("\nInconceivable! Please select an option from the Menu.");
+                this.console.println("\nInconceivable! Please select an option from the Menu.");
                 break;
         }
     
@@ -51,13 +51,13 @@ public class FirstNavMenuView extends View {
         
         while (!valid) {
             
-            System.out.println("Choose a location to explore");
+            this.console.println("Choose a location to explore");
             
             navChoice = keyboard.nextLine();
             navChoice = navChoice.trim();
             
             if (navChoice.length() < 1 || navChoice.length() > 1) {
-                System.out.println("Inconceivable!  Please enter Menu selection");
+                this.console.println("Inconceivable!  Please enter Menu selection");
                 continue;
             }
             break;
@@ -72,7 +72,7 @@ public class FirstNavMenuView extends View {
              
          }
          private void fezzikView() {
-        System.out.println("fezzikView function called");
+        this.console.println("fezzikView function called");
     }
         private void vizziniView() {
             VizziniView vizzini = new VizziniView();

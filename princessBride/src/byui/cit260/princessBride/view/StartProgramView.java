@@ -63,13 +63,13 @@ public class StartProgramView extends View {
         
         while (!valid) {
             
-            System.out.println("Who dares to rescue Princess Buttercup? Enter the players name below:");
+            this.console.println("Who dares to rescue Princess Buttercup? Enter the players name below:");
             
             playersName = keyboard.nextLine();
             playersName = playersName.trim();
             
             if (playersName.length() < 1) {
-                System.out.println("Inconceivable!  Please enter your name");
+                this.console.println("Inconceivable!  Please enter your name");
                 continue;
             }
             break;
@@ -80,10 +80,10 @@ public class StartProgramView extends View {
     }
     
     private void displayWelcomeMessage(Player player) {
-        System.out.println("\n\n===================================================");
-        System.out.println("\t Good luck, Dread Pirate " + player.getName());
-        System.out.println("\t We hope you will have a lot of fun!");
-        System.out.println("===================================================");
+        this.console.println("\n\n===================================================");
+        this.console.println("\t Good luck, Dread Pirate " + player.getName());
+        this.console.println("\t We hope you will have a lot of fun!");
+        this.console.println("===================================================");
     }
     
     

@@ -36,12 +36,12 @@ public class DefeatMenuView extends View{
             case 'E':
                 return;
             default:
-                System.out.println("\nInconceivable! Please select an option from the Defeat Menu.");
+                this.console.println("\nInconceivable! Please select an option from the Defeat Menu.");
                 break;
         }
 }
 
     private void restartGame() {
-        System.out.println("restartGame stub function called");
+        this.console.println("restartGame stub function called");
     }
 }
