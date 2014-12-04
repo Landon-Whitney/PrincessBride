@@ -5,7 +5,6 @@
  */
 package byui.cit260.princessBride.view;
 
-import java.util.Scanner;
 
 /**
  *
@@ -43,17 +42,17 @@ public class HelpMenuView extends View{
             case 'E':
                 return;
             default:
-                System.out.println("\nInconceivable! Please select an option from the Help Menu.");
+                ErrorView.display(this.getClass().getName(), "\nInconceivable! Please select an option from the Help Menu.");
                 break;
         }
     }
 
     private void explainGameGoal() {
-        System.out.println("\n\n*************************************************");
+        super.console.println("\n\n*************************************************");
         
-        System.out.println("\n\n*                 Game Goals                    *");
+        super.console.println("\n\n*                 Game Goals                    *");
         
-        System.out.println("*                                               *"
+        super.console.println("*                                               *"
                 + "\n* This is the game Princess Bride Adventure.    *"
                 + "\n* The objective of this game is to rescue the   *"
                 + "\n* Princess Buttercup from the conniving Prince  *"
@@ -69,17 +68,17 @@ public class HelpMenuView extends View{
                 + "\n* complete!                                     *"
         );
         
-        System.out.println("\n\n*************************************************");
+        super.console.println("\n\n*************************************************");
         
 
     }
 
     private void explainMovement() {
-        System.out.println("\n\n*************************************************");
+        super.console.println("\n\n*************************************************");
         
-        System.out.println("\n\n*                 Moving in the Game            *");
+        super.console.println("\n\n*                 Moving in the Game            *");
         
-        System.out.println("*                                               *"
+        super.console.println("*                                               *"
                 + "\n* In this game, you can choose the order in     *"
                 + "\n* which to complete the challenges. To do this, *"
                 + "\n* access the Game Control Menu throug the Main  *"
@@ -87,15 +86,15 @@ public class HelpMenuView extends View{
                 + "\n* choose the location you would like to access. *"
         );
         
-        System.out.println("\n\n*************************************************");    
+        super.console.println("\n\n*************************************************");    
     }
 
     private void explainFailing() {
-        System.out.println("\n\n*************************************************");
+        super.console.println("\n\n*************************************************");
         
-        System.out.println("\n\n*                 Failing the Game              *");
+        super.console.println("\n\n*                 Failing the Game              *");
         
-        System.out.println("*                                               *"
+        super.console.println("*                                               *"
                 + "\n* If you fail a challenge, the Defeat Menu is   *"
                 + "\n* displayed. This menu will ask you whether you *"
                 + "\n* would like to start with the last save or quit*"
@@ -104,22 +103,22 @@ public class HelpMenuView extends View{
                 + "\n* necessary.                                    *"
         );
         
-        System.out.println("\n\n*************************************************"); 
+        super.console.println("\n\n*************************************************"); 
     }
 
     private void explainSaveGame() {
-        System.out.println("\n\n*************************************************");
+        super.console.println("\n\n*************************************************");
         
-        System.out.println("\n\n*                 Saving the Game               *");
+        super.console.println("\n\n*                 Saving the Game               *");
         
-        System.out.println("*                                               *"
+        super.console.println("*                                               *"
                 + "\n* At any point in game play, you may save the   *"
                 + "\n* game in order to preserve your progress. This *"
                 + "\n* can be done by accessing the Main Menu and    *"
                 + "\n* selecting S for the save option.              *"
         );
         
-        System.out.println("\n\n*************************************************");
+        super.console.println("\n\n*************************************************");
     }
     
 }

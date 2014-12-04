@@ -34,6 +34,7 @@ public abstract class View implements ViewInterface {
             this.console.println(this.promptMessage);
             
             String input = this.getInput();
+            //this.console.println(input);
             selection = input.charAt(0);
             
             this.doAction(selection);
@@ -78,15 +79,6 @@ public abstract class View implements ViewInterface {
         }
         }
         return number;
-        //boolean valid = false;
-        //int input = 0;
-        //Scanner keyboard = new Scanner(System.in);
-        
-       // while (!valid) {
-        //    input = keyboard.nextInt();
-        //    break;
-        //}
-       // return input;
     }
  }
 

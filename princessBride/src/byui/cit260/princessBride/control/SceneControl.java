@@ -27,10 +27,10 @@ public class SceneControl {
             throws SceneControlException{
     
         if(gramsIocane < 0 || gramsIocane > 20 ){ //No Iocane or too much
-        throw new SceneControlException("You have no Iocane powder or way too much!!");
+            throw new SceneControlException("You have no Iocane powder or way too much!!");
         }
         if(gramsWine < 0 || gramsWine > 1000){//No wine or too much
-        throw new SceneControlException("You have no wine or way too much!");
+            throw new SceneControlException("You have no wine or way too much!");
         }
 
     double percentSolution = gramsIocane / (gramsIocane + gramsWine) * 100;

@@ -9,8 +9,7 @@ import byui.cit260.princessBride.control.InventoryControl;
 import byui.cit260.princessBride.control.SceneControl;
 import byui.cit260.princessBride.exceptions.SceneControlException;
 import byui.cit260.princessBride.model.Scene;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 /**
  *
  * @author whitneydavis
@@ -67,12 +66,12 @@ public class MiracleMaxView extends View {
         int remainingIngredients = 4;
         
         SceneControl miracleMaxControl = new SceneControl();
-        System.out.println("To add the ingredients to the recipe you must first tell Miracle Max the radius and height of the measuring cup you need in centimeters.");
-        System.out.println("There can be many correct combinations as long as the radius and height calculate to the correct volume in Liters.");
-        System.out.println("HINT: Miracle Max thinks the radius and heights of the volumes have to do with his favorite numbers: 5 and 6. Volume = radius^2 * pi * height");
+        this.console.println("To add the ingredients to the recipe you must first tell Miracle Max the radius and height of the measuring cup you need in centimeters.");
+        this.console.println("There can be many correct combinations as long as the radius and height calculate to the correct volume in Liters.");
+        this.console.println("HINT: Miracle Max thinks the radius and heights of the volumes have to do with his favorite numbers: 5 and 6. Volume = radius^2 * pi * height");
         
         while (ingredients < 4) {
-            System.out.println(RECIPE);
+            this.console.println(RECIPE);
             
             String input = this.getInput();
             selection = input.charAt(0);
@@ -82,9 +81,9 @@ public class MiracleMaxView extends View {
             
             //get the inputs for radius and height from the player
 
-            System.out.println("Enter the radius needed:");
+            this.console.println("Enter the radius needed:");
             radius = this.getNumInput();
-            System.out.println("Enter the height needed:");
+            this.console.println("Enter the height needed:");
             height = this.getNumInput();
             
             //calculate the volume added by the player from the inputs
@@ -94,15 +93,15 @@ public class MiracleMaxView extends View {
             if (addedVolume == neededVolume){
                 ingredients = ++ingredients;
                 remainingIngredients = 4 - ingredients;
-                System.out.println("You've sucessfully added one ingredient from the recipe! Only" + remainingIngredients + "to go!");
+                this.console.println("You've sucessfully added one ingredient from the recipe! Only" + remainingIngredients + "to go!");
             }
             else {
-               System.out.println("You rush a miracle man, you get rotten miracles. You added the wrong amount of ingredient, try again!");
+               this.console.println("You rush a miracle man, you get rotten miracles. You added the wrong amount of ingredient, try again!");
                this.displayDefeatMenu();
                break;
             }
         }
-        System.out.println("You've sucessfully mixed the Miracle Pill! This pill will restore your mostly dead self to mostly alive!");
+        this.console.println("You've sucessfully mixed the Miracle Pill! This pill will restore your mostly dead self to mostly alive!");
         
         //set scene to completed
         Scene.MiracleMax.setCompleted(Boolean.TRUE);
@@ -150,7 +149,7 @@ public class MiracleMaxView extends View {
     public void doAction(char value) {
         // if value is N then return to main menu view
         if (value == 'N') {
-            System.out.println("As you wish.");
+            this.console.println("As you wish.");
             GameMenuView gameMenu = new GameMenuView();
             gameMenu.display();
         }
@@ -158,7 +157,7 @@ public class MiracleMaxView extends View {
             try {
                 this.displayIngredientList();
             } catch (SceneControlException ex) {
-                Logger.getLogger(MiracleMaxView.class.getName()).log(Level.SEVERE, null, ex);
+                ErrorView.display(this.getClass().getName(), "Error reading input: "+ ex.getMessage());
             }
         }
     }

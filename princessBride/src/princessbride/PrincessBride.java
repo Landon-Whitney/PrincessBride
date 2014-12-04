@@ -26,6 +26,7 @@ public class PrincessBride {
     private static Game currentGame = null;
     private static Player player = null;
     
+    private static BufferedReader inFile = null;
     private static PrintWriter outFile = null;
     private static PrintWriter logFile = null;
 
@@ -52,7 +53,6 @@ public class PrincessBride {
     public static void setInFile(BufferedReader inFile) {
         PrincessBride.inFile = inFile;
     }
-    private static BufferedReader inFile = null;
 
     public static Game getCurrentGame() {
         return currentGame;
@@ -75,14 +75,24 @@ public class PrincessBride {
      */
     public static void main(String[] args) {
         
-        try{
-            
+        try{ 
             PrincessBride.inFile = 
                     new BufferedReader(new InputStreamReader(System.in));
             PrincessBride.outFile =
                     new PrintWriter(System.out, true);
             String filePath = "log.txt";
             PrincessBride.logFile = new PrintWriter(filePath);
+            
+            //create StartProgramView and start the program
+            StartProgramView startProgramView = new StartProgramView();
+            try{
+                startProgramView.display();
+            }catch (Throwable te){
+                System.out.println(te.getMessage());
+                te.printStackTrace();
+                startProgramView.display();
+        }
+        
         }catch (Exception e){
                 System.out.println("Exception: " + e.toString()+
                                    "\nCause: " + e.getCause()+
@@ -100,15 +110,7 @@ public class PrincessBride {
             PrincessBride.outFile.close();
            
         }
-        //create StartProgramView and start the program
-        StartProgramView startProgramView = new StartProgramView();
-        try{
-        startProgramView.display();
-        }catch (Throwable te){
-            System.out.println(te.getMessage());
-            te.printStackTrace();
-            startProgramView.display();
-        }
+        
     }
     
 }

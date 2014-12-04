@@ -41,12 +41,12 @@ public class FezzicksChallengeView extends View {
                 this.fezzickChallenge();
                 break;
             case 'N':
-                System.out.println("As you wish.");
+                super.console.println("As you wish.");
                 GameMenuView gameMenu = new GameMenuView();
                 gameMenu.display();
                 break;
             default:
-                System.out.println("\nInconceivable! Please select an option from the Main Menu.");
+                ErrorView.display(this.getClass().getName(), "\nInconceivable! Please select an option from the Main Menu.");
                 break;
         }
     }
@@ -58,7 +58,7 @@ public class FezzicksChallengeView extends View {
         int sum;
         
         for (int i = 0; i < 3; i++){
-            System.out.println(GAMEMENU);
+            super.console.println(GAMEMENU);
             playerSelection = super.getInput();
             char charSelection = playerSelection.charAt(0);
             Character.toUpperCase(charSelection);
@@ -69,26 +69,26 @@ public class FezzicksChallengeView extends View {
             if (score[i] == 1) {
                 switch (charSelection) {
                     case 'R':
-                        System.out.println("\nFezzick has played scissors and lost!\nI just want you to feel you are doing well. I don't want people to die embarrassed.");
+                        super.console.println("\nFezzick has played scissors and lost!\nI just want you to feel you are doing well. I don't want people to die embarrassed.");
                         break;
                     case 'P':
-                        System.out.println("\nFezzick has played rock and lost!\nI just want you to feel you are doing well. I don't want people to die embarrassed.");
+                        super.console.println("\nFezzick has played rock and lost!\nI just want you to feel you are doing well. I don't want people to die embarrassed.");
                         break;
                     case 'S':
-                        System.out.println("\nFezzick has played paper and lost!\nI just want you to feel you are doing well. I don't want people to die embarrassed.");
+                        super.console.println("\nFezzick has played paper and lost!\nI just want you to feel you are doing well. I don't want people to die embarrassed.");
                         break;
                 }
             }
             else if (score[i] == 0) {
                 switch (charSelection) {
                     case 'R':
-                        System.out.println("\nFezzick has played paper and won!\nIt's not my fault being the biggest and the strongest; I don't even exercise.");
+                        super.console.println("\nFezzick has played paper and won!\nIt's not my fault being the biggest and the strongest; I don't even exercise.");
                         break;
                     case 'P':
-                        System.out.println("\nFezzick has played scissors and won!\nIt's not my fault being the biggest and the strongest; I don't even exercise.");
+                        super.console.println("\nFezzick has played scissors and won!\nIt's not my fault being the biggest and the strongest; I don't even exercise.");
                         break;
                     case 'S':
-                        System.out.println("\nFezzick has played rock and won!\nIt's not my fault being the biggest and the strongest; I don't even exercise.");
+                        super.console.println("\nFezzick has played rock and won!\nIt's not my fault being the biggest and the strongest; I don't even exercise.");
                         break;
                 }
             }
@@ -98,7 +98,7 @@ public class FezzicksChallengeView extends View {
         sum = scoreArray.winOrLose(score);
         
         if (sum > 2) {
-            System.out.println("Congratulations, you've won against Fezzick!\nI just figured out why you give my so much trouble: I haven't fought one person in so long.");
+            super.console.println("Congratulations, you've won against Fezzick!\nI just figured out why you give my so much trouble: I haven't fought one person in so long.");
             
             Scene.FezzicksChallenge.setCompleted(Boolean.TRUE);
             
@@ -106,7 +106,7 @@ public class FezzicksChallengeView extends View {
             gameMenu.display();
         }
         else {
-            System.out.println("You've been defeated by Fezzick!");
+            super.console.println("You've been defeated by Fezzick!");
             DefeatMenuView defeatMenu = new DefeatMenuView();
             defeatMenu.display();
         }

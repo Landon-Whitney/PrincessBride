@@ -59,13 +59,13 @@ public class StartProgramView extends View {
     public String getPlayersName() {
         boolean valid = false; //indicates the name has not been retrived
         String playersName = null;
-        Scanner keyboard = new Scanner(System.in);
         
+        try{
         while (!valid) {
             
             this.console.println("Who dares to rescue Princess Buttercup? Enter the players name below:");
             
-            playersName = keyboard.nextLine();
+            playersName = this.keyboard.readLine();
             playersName = playersName.trim();
             
             if (playersName.length() < 1) {
@@ -74,16 +74,18 @@ public class StartProgramView extends View {
             }
             break;
         }
-        
+        } catch(Exception e) {
+            ErrorView.display(this.getClass().getName(),"Error reading input: " + e.getMessage());
+        }
         return playersName;
         
     }
     
     private void displayWelcomeMessage(Player player) {
-        this.console.println("\n\n===================================================");
-        this.console.println("\t Good luck, Dread Pirate " + player.getName());
-        this.console.println("\t We hope you will have a lot of fun!");
-        this.console.println("===================================================");
+        this.console.println("\n\n==================================================="
+            + "\t\n Good luck, Dread Pirate " + player.getName()
+            +"\t\n We hope you will have a lot of fun!"
+            +"\n===================================================");
     }
     
     

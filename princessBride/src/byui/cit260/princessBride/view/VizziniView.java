@@ -43,14 +43,15 @@ public class VizziniView extends View {
                 try {
                     this.wineChallenge();
                 } catch (SceneControlException ex){
-                    Logger.getLogger(VizziniView.class.getName()).log(Level.SEVERE, null, ex);} 
+                    ErrorView.display(this.getClass().getName(), "Error reading input: "+ ex.getMessage());
+                }
             case 'N':
-                System.out.println("As you wish");
+                super.console.println("As you wish");
                 GameMenuView gameMenu = new GameMenuView();
                 gameMenu.display();
                 break;
             default:
-                System.out.println("Please answer yes or no.");
+                super.console.println("Please answer yes or no.");
                 break;
         }   
     }
@@ -60,20 +61,20 @@ public class VizziniView extends View {
         int gramsWine;
         double percentSolution;
         
-        System.out.println("Please enter the grams of wine in the glass:");
+        super.console.println("Please enter the grams of wine in the glass:");
         gramsWine = super.getNumInput();
         
-        System.out.println("Please enter the grams of iocane in the glass:");
+        super.console.println("Please enter the grams of iocane in the glass:");
         gramsIocane = super.getNumInput();
         
         SceneControl solution = new SceneControl();
         percentSolution = solution.percentSolution(gramsIocane, gramsWine);
         
         if (percentSolution < 2 || percentSolution == 2){
-            System.out.println("You've successfully defeated Vizzini (he's dead) and survived the iocane powder!");
+            super.console.println("You've successfully defeated Vizzini (he's dead) and survived the iocane powder!");
             Scene.VizzinisPoisonPuzzle.setCompleted(Boolean.TRUE);
             
-            System.out.println("From Vizzini you've won a bottle of wine and a knife.");
+            super.console.println("From Vizzini you've won a bottle of wine and a knife.");
             InventoryControl inventory = new InventoryControl();
             inventory.addItem("Bottle of wine");
             inventory.addItem("Knife");
