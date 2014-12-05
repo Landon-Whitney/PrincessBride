@@ -121,7 +121,15 @@ public class GameMenuView extends View {
     }
 
     private void viewActors() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        this.console.println("\nActors in the Game");
+        
+        this.console.println(Actor.Fezzick.toString());
+        this.console.println(Actor.Inigo.toString());
+        this.console.println(Actor.Miracle_Max.toString());
+        this.console.println(Actor.Prince_Humperdink.toString());
+        this.console.println(Actor.Princess_Buttercup.toString());
+        this.console.println(Actor.Vizzini.toString());
     }
 
     private void moveLocations() throws MapControlException {

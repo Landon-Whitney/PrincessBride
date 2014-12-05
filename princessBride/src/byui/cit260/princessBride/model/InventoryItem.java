@@ -45,7 +45,7 @@ public class InventoryItem implements Serializable {
         inventory[Item.cloak.ordinal()] = cloak;
         
         InventoryItem pill = new InventoryItem();
-        pill.setDescription("a miracle pill that brings the motly dead back to life");
+        pill.setDescription("a miracle pill that brings the mostly dead back to life");
         pill.setQuantity(0);
         pill.setRequiredAmount(1);
         inventory[Item.pill.ordinal()] = pill;
