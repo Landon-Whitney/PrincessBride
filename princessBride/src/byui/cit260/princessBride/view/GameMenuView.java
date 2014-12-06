@@ -130,6 +130,16 @@ public class GameMenuView extends View {
         this.console.println(Actor.Prince_Humperdink.toString());
         this.console.println(Actor.Princess_Buttercup.toString());
         this.console.println(Actor.Vizzini.toString());
+        
+        this.console.println("Enter the filepath where the actors are to be saved.");
+        
+        String filePath = this.getInput();
+        
+        try{
+            GameControl.saveActor(Actor.values(), filePath);
+        }catch(Exception ex){
+            ErrorView.display(filePath, promptMessage);
+        }
     }
 
     private void moveLocations() throws MapControlException {

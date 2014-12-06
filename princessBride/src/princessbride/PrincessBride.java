@@ -5,6 +5,7 @@
  */
 package princessbride;
 
+import byui.cit260.princessBride.model.Actor;
 import byui.cit260.princessBride.model.Game;
 import byui.cit260.princessBride.model.Player;
 import byui.cit260.princessBride.view.FireswampView;
@@ -61,6 +62,7 @@ public class PrincessBride {
     public static void setCurrentGame(Game currentGame) {
         PrincessBride.currentGame = currentGame;
     }
+
 
     public static Player getPlayer() {
         return player;

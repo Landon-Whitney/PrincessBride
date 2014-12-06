@@ -14,20 +14,22 @@ import java.util.Objects;
  * @author Robbie
  */
 public enum Actor implements Serializable{
-    Vizzini("The mastermind"),
-    Fezzick("The muscle"),
-    Inigo("The swordsman"),
-    Miracle_Max("The healer"),
-    Prince_Humperdink("The evil villian"),
-    Princess_Buttercup("The long-lost love");
+    Vizzini("The mastermind","Vizzini"),
+    Fezzick("The muscle","Fezzick"),
+    Inigo("The swordsman","Inigo"),
+    Miracle_Max("The healer","Miracle Max"),
+    Prince_Humperdink("The evil villian","Prince Humperdink"),
+    Princess_Buttercup("The long-lost love","Princess Buttercup");
     
+    private final String name;
     private final String description;
     private final Point coordinates;
     
     private InventoryItem[] inventory;
     private Game[] game;
 
-    Actor(String description) {
+    Actor(String description, String name) {
+        this.name = name;
         this.description = description;
         coordinates = new Point(1,1);
     }
@@ -43,7 +45,7 @@ public enum Actor implements Serializable{
 
     @Override
     public String toString() {
-        return "Actor{" + "description=" + description + ", coordinates=" + coordinates + ", inventory=" + inventory + ", game=" + game + '}';
+        return "Actor{name=" + name + ", description=" + description + ", coordinates=" + coordinates + ", inventory=" + inventory + ", game=" + game + '}';
     }
 
     
