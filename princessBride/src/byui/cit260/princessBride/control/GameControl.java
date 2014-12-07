@@ -6,6 +6,7 @@
 package byui.cit260.princessBride.control;
 
 import byui.cit260.princessBride.exceptions.GameControlException;
+import byui.cit260.princessBride.model.Actor;
 import byui.cit260.princessBride.model.Game;
 import byui.cit260.princessBride.model.InventoryItem;
 import byui.cit260.princessBride.model.Map;
@@ -102,6 +103,20 @@ public class GameControl {
            throw new GameControlException(e.getMessage());
        }
        PrincessBride.setCurrentGame(game);
+    }
+    public static void saveActor (Actor[] actor, String filePath)
+            throws GameControlException{
+         try{ FileOutputStream fops = new FileOutputStream(filePath);
+             try (ObjectOutputStream output = new ObjectOutputStream(fops)) {
+                 for(Actor a:actor){
+                     output.writeObject(a);
+                     output.flush();
+                 }}
+        }
+        catch(IOException e){
+            throw new GameControlException(e.getMessage());
+        }
+    
     }
     }
 
