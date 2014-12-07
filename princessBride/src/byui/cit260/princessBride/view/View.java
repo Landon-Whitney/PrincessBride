@@ -9,8 +9,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import princessbride.PrincessBride;
 
 /**
@@ -79,6 +77,29 @@ public abstract class View implements ViewInterface {
         }
         }
         return number;
+    }
+    
+    public String getFileInput() {
+        boolean valid = false;
+        String filePath = null;
+        try {
+        
+        while (!valid) {
+            this.console.println("Enter the filepath where the report will be printed:");
+            
+            filePath = this.keyboard.readLine();
+            filePath = filePath.trim();
+            
+            if (filePath.length() < 1){
+                ErrorView.display(this.getClass().getName(),"Inconcievable! Please enter a valid file path.");
+                continue;
+            }
+            break;
+        }
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(),"Error reading input: " + e.getMessage());
+        }
+        return filePath;
     }
  }
 

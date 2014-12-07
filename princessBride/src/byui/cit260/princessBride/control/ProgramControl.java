@@ -16,7 +16,6 @@ import princessbride.PrincessBride;
 public class ProgramControl {
 
     public static Player createPlayer(String playersName) {
-        //System.out.println("\n**** createPlayer function called ****");
         Player player = new Player();
         player.setName(playersName);
         

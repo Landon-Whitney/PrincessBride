@@ -16,9 +16,29 @@ public class InventoryItem implements Serializable {
     private String description;
     
     
+    private void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getDescription(){
+        return description;
+    }
+    
+    private void setRequiredAmount(int i) {
+        
+    }
+    
+    public double getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(double quantity) {
+        this.quantity = quantity;
+    }
+    
     public static InventoryItem[] createInventoryList() {
         
-        InventoryItem [] inventory = new InventoryItem[4];
+        InventoryItem [] inventory = new InventoryItem[5];
         
         InventoryItem goblet = new InventoryItem();
         goblet.setDescription("goblet of water");
@@ -55,14 +75,6 @@ public class InventoryItem implements Serializable {
     }
       
 
-    public double getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(double quantity) {
-        this.quantity = quantity;
-    }
-
     @Override
     public String toString() {
         return "Inventory{" + "quantity=" + quantity + '}';
@@ -89,19 +101,5 @@ public class InventoryItem implements Serializable {
         }
         return true;
     }
-
-    private void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getDescription(){
-        return description;
-    }
-    
-    private void setRequiredAmount(int i) {
-        
-    }
-    
-    
-    
+     
 }

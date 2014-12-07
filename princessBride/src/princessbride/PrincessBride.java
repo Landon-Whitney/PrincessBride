@@ -7,15 +7,11 @@ package princessbride;
 
 import byui.cit260.princessBride.model.Game;
 import byui.cit260.princessBride.model.Player;
-import byui.cit260.princessBride.view.FireswampView;
-import byui.cit260.princessBride.view.MiracleMaxView;
 import byui.cit260.princessBride.view.StartProgramView;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *

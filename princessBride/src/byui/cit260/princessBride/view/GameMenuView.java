@@ -14,6 +14,7 @@ import byui.cit260.princessBride.model.Item;
 import byui.cit260.princessBride.model.Location;
 import byui.cit260.princessBride.model.Map;
 import java.awt.Point;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import princessbride.PrincessBride;
@@ -31,6 +32,7 @@ public class GameMenuView extends View {
             + "\nM - View map"
             + "\nF - Go to Fezzick's Challenge"
             + "\nI - View inventory"
+            + "\nP - Print inventory list"
             + "\nA - View list of actors"
             + "\nL - Move to a new location"
             + "\nH - Help menu"
@@ -49,6 +51,13 @@ public class GameMenuView extends View {
             case 'I': //view inventory
                 this.viewInventory();
                 break;
+            case 'P': //print inventory list
+            try {
+                this.printInventory();
+                break;
+            }catch (IOException ex) {
+                ErrorView.display(this.getClass().getName(), "Error reading input: " + ex.getMessage());
+            }
             case 'A': //view actors
                 this.viewActors();
                 break;
@@ -149,5 +158,16 @@ public class GameMenuView extends View {
         //}catch (MapControlException me){
             //this.console.println(me.getMessage());
        // }
+    }
+
+    private void printInventory() throws IOException {
+        //get filepath from user
+        String filePath = this.getFileInput();
+        //call another view layer to print report
+        PrintView report = new PrintView();
+        report.printInventory(filePath);
+        //display success message if report was printed
+        this.console.println("The inventory report has been printed to the" + filePath + "file path.");
+
     }
 }

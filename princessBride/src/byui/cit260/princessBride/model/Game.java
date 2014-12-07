@@ -46,7 +46,7 @@ public class Game implements Serializable {
         this.player = player;
     }
     
-    public InventoryItem[] getinventoryList(){
+    public InventoryItem[] getInventoryList(){
         return inventoryList;
     }
     public void setInventory(InventoryItem[] inventoryList) {

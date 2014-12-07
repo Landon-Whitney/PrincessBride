@@ -34,7 +34,7 @@ public class GameControl {
         game.setPlayer(player);//save player in game   
         
         //create the inventory list and save in game
-        InventoryItem[] inventoryList = GameControl.createInventoryList();
+        InventoryItem[] inventoryList = InventoryItem.createInventoryList();
         game.setInventory(inventoryList);
         
         Map map = MapControl.createMap();//create new wagon
@@ -53,7 +53,7 @@ public class GameControl {
     
      public static InventoryItem[] getSortedInventoryList() {
         //get inventory list for the current game
-        InventoryItem[] originalInventoryList = PrincessBride.getCurrentGame().getinventoryList();
+        InventoryItem[] originalInventoryList = PrincessBride.getCurrentGame().getInventoryList();
         
         //clone (make a copy) of the oringinal list
         InventoryItem[] inventoryList = originalInventoryList.clone();
