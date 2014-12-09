@@ -7,9 +7,9 @@ package byui.cit260.princessBride.view;
 
 import byui.cit260.princessBride.model.Game;
 import byui.cit260.princessBride.model.InventoryItem;
-import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
+import princessbride.PrincessBride;
 
 /**
  *
@@ -19,21 +19,22 @@ public class PrintView {
 
     public void printInventory(String filePath) throws IOException {
         
-        try (FileOutputStream fops = new FileOutputStream(filePath)) {
-            ObjectOutputStream inventoryReport = new ObjectOutputStream(fops);
+        try (FileWriter inventoryReport = new FileWriter(filePath)) {
             //print out title
-            inventoryReport.writeObject("Inventory List");
+            String title = "Inventory List";
+            inventoryReport.write(title);
             //print out column headings
-            inventoryReport.writeObject("\n\nName\tDescription\tQuantity"); //http://stackoverflow.com/questions/6000810/printing-with-t-tabs-does-not-result-in-aligned-columns
+            String catagories = "\n\n\nName\t\tDescription\t\tQuantity\n";
+            inventoryReport.write(catagories); //http://stackoverflow.com/questions/6000810/printing-with-t-tabs-does-not-result-in-aligned-columns
             //get inventorylist from game
-            Game game = new Game();
+            Game game = PrincessBride.getCurrentGame();
             InventoryItem [] inventoryList = game.getInventoryList();
             //iterate through and print out each item
             for (InventoryItem inventoryItem: inventoryList){
                 String description = inventoryItem.getDescription();
                 double quantity = inventoryItem.getQuantity();
             
-                inventoryReport.writeObject("\n" + inventoryItem + "\t" + description + "\t" + quantity);
+                inventoryReport.write("\n" + inventoryItem + "\t\t" + description + "\t\t   " + quantity);
             }
         }catch (IOException e) {
             ErrorView.display(this.getClass().getName(), "Error printing: Unable to print inventory list."); 

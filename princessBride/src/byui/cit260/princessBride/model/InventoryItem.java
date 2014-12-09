@@ -12,9 +12,17 @@ import java.io.Serializable;
  * @author Robbie
  */
 public class InventoryItem implements Serializable {
+    private String name;
     private double quantity;
     private String description;
     
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
     
     private void setDescription(String description) {
         this.description = description;
@@ -41,31 +49,36 @@ public class InventoryItem implements Serializable {
         InventoryItem [] inventory = new InventoryItem[5];
         
         InventoryItem goblet = new InventoryItem();
+        goblet.setName("Goblet");
         goblet.setDescription("goblet of water");
         goblet.setQuantity(0);
         goblet.setRequiredAmount(1);
         inventory[Item.goblet.ordinal()] = goblet;
         
         InventoryItem rocks = new InventoryItem();
+        rocks.setName("Rocks");
         rocks.setDescription("bag of rocks");
         rocks.setQuantity(0);
         rocks.setRequiredAmount(1);
         inventory[Item.rocks.ordinal()] = rocks;
         
         InventoryItem rope = new InventoryItem();
+        rope.setName("Rope");
         rope.setDescription("coil of rope");
         rope.setQuantity(0);
         rope.setRequiredAmount(1);
         inventory[Item.rope.ordinal()] = rope;
         
         InventoryItem cloak = new InventoryItem();
-        cloak.setDescription("holocaust cloak made of fireproof material");
+        cloak.setName("Holocaust cloak");
+        cloak.setDescription("flame retardant cloak");
         cloak.setQuantity(0);
         cloak.setRequiredAmount(1);
         inventory[Item.cloak.ordinal()] = cloak;
         
         InventoryItem pill = new InventoryItem();
-        pill.setDescription("a miracle pill that brings the mostly dead back to life");
+        pill.setName("Miracle pill");
+        pill.setDescription("pill that restores life to the mostly dead");
         pill.setQuantity(0);
         pill.setRequiredAmount(1);
         inventory[Item.pill.ordinal()] = pill;
@@ -75,9 +88,10 @@ public class InventoryItem implements Serializable {
     }
       
 
+    
     @Override
     public String toString() {
-        return "Inventory{" + "quantity=" + quantity + '}';
+        return name;
     }
 
     @Override

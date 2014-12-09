@@ -177,7 +177,7 @@ public class GameMenuView extends View {
         PrintView report = new PrintView();
         report.printInventory(filePath);
         //display success message if report was printed
-        this.console.println("The inventory report has been printed to the" + filePath + "file path.");
+        this.console.println("The inventory report has been printed to the " + filePath + " file path.");
 
     }
 }
