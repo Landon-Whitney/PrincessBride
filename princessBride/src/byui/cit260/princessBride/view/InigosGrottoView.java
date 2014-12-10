@@ -48,7 +48,7 @@ public class InigosGrottoView extends View{
         switch (Character.toUpperCase(value)){
             case 'Y':
                 double average = 0;
-                while(average < 18){
+                while(average < 8){
                     SceneControl inigosGrottoControl = new SceneControl();
                     int score = inigosGrottoControl.checkPlayerRhymingWord();
             try {
@@ -56,7 +56,7 @@ public class InigosGrottoView extends View{
             } catch (SceneControlException ex) {
                 ErrorView.display(this.getClass().getName(),"Error reading input:"+ ex.getMessage());
             }
-                    this.console.println("your average score is: " + average + (average >= 18 ? " You win!" : " You did not find enough words, try again."));
+                    this.console.println("your average score is: " + average + (average >= 8 ? " You win!" : " You did not find enough words, try again."));
                 }
             break;
             case 'N':
