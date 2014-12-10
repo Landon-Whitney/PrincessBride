@@ -21,7 +21,7 @@ public class MainMenuView extends View {
             + "\n-------------------------------------"
             + "\n              Main Menu              "
             + "\n-------------------------------------"
-            + "\nN - Search anew for Buttercup        "
+            + "\nG - Search anew for Buttercup        "
             + "\nB - Continue the search for Buttercup"
             + "\nH - Get help on how to play the game "
             + "\nS - Save game                        "
@@ -31,7 +31,7 @@ public class MainMenuView extends View {
     
     public void doAction(char selection) {
         switch (selection) {
-            case 'N':
+            case 'G':
                 this.startNewGame();
                 break;
             case 'B':

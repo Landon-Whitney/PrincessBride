@@ -30,13 +30,13 @@ public abstract class View implements ViewInterface {
         char selection = ' ';
         do {
             this.console.println(this.promptMessage);
-            this.console.println("Select an option from the Menu: ");
+            this.console.println("Select an option: ");
             String input = this.getInput();
             //this.console.println(input);
             selection = input.charAt(0);
             
             this.doAction(selection);
-        } while (selection != 'E');
+        } while (selection != 'E'&& selection != 'N');
     }
     
     @Override
@@ -54,7 +54,9 @@ public abstract class View implements ViewInterface {
                 ErrorView.display(this.getClass().getName(),"Inconcievable! Please select an option from the Menu.");
                 continue;
             }
-            break;
+            else {
+                break;
+            }
         }
         } catch (Exception e) {
             ErrorView.display(this.getClass().getName(),"Error reading input: " + e.getMessage());

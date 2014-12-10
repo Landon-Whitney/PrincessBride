@@ -1,6 +1,8 @@
 Inventory List
 
+
 Name		Description		Quantity
+
 Goblet		goblet of water		   0.0
 Rocks		bag of rocks		   0.0
 Rope		coil of rope		   0.0

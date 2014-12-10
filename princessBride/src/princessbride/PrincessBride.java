@@ -5,7 +5,6 @@
  */
 package princessbride;
 
-import byui.cit260.princessBride.model.Actor;
 import byui.cit260.princessBride.model.Game;
 import byui.cit260.princessBride.model.Player;
 import byui.cit260.princessBride.view.StartProgramView;

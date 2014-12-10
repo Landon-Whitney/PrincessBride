@@ -31,13 +31,12 @@ public class GameMenuView extends View {
             + "\n              Game Menu              "
             + "\n-------------------------------------"
             + "\nM - View map"
-            + "\nF - Go to Fezzick's Challenge"
             + "\nI - View inventory"
             + "\nP - Print inventory list"
             + "\nA - View list of actors"
             + "\nL - Move to a new location"
             + "\nH - Help menu"
-            + "\nQ - Quit"
+            + "\nE - Exit"
             + "\n-------------------------------------");
     }
     
@@ -46,36 +45,31 @@ public class GameMenuView extends View {
             case 'M': //view map
                 this.displayMap();
                 break;
-            case 'F': //go to fezzick's challenge
-                FezzicksChallengeView fezzicksChallenge = new FezzicksChallengeView();
-                fezzicksChallenge.display();
-                   
             case 'I': //view inventory
                 this.viewInventory();
                 break;
             case 'P': //print inventory list
-            try {
-                this.printInventory();
-                break;
-            }catch (IOException ex) {
-                ErrorView.display(this.getClass().getName(), "Error reading input: " + ex.getMessage());
-            }
+                try {
+                    this.printInventory();
+                    break;
+                }catch (IOException ex) {
+                    ErrorView.display(this.getClass().getName(), "Error reading input: " + ex.getMessage());
+                }
             case 'A': //view actors
                 this.viewActors();
                 break;
-            case 'L': {
-            try {
-                //move to a new location
-                this.moveLocations();
-            } catch (MapControlException ex) {
-                ErrorView.display(this.getClass().getName(), "Error reading input: "+ ex.getMessage());
-            }
-        }
+            case 'L': 
+                try {
+                    //move to a new location
+                    this.moveLocations();
+                } catch (MapControlException ex) {
+                    ErrorView.display(this.getClass().getName(), "Error reading input: "+ ex.getMessage());
+                }
                 break;
             case 'H'://display help menu
                 HelpMenuView helpMenu = new HelpMenuView();
                 helpMenu.display();
-            case 'Q':
+            case 'E':
                 return;
             default:
                 ErrorView.display(this.getClass().getName(), "\nInconceivable! Please select an option from the Game Menu.");
@@ -142,9 +136,7 @@ public class GameMenuView extends View {
         this.console.println(Actor.Princess_Buttercup.toString());
         this.console.println(Actor.Vizzini.toString());
         
-        this.console.println("Enter the filepath where the actors are to be saved:");
-        
-        String filePath = this.getInput();
+        String filePath = this.getFileInput();
         
         try{
             GameControl.saveActor(Actor.values(), filePath);

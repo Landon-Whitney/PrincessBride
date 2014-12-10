@@ -24,9 +24,6 @@ public enum Actor implements Serializable{
     private final String name;
     private final String description;
     private final Point coordinates;
-    
-    private InventoryItem[] inventory;
-    private Game[] game;
 
     Actor(String description, String name) {
         this.name = name;
@@ -34,7 +31,6 @@ public enum Actor implements Serializable{
         coordinates = new Point(1,1);
     }
    
-
     public String getDescription() {
         return description;
     }
@@ -45,7 +41,7 @@ public enum Actor implements Serializable{
 
     @Override
     public String toString() {
-        return "name = " + name + ", description = " + description + ", coordinates=" + coordinates + ", inventory=" + inventory + ", game=" + game + '}';
+        return "name = " + name + ", description = " + description + ", coordinates=" + coordinates + "}";
     }
 
     

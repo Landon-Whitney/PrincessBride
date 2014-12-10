@@ -74,13 +74,13 @@ public class MapControl {
         else {
             Location location = map.getLocations()[newRow][newColumn];
             MapControl.checkBlockedLocations();
-            if (!location.getBlocked()){
+            if (location.getBlocked()){
+                throw new MapControlException("Can not move player to location" + newRow + ", " + newColumn +" because that location is blocked.");
+            }
+            else {
                 location.setPlayer(PrincessBride.getPlayer());
                 PrincessBride.getPlayer().setLocation(location);
                 SceneControl.openScene(newRow, newColumn);
-            }
-            else {
-                throw new MapControlException("Can not move player to location" + newRow + ", " + newColumn +" because that location is blocked.");
             }
         }
     }
