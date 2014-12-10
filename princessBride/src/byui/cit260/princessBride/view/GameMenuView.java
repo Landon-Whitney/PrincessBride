@@ -7,16 +7,17 @@ package byui.cit260.princessBride.view;
 
 import byui.cit260.princessBride.control.GameControl;
 import byui.cit260.princessBride.control.MapControl;
+import byui.cit260.princessBride.control.SceneControl;
 import byui.cit260.princessBride.exceptions.MapControlException;
+import byui.cit260.princessBride.exceptions.SceneControlException;
 import byui.cit260.princessBride.model.Actor;
 import byui.cit260.princessBride.model.InventoryItem;
 import byui.cit260.princessBride.model.Item;
 import byui.cit260.princessBride.model.Location;
 import byui.cit260.princessBride.model.Map;
+import byui.cit260.princessBride.model.Scene;
 import java.awt.Point;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import princessbride.PrincessBride;
 
 /**
@@ -48,6 +49,7 @@ public class GameMenuView extends View {
             case 'F': //go to fezzick's challenge
                 FezzicksChallengeView fezzicksChallenge = new FezzicksChallengeView();
                 fezzicksChallenge.display();
+                   
             case 'I': //view inventory
                 this.viewInventory();
                 break;
@@ -96,8 +98,8 @@ public class GameMenuView extends View {
             
             for (int column = 0; column < locations[row].length; column++) {
                 this.console.print("|");
-                
-                
+                //check if location is blocked
+                MapControl.checkBlockedLocations();
                 //for every column display description if location is not blocked and X if it is
                 if (!locations[row][column].getScene().getBlocked()) {
                     this.console.print(locations[row][column].getScene().getShortDescription());
@@ -153,21 +155,14 @@ public class GameMenuView extends View {
 
     private void moveLocations() throws MapControlException {
         
-        this.console.println("Enter the x coordinate of your destination: ");
+        this.console.println("Enter the row number of your destination: ");
         int row = super.getNumInput();
         
-        this.console.println("Enter the y coordinate of your destination: ");
+        this.console.println("Enter the column number of your destination: ");
         int column = super.getNumInput();
         
         MapControl.movePlayerToLocation(row, column);
-        //Actor [] actor;
-        //Point coordinates;
-        //try {
-           // MapControl.moveActorToLocation(actor, coordinates);
-            
-        //}catch (MapControlException me){
-            //this.console.println(me.getMessage());
-       // }
+        this.console.println("You have moved to (" + row + "," + column + ") in the map.");
     }
 
     private void printInventory() throws IOException {

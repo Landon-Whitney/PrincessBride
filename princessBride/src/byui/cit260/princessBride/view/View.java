@@ -30,7 +30,7 @@ public abstract class View implements ViewInterface {
         char selection = ' ';
         do {
             this.console.println(this.promptMessage);
-            
+            this.console.println("Select an option from the Menu: ");
             String input = this.getInput();
             //this.console.println(input);
             selection = input.charAt(0);
@@ -46,9 +46,7 @@ public abstract class View implements ViewInterface {
         try {
         
         while (!valid) {
-            this.console.println("Select an option from the Menu:");
-            
-            
+
             selection = this.keyboard.readLine();
             selection = selection.trim();
             
@@ -69,12 +67,11 @@ public abstract class View implements ViewInterface {
         while (number == null){
             String value = this.getInput();
             value = value.trim().toUpperCase();
-        try{
-            number = Integer.parseInt(value);
-        }catch (NumberFormatException nf) {
-            
-            this.console.println("\n You must enter a valid number.");
-        }
+            try{
+                number = Integer.parseInt(value);
+            }catch (NumberFormatException nf) {
+                ErrorView.display(this.getClass().getName(), "\nError reading input: You must enter a valid number.");
+            }
         }
         return number;
     }

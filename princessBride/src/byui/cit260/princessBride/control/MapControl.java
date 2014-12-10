@@ -53,7 +53,7 @@ public class MapControl {
         int newColumn = coordinates.y-1;
         
         if(newRow < 0 || newRow >= map.getRowCount()|| newColumn < 0 || newColumn >= map.getColumnCount()){
-            throw new MapControlException("Can not move player to location" + coordinates.x + ", " + coordinates.y +" because that location is outside the bounds of the map.");
+            throw new MapControlException("Can not move player to location (" + coordinates.x + ", " + coordinates.y +") because that location is outside the bounds of the map.");
         }
     }
 
@@ -75,17 +75,14 @@ public class MapControl {
             Location location = map.getLocations()[newRow][newColumn];
             MapControl.checkBlockedLocations();
             if (!location.getBlocked()){
-                location.setPlayer(princessbride.PrincessBride.getPlayer());
-                princessbride.PrincessBride.getPlayer().setLocation(location);
+                location.setPlayer(PrincessBride.getPlayer());
+                PrincessBride.getPlayer().setLocation(location);
+                SceneControl.openScene(newRow, newColumn);
             }
             else {
                 throw new MapControlException("Can not move player to location" + newRow + ", " + newColumn +" because that location is blocked.");
             }
         }
-    }
-
-    private static Scene[] createScenes() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     private static void assignScenesToLocations(Map map) {
@@ -136,7 +133,7 @@ public class MapControl {
 
     }
 
-    private static void checkBlockedLocations() throws MapControlException{
+    public static void checkBlockedLocations() {
         if (Scene.InigosGrotto.getCompleted() && (Scene.FezzicksChallenge.getCompleted() && Scene.VizzinisPoisonPuzzle.getCompleted())) {
             Scene.Fireswamp.setBlocked(Boolean.FALSE);
             Scene.PitOfDespair.setBlocked(Boolean.FALSE);

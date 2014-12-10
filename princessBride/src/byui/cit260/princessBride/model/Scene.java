@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package byui.cit260.princessBride.model;
+import byui.cit260.princessBride.view.InigosGrottoView;
+import byui.cit260.princessBride.view.View;
 import java.awt.Point;
 import java.io.Serializable;
 import java.util.Objects;
@@ -27,8 +29,6 @@ public enum Scene implements Serializable{
     private final Point coordinates;
     private Boolean blocked;
     private Boolean completed;
-
-    private Item[] item;
     private Location location;
 
     Scene(String description, String shortDesc) {
@@ -60,11 +60,7 @@ public enum Scene implements Serializable{
     public void setCompleted(Boolean completed) {
         this.completed = completed;
     }
-    
-    public Item[] getItem (){
-        return item;
-    }
-    
+ 
     public Location getLocation (){
         return location;
     }

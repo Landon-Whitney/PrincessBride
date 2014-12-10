@@ -6,12 +6,25 @@
 package byui.cit260.princessBride.control;
 
 import byui.cit260.princessBride.exceptions.SceneControlException;
+import byui.cit260.princessBride.model.Location;
+import byui.cit260.princessBride.model.Map;
+import byui.cit260.princessBride.model.Scene;
+import byui.cit260.princessBride.view.CastleGateView;
+import byui.cit260.princessBride.view.CastleMazeView;
+import byui.cit260.princessBride.view.FezzicksChallengeView;
+import byui.cit260.princessBride.view.FireswampView;
+import byui.cit260.princessBride.view.InigosGrottoView;
+import byui.cit260.princessBride.view.MiracleMaxView;
+import byui.cit260.princessBride.view.PitOfDespairView;
+import byui.cit260.princessBride.view.TrueLovesKissView;
 import byui.cit260.princessBride.view.View;
+import byui.cit260.princessBride.view.VizziniView;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.io.BufferedReader;
 import java.io.PrintWriter;
+import java.util.Random;
 import princessbride.PrincessBride;
 
 /**
@@ -22,6 +35,53 @@ public class SceneControl {
     
         protected final BufferedReader keyboard = PrincessBride.getInFile();
         protected final PrintWriter console = PrincessBride.getOutFile();
+        
+    public static void openScene(int row, int column) {
+        Map map = PrincessBride.getCurrentGame().getMap();
+        Location location = map.getLocations()[row][column];
+        Scene scene = location.getScene();
+        
+        switch (scene) {
+            case InigosGrotto:
+                InigosGrottoView inigoScene = new InigosGrottoView();
+                inigoScene.display();
+                break;
+            case FezzicksChallenge:
+                FezzicksChallengeView fezzickScene = new FezzicksChallengeView();
+                fezzickScene.display();
+                break;
+            case VizzinisPoisonPuzzle:
+                VizziniView vizziniScene = new VizziniView();
+                vizziniScene.display();
+                break;
+            case Fireswamp:
+                FireswampView fireswampScene = new FireswampView();
+                fireswampScene.display();
+                break;
+            case PitOfDespair:
+                PitOfDespairView pitScene = new PitOfDespairView();
+                pitScene.display();
+                break;
+            case MiracleMax:
+                MiracleMaxView maxScene = new MiracleMaxView();
+                maxScene.display();
+                break;
+            case CastleGate:
+                CastleGateView gateScene = new CastleGateView();
+                gateScene.display();
+                break;
+            case CastleMaze:
+                CastleMazeView mazeScene = new CastleMazeView();
+                mazeScene.display();
+                break;
+            case TrueLovesKiss:
+                TrueLovesKissView kissScene = new TrueLovesKissView();
+                kissScene.display();
+                break;
+        }
+        
+        
+    }
         
     public double percentSolution(int gramsIocane,int gramsWine)
             throws SceneControlException{
@@ -201,5 +261,12 @@ public class SceneControl {
             arraySum += score[i];
         }
         return arraySum;
+    }
+    
+    public int createSwampChallenge () {
+        Random challenge = new Random();
+        int i = challenge.nextInt(9);
+    
+        return i;
     }
 }
