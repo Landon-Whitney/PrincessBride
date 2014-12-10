@@ -54,7 +54,7 @@ public class InigosGrottoView extends View{
             try {
                 average = inigosGrottoControl.computerRhymingWord(score);
             } catch (SceneControlException ex) {
-                Logger.getLogger(InigosGrottoView.class.getName()).log(Level.SEVERE, null, ex);
+                ErrorView.display(this.getClass().getName(),"Error reading input:"+ ex.getMessage());
             }
                     this.console.println("your average score is: " + average + (average >= 18 ? " You win!" : " You did not find enough words, try again."));
                 }

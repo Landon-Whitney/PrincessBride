@@ -26,7 +26,7 @@ public class HelpMenuView extends View{
     }
     
     public void doAction(char selection) {
-        switch (selection) {
+        switch (Character.toUpperCase(selection)) {
             case 'G':
                 this.explainGameGoal();
                 break;
@@ -48,9 +48,9 @@ public class HelpMenuView extends View{
     }
 
     private void explainGameGoal() {
-        super.console.println("\n\n*************************************************");
+        super.console.println("\n*************************************************");
         
-        super.console.println("\n\n*                 Game Goals                    *");
+        super.console.println("*                Game Goals                      *");
         
         super.console.println("*                                               *"
                 + "\n* This is the game Princess Bride Adventure.    *"
@@ -63,9 +63,8 @@ public class HelpMenuView extends View{
                 + "\n* past the Castle Gate. Once you have finished  *"
                 + "\n* all the other challenges, you will be able to *"
                 + "\n* access Prince Humperdink's Maze, which you    *"
-                + "\n* will then navigate to find Princess Buttercup.*"
-                + "\n* Once you have accomplished this, the game is  *"
-                + "\n* complete!                                     *"
+                + "\n* will then navigate to find Princess Buttercup *"
+                + "\n* and gain loves true kiss!                     *"
         );
         
         super.console.println("\n\n*************************************************");
@@ -74,19 +73,24 @@ public class HelpMenuView extends View{
     }
 
     private void explainMovement() {
-        super.console.println("\n\n*************************************************");
+        super.console.println
+                ("  ********************************************************");
         
-        super.console.println("\n\n*                 Moving in the Game            *");
+        super.console.println
+                ("*                 Moving in the Game                   *");
         
-        super.console.println("*                                               *"
-                + "\n* In this game, you can choose the order in     *"
-                + "\n* which to complete the challenges. To do this, *"
-                + "\n* access the Game Control Menu throug the Main  *"
-                + "\n* Menu, and select the Move Option. From there, *"
-                + "\n* choose the location you would like to access. *"
+        super.console.println
+                ("*                                                      *"
+                + "\n* In this game, you can choose the order in           *"
+                + "\n* which to complete the challenges. To do this,       *"
+                + "\n* access Main Menu and choose option L - move to      *"
+                + "\n* a new location. From there, you will put in the     *"
+                + "\n* x and y coordinates found in the map, which you     *"
+                + "\n* can also access from the main menu under view map.  *" 
         );
         
-        super.console.println("\n\n*************************************************");    
+        super.console.println
+                ( "*******************************************************");    
     }
 
     private void explainFailing() {

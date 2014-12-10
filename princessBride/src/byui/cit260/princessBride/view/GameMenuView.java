@@ -41,7 +41,7 @@ public class GameMenuView extends View {
     }
     
     public void doAction(char selection) {
-        switch (selection) {
+        switch (Character.toUpperCase(selection)) {
             case 'M': //view map
                 this.displayMap();
                 break;
