@@ -45,7 +45,7 @@ public enum Actor implements Serializable{
 
     @Override
     public String toString() {
-        return "Actor{name=" + name + ", description=" + description + ", coordinates=" + coordinates + ", inventory=" + inventory + ", game=" + game + '}';
+        return "name = " + name + ", description = " + description + ", coordinates=" + coordinates + ", inventory=" + inventory + ", game=" + game + '}';
     }
 
     

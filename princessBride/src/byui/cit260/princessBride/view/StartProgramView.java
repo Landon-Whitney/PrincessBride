@@ -8,6 +8,7 @@ package byui.cit260.princessBride.view;
 import byui.cit260.princessBride.control.ProgramControl;
 import byui.cit260.princessBride.model.Player;
 import java.util.Scanner;
+import princessbride.PrincessBride;
 
 /**
  *
@@ -49,6 +50,7 @@ public class StartProgramView extends View {
         Player player = ProgramControl.createPlayer(playersName);
         // DISPLAY a customized welcome message 
         this.displayWelcomeMessage(player);
+        PrincessBride.setPlayer(player);
         // DISPLAY the main menu 
         MainMenuView mainMenu = new MainMenuView();
         mainMenu.display();

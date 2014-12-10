@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.io.BufferedReader;
 import java.io.PrintWriter;
+import java.util.Random;
 import princessbride.PrincessBride;
 
 /**
@@ -201,5 +202,12 @@ public class SceneControl {
             arraySum += score[i];
         }
         return arraySum;
+    }
+    
+    public int createSwampChallenge () {
+        Random challenge = new Random();
+        int i = challenge.nextInt(9);
+    
+        return i;
     }
 }
