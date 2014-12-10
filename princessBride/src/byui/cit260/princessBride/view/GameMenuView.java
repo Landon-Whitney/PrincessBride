@@ -48,8 +48,7 @@ public class GameMenuView extends View {
             case 'F': //go to fezzick's challenge
                 FezzicksChallengeView fezzicksChallenge = new FezzicksChallengeView();
                 fezzicksChallenge.display();
-
-
+                   
             case 'I': //view inventory
                 this.viewInventory();
                 break;

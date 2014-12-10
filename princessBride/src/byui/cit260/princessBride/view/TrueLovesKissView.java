@@ -44,8 +44,7 @@ public class TrueLovesKissView extends View {
                                     +"\nThe princess thanks you profusely and"
                                     +"\nYou part ways with a hardy handshake.  The End");
                         gameMenu = new GameMenuView();
-                        gameMenu.display();          
-           
+                        gameMenu.display();       
            default:
                ErrorView.display(this.getClass().getName(), "Plese push Y or N");
        
