@@ -86,8 +86,6 @@ public class InventoryItem implements Serializable {
         return inventory;
         
     }
-      
-
     
     @Override
     public String toString() {

@@ -5,6 +5,7 @@
  */
 package byui.cit260.princessBride.view;
 
+import byui.cit260.princessBride.control.InventoryControl;
 import byui.cit260.princessBride.control.SceneControl;
 import byui.cit260.princessBride.model.Scene;
 
@@ -101,6 +102,10 @@ public class FezzicksChallengeView extends View {
             super.console.println("Congratulations, you've won against Fezzick!\nI just figured out why you give my so much trouble: I haven't fought one person in so long.");
             
             Scene.FezzicksChallenge.setCompleted(Boolean.TRUE);
+            
+            super.console.println("From Vizzini you've won a bottle of wine and a knife.");
+            InventoryControl inventory = new InventoryControl();
+            inventory.addItem("Knife");
             
             GameMenuView gameMenu = new GameMenuView();
             gameMenu.display();

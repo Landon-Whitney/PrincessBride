@@ -140,7 +140,7 @@ public class GameMenuView extends View {
         this.console.println(Actor.Princess_Buttercup.toString());
         this.console.println(Actor.Vizzini.toString());
         
-        this.console.println("Enter the filepath where the actors are to be saved.");
+        this.console.println("Enter the filepath where the actors are to be saved:");
         
         String filePath = this.getInput();
         

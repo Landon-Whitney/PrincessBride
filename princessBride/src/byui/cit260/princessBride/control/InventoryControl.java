@@ -5,6 +5,8 @@
  */
 package byui.cit260.princessBride.control;
 import byui.cit260.princessBride.exceptions.InventoryControlException;
+import byui.cit260.princessBride.model.InventoryItem;
+import princessbride.PrincessBride;
 
 /**
  *
@@ -13,7 +15,13 @@ import byui.cit260.princessBride.exceptions.InventoryControlException;
 public class InventoryControl {
 
     public void addItem(String item) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        InventoryItem [] inventory = PrincessBride.getCurrentGame().getInventoryList();
+        for (InventoryItem inventoryItem : inventory) {
+            if (inventoryItem.toString().equals(item)) {
+                inventoryItem.setQuantity(1);
+                return;
+            }
+        }
     }
     
 }

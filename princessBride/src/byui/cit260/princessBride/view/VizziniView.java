@@ -8,9 +8,11 @@ package byui.cit260.princessBride.view;
 import byui.cit260.princessBride.control.InventoryControl;
 import byui.cit260.princessBride.control.SceneControl;
 import byui.cit260.princessBride.exceptions.SceneControlException;
+import byui.cit260.princessBride.model.InventoryItem;
 import byui.cit260.princessBride.model.Scene;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import princessbride.PrincessBride;
 
 /**
  *
@@ -76,7 +78,7 @@ public class VizziniView extends View {
             
             super.console.println("From Vizzini you've won a bottle of wine and a knife.");
             InventoryControl inventory = new InventoryControl();
-            inventory.addItem("Bottle of wine");
+            inventory.addItem("Goblet of water");
             inventory.addItem("Knife");
             
             GameMenuView gameMenu = new GameMenuView();
