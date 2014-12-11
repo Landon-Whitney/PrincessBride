@@ -47,8 +47,6 @@ public class FireswampView extends View {
                 break;
             case 'N':
                 super.console.println("As you wish.");
-                GameMenuView gameMenu = new GameMenuView();
-                gameMenu.display();
                 break;
             default:
                 ErrorView.display(this.getClass().getName(), "\nInconceivable! Please select an option from the Menu.");
@@ -168,8 +166,7 @@ public class FireswampView extends View {
     
             
 
-    private void inventory(){
-                this.console.println("inventory fuction called");
+   
         
         
         
@@ -177,5 +174,5 @@ public class FireswampView extends View {
 
     
     
-    }
+    
     
