@@ -68,7 +68,8 @@ public class InigosGrottoView extends View{
                     inventory.addItem("Rope");
                     
                     GameMenuView gameMenu = new GameMenuView();
-                    gameMenu.display();
+                    gameMenu.display();               
+                    
             }
                     else {
                     
@@ -82,8 +83,7 @@ public class InigosGrottoView extends View{
             break;
             case 'N':
                 this.console.println("As you wish.");
-                GameMenuView gameMenu = new GameMenuView();
-                gameMenu.display();
+
                 break;
             default:
                 ErrorView.display(this.getClass().getName(), "Please print Y or N");
