@@ -5,8 +5,10 @@
  */
 package byui.cit260.princessBride.view;
 
+import byui.cit260.princessBride.control.InventoryControl;
 import byui.cit260.princessBride.control.SceneControl;
 import byui.cit260.princessBride.exceptions.SceneControlException;
+import byui.cit260.princessBride.model.Scene;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -56,7 +58,26 @@ public class InigosGrottoView extends View{
             } catch (SceneControlException ex) {
                 ErrorView.display(this.getClass().getName(),"Error reading input:"+ ex.getMessage());
             }
-                    this.console.println("your average score is: " + average + (average >= 8 ? " You win!" : " You did not find enough words, try again."));
+            
+            if (average >= 8){
+                    this.console.println("your average score is: " + average + " You win!" );
+                    Scene.InigosGrotto.setCompleted(Boolean.TRUE);
+                    
+                    this.console.println("Inigo gives you a coil of rope to help you.");
+                    InventoryControl inventory = new InventoryControl();
+                    inventory.addItem("Rope");
+                    
+                    GameMenuView gameMenu = new GameMenuView();
+                    gameMenu.display();
+            }
+                    else {
+                    
+                    this.console.println(" You did not find enough words, try again.");
+                    
+                    DefeatMenuView defeatMenu = new DefeatMenuView();
+                    defeatMenu.display();
+                            
+                            }
                 }
             break;
             case 'N':
