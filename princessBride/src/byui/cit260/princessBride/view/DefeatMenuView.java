@@ -19,28 +19,29 @@ public class DefeatMenuView extends View{
             + "\n---------------------------------------"
             + "\nS - Start game from last save          "
             + "\nM - Return to Main Menu                "
-            + "\nE - Exit                               "
+            + "\nG - Return to Game Menu                "
             + "\n---------------------------------------");
     }
 
     public void doAction(char selection) {
         switch (selection) {
             case 'S':
-                this.restartGame();
+                MainMenuView savedGame = new MainMenuView();
+                savedGame.startExistingGame();
                 break;
             case 'M':
                 MainMenuView mainMenu = new MainMenuView();
                 mainMenu.display();
                 break;
-            case 'E':
-                return;
+            case 'G':
+                GameMenuView gameMenu = new GameMenuView();
+                gameMenu.display();
+                break;
             default:
                 ErrorView.display(this.getClass().getName(), "\nInconceivable! Please select an option from the Defeat Menu.");
                 break;
         }
-}
 
-    private void restartGame() {
-        this.console.println("restartGame stub function called");
     }
 }
+

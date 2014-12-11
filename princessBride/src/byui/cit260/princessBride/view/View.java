@@ -8,7 +8,6 @@ package byui.cit260.princessBride.view;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Scanner;
 import princessbride.PrincessBride;
 
 /**
@@ -48,10 +47,10 @@ public abstract class View implements ViewInterface {
         while (!valid) {
 
             selection = this.keyboard.readLine();
-            selection = selection.trim();
+            selection = selection.trim().toUpperCase();
             
-            if (selection.length() > 1 || selection.length() < 1){
-                ErrorView.display(this.getClass().getName(),"Inconcievable! Please select an option from the Menu.");
+            if (selection.length() < 1){
+                ErrorView.display(this.getClass().getName(),"Inconcievable! Please enter a valid selection.");
                 continue;
             }
             else {

@@ -21,7 +21,7 @@ import princessbride.PrincessBride;
 public class VizziniView extends View {
     
     public VizziniView () {
-        super("So it's down to you and me...I can't complete with you physically"
+        super("\n\nSo it's down to you and me...I can't complete with you physically"
         + "\nand you're no match for my brains. Let me put it this way. Have you"
         + "\never heard of Plato, Aristotle, Socrates? Morons."
         + "\n"

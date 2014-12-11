@@ -12,8 +12,7 @@ package byui.cit260.princessBride.view;
 public class CastleGateView extends View{
 
     public CastleGateView() {
-        super("Let me explain."
-        + "\n"
+        super("\n\nLet me explain."
         + "\n"
         + "\nNo, there is too much. Let me sum up. Buttercup is marrying Humperdink"
         + "\nin little less than half an hour. So all we have to do is get in, break"
@@ -30,8 +29,21 @@ public class CastleGateView extends View{
     }
 
     @Override
-    public void doAction(char value) {
-        
+    public void doAction(char selection) {
+        switch (selection){
+            case 'Y':
+                this.castleGateChallenge();
+            case 'N':
+                super.console.println("As you wish");
+                break;
+            default:
+                super.console.println("Please answer yes or no.");
+                break;
+        }   
+    }
+
+    private void castleGateChallenge() {
+        this.console.println("");
     }
     
 }

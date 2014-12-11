@@ -33,8 +33,49 @@ import princessbride.PrincessBride;
  */
 public class SceneControl {
     
-        protected final BufferedReader keyboard = PrincessBride.getInFile();
-        protected final PrintWriter console = PrincessBride.getOutFile();
+    protected final BufferedReader keyboard = PrincessBride.getInFile();
+    protected final PrintWriter console = PrincessBride.getOutFile();
+
+    public static String[][] createWordArray() {
+        String wordArray[][] = new String[4][4];
+        
+        wordArray[0][0] = "START ";
+        wordArray[0][1] = "death ";
+        wordArray[0][2] = "last  ";
+        wordArray[0][3] = "elbow ";
+        
+        wordArray[1][0] = "castle";
+        wordArray[1][1] = "pain  ";
+        wordArray[1][2] = "knee  ";
+        wordArray[1][3] = "tear  ";
+        
+        wordArray[2][0] = "stable";
+        wordArray[2][1] = "nose  ";
+        wordArray[2][2] = "laugh ";
+        wordArray[2][3] = "ham   ";
+        
+        wordArray[3][0] = "horse ";
+        wordArray[3][1] = "shriek";
+        wordArray[3][2] = "sword ";
+        wordArray[3][3] = "END   ";
+        
+        return wordArray;
+    }
+
+    public static boolean checkMazePath(String[] selectionArray) {
+        boolean correct = true;
+        String[] answerArray = {"death","pain","nose","shriek","sword"};
+        for (int i=0; i<answerArray.length;i++) {
+            String selection = selectionArray[i].trim().toLowerCase();
+            if (selection.equals(answerArray[i])){
+            }
+            else {
+                correct = false;
+                return correct;
+            }
+        }
+        return correct;
+    }
         
     public static void openScene(int row, int column) {
         Map map = PrincessBride.getCurrentGame().getMap();

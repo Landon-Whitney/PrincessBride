@@ -153,8 +153,8 @@ public class GameMenuView extends View {
         this.console.println("Enter the column number of your destination: ");
         int column = super.getNumInput();
         
-        MapControl.movePlayerToLocation(row, column);
         this.console.println("You have moved to (" + row + "," + column + ") in the map.");
+        MapControl.movePlayerToLocation(row, column);
     }
 
     private void printInventory() throws IOException {

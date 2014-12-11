@@ -16,7 +16,7 @@ public class TrueLovesKissView extends View {
     
     public TrueLovesKissView(){
     
-            super("\n"
+            super("\n\n"
                     +"Dread Pirate "+PrincessBride.getPlayer()+" you have saved Princess Buttercup."
                     +"\nYou now have a chance to kiss her.                                         "
                     +"\nDo you want to kiss Princess Buttercup? Y/N                                "
@@ -40,7 +40,7 @@ public class TrueLovesKissView extends View {
                
            case 'N':
                this.console.println( "\n-------------------------------------"
-                                    +"\nYeah, I guess that might be wierd.  "
+                                    +"\nYeah, I guess that might be weird.  "
                                     +"\nThe princess thanks you profusely and"
                                     +"\nYou part ways with a hardy handshake.  The End");
                         gameMenu = new GameMenuView();
