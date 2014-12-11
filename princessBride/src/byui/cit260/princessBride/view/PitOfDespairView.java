@@ -30,7 +30,7 @@ public class PitOfDespairView extends View{
     public PitOfDespairView (){
             
                       super("\n**************************************"
-                        +"\n* You awake to find yourself in a lab   *" 
+                        +"\n* You awake to find yourself in a lab.  *" 
                         +"\n* An albino servant informs you that    *"
                         +"\n* you are in the pit of despair, Prince *"
                         +"\n* Humperdink's secret lab where he      *"
