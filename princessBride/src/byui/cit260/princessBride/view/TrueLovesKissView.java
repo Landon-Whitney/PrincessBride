@@ -35,16 +35,13 @@ public class TrueLovesKissView extends View {
                                     +"\nbeen five kisses that were rated the most" 
                                     +"\npassionate, the most pure. This one left them all" 
                                     +"\n behind.  The End.");
-                       GameMenuView gameMenu = new GameMenuView();
-                        gameMenu.display();
                
            case 'N':
                this.console.println( "\n-------------------------------------"
                                     +"\nYeah, I guess that might be weird.  "
                                     +"\nThe princess thanks you profusely and"
                                     +"\nYou part ways with a hardy handshake.  The End");
-                        gameMenu = new GameMenuView();
-                        gameMenu.display();       
+      
            default:
                ErrorView.display(this.getClass().getName(), "Plese push Y or N");
        

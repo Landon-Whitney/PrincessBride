@@ -14,36 +14,36 @@ import java.util.Objects;
  * @author whitneydavis
  */
 public enum Scene implements Serializable{
-    InigosGrotto("A wild wind-swept precipce. Just the right place for a rhyming game.", "IGR"),
-    FezzicksChallenge("A rocky plain.", "FCh"),
-    VizzinisPoisonPuzzle("A pleasant picnic with poison on the side.", "VPP"),
-    Fireswamp("A wild forest full of traps for the unwary.", "FSW"),
-    PitOfDespair("Prince Humperdink's secret lab.", "POD"),
-    MiracleMax("A modest cottage covered by ivy.", "MMX"),
-    CastleGate("An imposing gate with but one key and double the guards.", "CGT"),
-    CastleMaze("Stone walls with narrow passageways go off in every direction.  Which way do you go?", "CMZ"),
-    TrueLovesKiss("A ride into the sunset with a beautiful princess.", "TLK");
+    InigosGrotto("a wild wind-swept precipce. Just the right place for a rhyming game.", "IGR", "Inigos Grotto"),
+    FezzicksChallenge("a rocky plain.", "FCh", "Fezziks Challenge"),
+    VizzinisPoisonPuzzle("a pleasant picnic with poison on the side.", "VPP","Vizzinis Poison Puzzle" ),
+    Fireswamp("a wild forest full of traps for the unwary.", "FSW", "Fireswamp"),
+    PitOfDespair("Prince Humperdink's secret lab.", "POD", "Pit of Despair"),
+    MiracleMax("a modest cottage covered by ivy.", "MMX", "Miracle Max"),
+    CastleGate("an imposing gate with but one key and double the guards.", "CGT", "Castle Gate"),
+    CastleMaze("stone walls with narrow passageways go off in every direction.  Which way do you go?", "CMZ", "Castle Maze"),
+    TrueLovesKiss("a ride into the sunset with a beautiful princess.", "TLK", "True Love\'s Kiss");
     
     private final String description;
     private final String shortDescription;
-    private final Point coordinates;
-    private Boolean blocked;
-    private Boolean completed;
+    private final String name;
+    private boolean blocked;
+    private boolean completed;
     private Location location;
 
-    Scene(String description, String shortDesc) {
+    Scene(String description, String shortDesc, String name) {
         this.description = description;
         this.shortDescription = shortDesc;
-        coordinates = new Point(1,1);
+        this.name = name;
+    }
+    
+    public String getName() {
+        return name;
     }
 
     public String getDescription() {
         return description;
     }
-    
-    public Point getCoordinates() {
-        return coordinates;
-        }
 
     public Boolean getBlocked() {
         return blocked;

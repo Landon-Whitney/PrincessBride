@@ -107,6 +107,16 @@ public class GameMenuView extends View {
             //display ending row divider
             this.console.println("\n--------------------");
         }
+        for (int row = 0; row < locations.length; row++){
+          for (int column = 0; column < locations[row].length; column++){
+              if (!locations[row][column].getScene().getBlocked()) {
+                    String description = locations[row][column].getScene().getDescription();
+                    String shortDes = locations[row][column].getScene().getShortDescription();
+                    String name = locations[row][column].getScene().getName();
+                    this.console.println(shortDes + ": " + name + ", " + description);
+                }
+          }  
+        }
     }
 
     private void viewInventory() {

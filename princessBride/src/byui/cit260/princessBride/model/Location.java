@@ -14,7 +14,7 @@ import java.util.Objects;
 public class Location implements Serializable{
     private Integer row;
     private Integer column;
-    private Boolean blocked;
+    private boolean blocked;
     private String description;
     
     private Scene scene;

@@ -34,16 +34,6 @@ public class MapControl {
         return map;
     }
     
-    public static void moveActorsToStartingLocation (Map map)
-            throws MapControlException {
-        Actor [] actors = Actor.values();
-        for (Actor actor : actors){
-            Point coordinates = actor.getCoordinates();
-            MapControl.moveActorToLocation(actor, coordinates);
- 
-        }
-      }
-    
     public static void moveActorToLocation(Actor actor, Point coordinates)
             throws MapControlException {
             

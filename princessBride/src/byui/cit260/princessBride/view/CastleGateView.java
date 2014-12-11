@@ -5,6 +5,10 @@
  */
 package byui.cit260.princessBride.view;
 
+import byui.cit260.princessBride.model.Game;
+import byui.cit260.princessBride.model.InventoryItem;
+import princessbride.PrincessBride;
+
 /**
  *
  * @author whitneydavis
@@ -43,7 +47,38 @@ public class CastleGateView extends View{
     }
 
     private void castleGateChallenge() {
-        this.console.println("");
+        //display inventory menu
+        this.displayInventoryMenu();
+        //prompt player for inventory selection
+        this.console.println("What object will you use to fight off the 60 men?");
+        String selection = this.getInput();
+        char charSelection = selection.charAt(0);
+        //check for action
+        this.resultAction(charSelection);
+    }
+
+    private void displayInventoryMenu() {
+        Game game = PrincessBride.getCurrentGame();
+        InventoryItem[] inventoryList = game.getInventoryList();
+        for (InventoryItem item: inventoryList){
+            if (item.getQuantity()>0){
+                int g = 1;
+                this.console.println("\n" + g);
+                this.console.println(item);
+                g++;
+            }
+        }
+    }
+
+    private void resultAction(char charSelection) {
+        switch (charSelection){
+            case '1': 
+            case '2':
+            case '3':
+            case '4':
+            case '5':
+                
+        }
     }
     
 }

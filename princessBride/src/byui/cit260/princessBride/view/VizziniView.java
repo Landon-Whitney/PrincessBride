@@ -49,8 +49,6 @@ public class VizziniView extends View {
                 }
             case 'N':
                 super.console.println("As you wish");
-                GameMenuView gameMenu = new GameMenuView();
-                gameMenu.display();
                 break;
             default:
                 super.console.println("Please answer yes or no.");

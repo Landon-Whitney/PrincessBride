@@ -104,6 +104,7 @@ public class GameControl {
        }
        PrincessBride.setCurrentGame(game);
     }
+    
     public static void saveActor (Actor[] actor, String filePath)
             throws GameControlException{
          try{ FileOutputStream fops = new FileOutputStream(filePath);

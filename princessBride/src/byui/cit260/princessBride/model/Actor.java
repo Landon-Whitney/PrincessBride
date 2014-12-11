@@ -23,25 +23,20 @@ public enum Actor implements Serializable{
     
     private final String name;
     private final String description;
-    private final Point coordinates;
 
     Actor(String description, String name) {
         this.name = name;
         this.description = description;
-        coordinates = new Point(1,1);
     }
    
     public String getDescription() {
         return description;
     }
 
-    public Point getCoordinates() {
-        return coordinates;
-    }
 
     @Override
     public String toString() {
-        return "name = " + name + ", description = " + description + ", coordinates=" + coordinates + "}";
+        return "name = " + name + ", description = " + description;
     }
 
     
