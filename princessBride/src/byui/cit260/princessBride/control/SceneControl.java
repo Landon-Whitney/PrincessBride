@@ -273,7 +273,7 @@ public class SceneControl {
         return playerScore;
     
     }
-        public double computerRhymingWord(int gameScore) 
+    public double computerRhymingWord(int gameScore) 
                 throws SceneControlException{
 
 
@@ -289,7 +289,7 @@ public class SceneControl {
     
     }
 
-    public int[] createScoreArray(int[] array, int i) {
+    public int[] createScoreArray(int[] array, int i){
         int randomSelection = (int)(Math.random()*2);
         array[i] = randomSelection;
         return array;
