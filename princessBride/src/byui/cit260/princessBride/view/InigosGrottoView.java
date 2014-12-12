@@ -83,6 +83,8 @@ public class InigosGrottoView extends View{
                 break;
             default:
                 ErrorView.display(this.getClass().getName(), "Please print Y or N");
+                InigosGrottoView inigos = new InigosGrottoView();
+                inigos.displayMenu();
                 break;
         }
         
