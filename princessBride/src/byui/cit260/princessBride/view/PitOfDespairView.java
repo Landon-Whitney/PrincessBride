@@ -41,7 +41,7 @@ public class PitOfDespairView extends View{
                         +"\n* all the levers and hope you escape!   *"
                         +"\n*****************************************");
 
-         this.console.println("Choose a lever 1-5.  Use each lever once.");
+         this.console.println("Choose a lever 1 through 5.  Use each lever once.");
     }
     
     public void pit (){
@@ -69,10 +69,10 @@ public class PitOfDespairView extends View{
             this.displayDefeatMenu();
         }
         else
-            this.console.println("You survived the Pit of Despair by by becomming mostly dead");
+            this.console.println("You survived the Pit of Despair by by becoming mostly dead");
         
         GameMenuView gameMenu = new GameMenuView();
-        gameMenu.display();
+        gameMenu.displayMenu();
     }
     
 public int leverPull(int leverChoice){        
@@ -100,7 +100,7 @@ public int leverPull(int leverChoice){
                 levers[4] = true;
             } 
             else
-                ErrorView.display(this.getClass().getName(), "Inconcievable! Enter a number between 1 - 5 that you haven't pulled.");
+                ErrorView.display(this.getClass().getName(), "Inconcievable! Enter a number between 1 and 5 that you haven't pulled.");
         return healthChange;
 }
 
@@ -111,6 +111,6 @@ public int leverPull(int leverChoice){
 
     private void displayDefeatMenu() {
         DefeatMenuView defeatMenu = new DefeatMenuView();
-        defeatMenu.display();
+        defeatMenu.displayMenu();
     }
 }

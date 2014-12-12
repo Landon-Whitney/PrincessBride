@@ -113,7 +113,7 @@ public class MiracleMaxView extends View {
         
         //display Game Menu
         GameMenuView gameMenu = new GameMenuView();
-        gameMenu.display();
+        gameMenu.displayMenu();
     }  
     
     private double findNeededVolume(char selection) {
@@ -142,7 +142,7 @@ public class MiracleMaxView extends View {
 
     private void displayDefeatMenu() {
         DefeatMenuView defeatMenu = new DefeatMenuView();
-        defeatMenu.display();
+        defeatMenu.displayMenu();
     }
 
     @Override
@@ -150,8 +150,6 @@ public class MiracleMaxView extends View {
         // if value is N then return to main menu view
         if (value == 'N') {
             this.console.println("As you wish.");
-            GameMenuView gameMenu = new GameMenuView();
-            gameMenu.display();
         }
         else {    
             try {

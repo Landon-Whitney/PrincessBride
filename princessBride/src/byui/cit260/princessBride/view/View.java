@@ -27,10 +27,21 @@ public abstract class View implements ViewInterface {
     @Override
      public void display () {
         char selection = ' ';
+        this.console.println(this.promptMessage);
+        this.console.println("Select an option: ");
+        String input = this.getInput();
+        //this.console.println(input);
+        selection = input.charAt(0);
+            
+        this.doAction(selection);
+    }
+     
+     public void displayMenu () {
+        char selection = ' ';
         do {
             this.console.println(this.promptMessage);
             this.console.println("Select an option: ");
-            String input = this.getInput();
+            String input = this.getInput().toUpperCase();
             //this.console.println(input);
             selection = input.charAt(0);
             
@@ -47,7 +58,7 @@ public abstract class View implements ViewInterface {
         while (!valid) {
 
             selection = this.keyboard.readLine();
-            selection = selection.trim().toUpperCase();
+            selection = selection.trim();
             
             if (selection.length() < 1){
                 ErrorView.display(this.getClass().getName(),"Inconcievable! Please enter a valid selection.");

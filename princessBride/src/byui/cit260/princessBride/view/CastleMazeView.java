@@ -57,7 +57,7 @@ public class CastleMazeView extends View{
 
     @Override
     public void doAction(char selection) {
-        switch (selection){
+        switch (Character.toUpperCase(selection)){
             case 'Y':
                 this.castleMazeChallenge();
             case 'N':
@@ -96,13 +96,13 @@ public class CastleMazeView extends View{
             
             Scene.CastleGate.setCompleted(true);
             
-            TrueLovesKissView endScene = new TrueLovesKissView();
-            endScene.display();
+            //TrueLovesKissView endScene = new TrueLovesKissView();
+            //endScene.display();
         }
         else{
             this.console.println("\nThat was the wrong path.");
             DefeatMenuView defeat = new DefeatMenuView();
-            defeat.display();
+            defeat.displayMenu();
         }
     }
 

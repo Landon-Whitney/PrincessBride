@@ -32,14 +32,16 @@ public enum Actor implements Serializable{
     public String getDescription() {
         return description;
     }
-
+    
+    public String getName() {
+        return name;
+    }
 
     @Override
     public String toString() {
         return "name = " + name + ", description = " + description;
     }
+    
+    
 
-    
-   
-    
 }

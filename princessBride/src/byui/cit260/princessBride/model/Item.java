@@ -6,7 +6,6 @@
 package byui.cit260.princessBride.model;
 
 import java.io.Serializable;
-import java.util.Objects;
 
 /**
  *
@@ -18,10 +17,11 @@ public enum Item implements Serializable {
     goblet,
     rocks,
     rope,
+    knife,
     cloak,
     pill;
     
-    private String description;
+    private String name;
     private Game[] game;
     private Scene[] scene;
 
@@ -45,17 +45,17 @@ public enum Item implements Serializable {
         this.scene = scene;
     }
     
-    public String getDescription() {
-        return description;
+    public String getName() {
+        return name;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
     public String toString() {
-        return "Items{" + "description=" + description + '}';
+        return "Items{" + "name=" + name + '}';
     }
 
 

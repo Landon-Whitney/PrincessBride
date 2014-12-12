@@ -23,7 +23,7 @@ public class FezzicksChallengeView extends View {
     
     public FezzicksChallengeView() {
         super("\n\n***********************************************************"
-                + "\n*                  Fezzicks Challenge                     *" 
+                + "\n*                  Fezzik's Challenge                     *" 
                 + "\n*                                                         *"
                 + "\n* We must face each other as God intended. Sportsman like.*"
                 + "\n* No tricks, no weapons, skill against skill alone. It's  *"
@@ -31,7 +31,7 @@ public class FezzicksChallengeView extends View {
                 + "\n* don't even exercise. I challenge you to a competition of*"
                 + "\n* Rock, Paper, Scissors. Best two out of three wins!      *"
                 + "\n*                                                         *"
-                + "\n* Will you accept this challenge from Fezzick?            *"
+                + "\n* Will you accept this challenge from Fezzik?            *"
                 + "\n* (Enter Y or N)                                          *"
                 + "\n***********************************************************");
 }
@@ -43,11 +43,9 @@ public class FezzicksChallengeView extends View {
                 break;
             case 'N':
                 super.console.println("As you wish.");
-                GameMenuView gameMenu = new GameMenuView();
-                gameMenu.display();
                 break;
             default:
-                ErrorView.display(this.getClass().getName(), "\nInconceivable! Please select an option from the Main Menu.");
+                ErrorView.display(this.getClass().getName(), "\nInconceivable! Please select 'Y' for yes or 'N' for no.");
                 break;
         }
     }
@@ -62,7 +60,7 @@ public class FezzicksChallengeView extends View {
             super.console.println(GAMEMENU);
             playerSelection = super.getInput();
             char charSelection = playerSelection.charAt(0);
-            Character.toUpperCase(charSelection);
+            charSelection = Character.toUpperCase(charSelection);
             
             SceneControl scoreArray = new SceneControl();
             score = scoreArray.createScoreArray(score, i);
@@ -70,26 +68,26 @@ public class FezzicksChallengeView extends View {
             if (score[i] == 1) {
                 switch (charSelection) {
                     case 'R':
-                        super.console.println("\nFezzick has played scissors and lost!\nI just want you to feel you are doing well. I don't want people to die embarrassed.");
+                        super.console.println("\nFezzik has played scissors and lost!\nI just want you to feel you are doing well. I don't want people to die embarrassed.");
                         break;
                     case 'P':
-                        super.console.println("\nFezzick has played rock and lost!\nI just want you to feel you are doing well. I don't want people to die embarrassed.");
+                        super.console.println("\nFezzik has played rock and lost!\nI just want you to feel you are doing well. I don't want people to die embarrassed.");
                         break;
                     case 'S':
-                        super.console.println("\nFezzick has played paper and lost!\nI just want you to feel you are doing well. I don't want people to die embarrassed.");
+                        super.console.println("\nFezzik has played paper and lost!\nI just want you to feel you are doing well. I don't want people to die embarrassed.");
                         break;
                 }
             }
             else if (score[i] == 0) {
                 switch (charSelection) {
                     case 'R':
-                        super.console.println("\nFezzick has played paper and won!\nIt's not my fault being the biggest and the strongest; I don't even exercise.");
+                        super.console.println("\nFezzik has played paper and won!\nIt's not my fault being the biggest and the strongest; I don't even exercise.");
                         break;
                     case 'P':
-                        super.console.println("\nFezzick has played scissors and won!\nIt's not my fault being the biggest and the strongest; I don't even exercise.");
+                        super.console.println("\nFezzik has played scissors and won!\nIt's not my fault being the biggest and the strongest; I don't even exercise.");
                         break;
                     case 'S':
-                        super.console.println("\nFezzick has played rock and won!\nIt's not my fault being the biggest and the strongest; I don't even exercise.");
+                        super.console.println("\nFezzik has played rock and won!\nIt's not my fault being the biggest and the strongest; I don't even exercise.");
                         break;
                 }
             }
@@ -98,22 +96,21 @@ public class FezzicksChallengeView extends View {
         SceneControl scoreArray = new SceneControl();
         sum = scoreArray.winOrLose(score);
         
-        if (sum > 2) {
-            super.console.println("Congratulations, you've won against Fezzick!\nI just figured out why you give my so much trouble: I haven't fought one person in so long.");
+        if (sum > 1) {
+            super.console.println("\nCongratulations, you've won against Fezzik!\nI just figured out why you give my so much trouble: I haven't fought one person in so long.");
             
             Scene.FezzicksChallenge.setCompleted(Boolean.TRUE);
             
-            super.console.println("From Vizzini you've won a bottle of wine and a knife.");
+            super.console.println("\nFrom Fezzik you've won a bag of rocks.");
+            super.console.println("A bag of rocks has been added to your inventory.");
             InventoryControl inventory = new InventoryControl();
-            inventory.addItem("Knife");
-            
-            GameMenuView gameMenu = new GameMenuView();
-            gameMenu.display();
+            inventory.addItem("Rocks");
+
         }
         else {
-            super.console.println("You've been defeated by Fezzick!");
+            super.console.println("You've been defeated by Fezzik!");
             DefeatMenuView defeatMenu = new DefeatMenuView();
-            defeatMenu.display();
+            defeatMenu.displayMenu();
         }
             
     }

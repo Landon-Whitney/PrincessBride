@@ -25,7 +25,7 @@ public class InigosGrottoView extends View{
         super("\n"
                 + "\n-----------------------------------------------------------"
                 + "\n As you race to Princess Buttercup's aid, you meet up with "
-                + "\n a agile man named Inigo.  He is one of the hired thugs    "
+                + "\n an agile man named Inigo.  He is one of the hired thugs    "
                 + "\n who kidnapped her!  He says that he is saving the blade   "
                 + "\n that his father made for another and if you can beat him  "
                 + "\n in a rhyming game, he will tell you where Princess        "
@@ -63,12 +63,9 @@ public class InigosGrottoView extends View{
                     this.console.println("your average score is: " + average + " You win!" );
                     Scene.InigosGrotto.setCompleted(Boolean.TRUE);
                     
-                    this.console.println("Inigo gives you a coil of rope to help you.");
+                    this.console.println("Inigo gives you a coil of rope to help you. \nIt has been added to your inventory.");
                     InventoryControl inventory = new InventoryControl();
-                    inventory.addItem("Rope");
-                    
-                    GameMenuView gameMenu = new GameMenuView();
-                    gameMenu.display();               
+                    inventory.addItem("Rope");           
                     
             }
                     else {
@@ -76,7 +73,7 @@ public class InigosGrottoView extends View{
                     this.console.println(" You did not find enough words, try again.");
                     
                     DefeatMenuView defeatMenu = new DefeatMenuView();
-                    defeatMenu.display();
+                    defeatMenu.displayMenu();
                             
                             }
                 }

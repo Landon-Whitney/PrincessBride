@@ -12,8 +12,8 @@ import java.util.Objects;
  * @author whitneydavis
  */
 public class Location implements Serializable{
-    private Integer row;
-    private Integer column;
+    private int row;
+    private int column;
     private boolean blocked;
     private String description;
     
@@ -23,7 +23,7 @@ public class Location implements Serializable{
     public Location() {
     }
 
-    public Integer getRow() {
+    public int getRow() {
         return row;
     }
 
@@ -31,7 +31,7 @@ public class Location implements Serializable{
         this.row = row;
     }
 
-    public Integer getColumn() {
+    public int getColumn() {
         return column;
     }
 

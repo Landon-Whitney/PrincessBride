@@ -46,7 +46,7 @@ public class InventoryItem implements Serializable {
     
     public static InventoryItem[] createInventoryList() {
         
-        InventoryItem [] inventory = new InventoryItem[5];
+        InventoryItem [] inventory = new InventoryItem[6];
         
         InventoryItem goblet = new InventoryItem();
         goblet.setName("Goblet");
@@ -68,6 +68,13 @@ public class InventoryItem implements Serializable {
         rope.setQuantity(0);
         rope.setRequiredAmount(1);
         inventory[Item.rope.ordinal()] = rope;
+        
+        InventoryItem knife = new InventoryItem();
+        rope.setName("Knife");
+        rope.setDescription("gilded dagger");
+        rope.setQuantity(0);
+        rope.setRequiredAmount(1);
+        inventory[Item.knife.ordinal()] = knife;
         
         InventoryItem cloak = new InventoryItem();
         cloak.setName("Holocaust cloak");

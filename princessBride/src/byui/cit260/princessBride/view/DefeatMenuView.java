@@ -13,13 +13,14 @@ package byui.cit260.princessBride.view;
 public class DefeatMenuView extends View{
     public DefeatMenuView() {
             super("\nYou have failed to defeat the challenge!"
+            + "\nNeed help? Check the help menu.        "
             + "\n"
             + "\n---------------------------------------"
             + "\n            Defeat Menu                "
             + "\n---------------------------------------"
             + "\nS - Start game from last save          "
             + "\nM - Return to Main Menu                "
-            + "\nG - Return to Game Menu                "
+            + "\nE - Return to Game Menu                "
             + "\n---------------------------------------");
     }
 
@@ -31,11 +32,11 @@ public class DefeatMenuView extends View{
                 break;
             case 'M':
                 MainMenuView mainMenu = new MainMenuView();
-                mainMenu.display();
+                mainMenu.displayMenu();
                 break;
-            case 'G':
-                GameMenuView gameMenu = new GameMenuView();
-                gameMenu.display();
+            case 'E':
+                //GameMenuView gameMenu = new GameMenuView();
+                //gameMenu.displayMenu();
                 break;
             default:
                 ErrorView.display(this.getClass().getName(), "\nInconceivable! Please select an option from the Defeat Menu.");

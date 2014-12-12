@@ -21,20 +21,24 @@ import princessbride.PrincessBride;
 public class VizziniView extends View {
     
     public VizziniView () {
-        super("\n\nSo it's down to you and me...I can't complete with you physically"
-        + "\nand you're no match for my brains. Let me put it this way. Have you"
-        + "\never heard of Plato, Aristotle, Socrates? Morons."
-        + "\n"
-        + "\nYou offer to duel Vizzini in a battle of the wits. You will pour two"
-        + "\nglasses of wine, one of which is poisened, and tell Vizzini he may "
-        + "\nchoose which glass to drink from. You will drink from the remaining"
-        + "\nglass. BUT, what Vizzini doesn't know is that you have built a resistance"
-        + "\nto iocane powder up to the strength of a 2% solution."
-        + "\n"
-        + "\nYou must only make sure you mix the solution to no stronger than 2%"
-        + "\nor you will die too!"
-        + "\nWill you accept this challenge from Vizzini?"
-        + "\n(Enter Y or N)"
+        super("\n\n***********************************************************************"
+        + "\n*                    Vizzini's Poison Puzzle                          *"
+        + "\n*                                                                     *"
+        + "\n*So it's down to you and me...I can't complete with you physically    *"
+        + "\n*and you're no match for my brains. Let me put it this way. Have you  *"
+        + "\n*ever heard of Plato, Aristotle, Socrates? Morons.                    *"
+        + "\n*                                                                     *"
+        + "\n*You offer to duel Vizzini in a battle of the wits. You will pour two *"
+        + "\n*glasses of wine, one of which is poisened, and tell Vizzini he may   *"
+        + "\n*choose which glass to drink from. You will drink from the remaining  *"
+        + "\n*glass. BUT, what Vizzini doesn't know is that you have built a       *"
+        + "\n*resistance to iocane powder up to the strength of a 2% solution.     *"
+        + "\n*                                                                     *"
+        + "\n*You must only make sure you mix the solution to no stronger than 2%  *"
+        + "\n*or you will die too!                                                 *"
+        + "\n*Will you accept this challenge from Vizzini?                         *"
+        + "\n*(Enter Y or N)                                                       *"
+        + "\n***********************************************************************"
         );
     }
     
@@ -47,11 +51,12 @@ public class VizziniView extends View {
                 } catch (SceneControlException ex){
                     ErrorView.display(this.getClass().getName(), "Error reading input: "+ ex.getMessage());
                 }
+                break;
             case 'N':
-                super.console.println("As you wish");
+                super.console.println("As you wish.");
                 break;
             default:
-                super.console.println("Please answer yes or no.");
+                super.console.println("\nInconceivable! Please select 'Y' for yes or 'N' for no.");
                 break;
         }   
     }
@@ -59,32 +64,33 @@ public class VizziniView extends View {
     public void wineChallenge() throws SceneControlException {
         int gramsIocane;
         int gramsWine;
-        double percentSolution;
+        Double percentSolution = null;
         
-        super.console.println("Please enter the grams of wine in the glass:");
-        gramsWine = super.getNumInput();
+        do{
+            super.console.println("Please enter the grams of wine in the glass:");
+            gramsWine = super.getNumInput();
         
-        super.console.println("Please enter the grams of iocane in the glass:");
-        gramsIocane = super.getNumInput();
+            super.console.println("Please enter the grams of iocane in the glass:");
+            gramsIocane = super.getNumInput();
         
-        SceneControl solution = new SceneControl();
-        percentSolution = solution.percentSolution(gramsIocane, gramsWine);
+            SceneControl solution = new SceneControl();
+            percentSolution = solution.percentSolution(gramsIocane, gramsWine);
+        }while(percentSolution == null); 
         
         if (percentSolution < 2 || percentSolution == 2){
-            super.console.println("You've successfully defeated Vizzini (he's dead) and survived the iocane powder!");
+            super.console.println("\nYou've successfully defeated Vizzini (he's dead) and survived the iocane powder!");
             Scene.VizzinisPoisonPuzzle.setCompleted(Boolean.TRUE);
             
-            super.console.println("From Vizzini you've won a bottle of wine and a knife.");
+            super.console.println("\nFrom Vizzini you've won a goblet of water and a knife.");
+            super.console.println("These items have been added to your inventory.");
             InventoryControl inventory = new InventoryControl();
-            inventory.addItem("Goblet of water");
+            inventory.addItem("Goblet");
             inventory.addItem("Knife");
-            
-            GameMenuView gameMenu = new GameMenuView();
-            gameMenu.display();
         }
         else {
+            super.console.println("The solution strength was above 2%!");
             DefeatMenuView defeatMenu = new DefeatMenuView();
-            defeatMenu.display();
+            defeatMenu.displayMenu();
         }
     }
 

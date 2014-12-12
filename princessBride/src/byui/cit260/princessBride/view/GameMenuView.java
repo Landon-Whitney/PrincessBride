@@ -7,16 +7,11 @@ package byui.cit260.princessBride.view;
 
 import byui.cit260.princessBride.control.GameControl;
 import byui.cit260.princessBride.control.MapControl;
-import byui.cit260.princessBride.control.SceneControl;
 import byui.cit260.princessBride.exceptions.MapControlException;
-import byui.cit260.princessBride.exceptions.SceneControlException;
 import byui.cit260.princessBride.model.Actor;
 import byui.cit260.princessBride.model.InventoryItem;
-import byui.cit260.princessBride.model.Item;
 import byui.cit260.princessBride.model.Location;
 import byui.cit260.princessBride.model.Map;
-import byui.cit260.princessBride.model.Scene;
-import java.awt.Point;
 import java.io.IOException;
 import princessbride.PrincessBride;
 
@@ -36,7 +31,7 @@ public class GameMenuView extends View {
             + "\nA - View list of actors"
             + "\nL - Move to a new location"
             + "\nH - Help menu"
-            + "\nE - Exit"
+            + "\nE - Exit and return to Main Menu"
             + "\n-------------------------------------");
     }
     

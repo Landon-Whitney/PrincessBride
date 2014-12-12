@@ -52,7 +52,7 @@ public class StartProgramView extends View {
         PrincessBride.setPlayer(player);
         // DISPLAY the main menu 
         MainMenuView mainMenu = new MainMenuView();
-        mainMenu.display();
+        mainMenu.displayMenu();
     }
 
 
@@ -70,7 +70,7 @@ public class StartProgramView extends View {
             playersName = playersName.trim();
             
             if (playersName.length() < 1) {
-                this.console.println("Inconceivable!  Please enter your name");
+                this.console.println("Inconceivable!  Please enter your name:");
                 continue;
             }
             break;
