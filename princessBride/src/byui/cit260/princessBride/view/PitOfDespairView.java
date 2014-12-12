@@ -68,9 +68,9 @@ public class PitOfDespairView extends View{
                 
            } catch (InputMismatchException IME){
                 ErrorView.display(this.getClass().getName(), "\nNot a number!  Please put in a number between 1-5\n");
-                
+                userInput.next();
            }
-                //userInput.next();//to get the scanner to advance to the next input
+                
         this.console.println("Your health is "+ health);
         }while ((!levers[0] || !levers[1] || !levers[2] || !levers[3] || !levers[4]) && health > 0);
         
