@@ -5,6 +5,7 @@
  */
 package byui.cit260.princessBride.view;
 
+import byui.cit260.princessBride.exceptions.SceneControlException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -14,13 +15,7 @@ import java.util.Scanner;
  */
 public class PitOfDespairView extends View{
     
-    //TESTER
-    //public static void main(String args[]){
-        //PitOfDespairView pit = new PitOfDespairView();
-        //pit.displayStoryline();
-        //pit.run();
-    //}
-    //create an array of levers
+ 
     boolean levers[] = new boolean[5];
     //put an inital value on health
     int health = 100;
@@ -39,12 +34,30 @@ public class PitOfDespairView extends View{
                         +"\n* Each lever will take away or add      *"
                         +"\n* years to your life.  You must throw   *"
                         +"\n* all the levers and hope you escape!   *"
+                        +"\n* Will you face the lever challenge? Y/N *"
                         +"\n*****************************************");
-
-         this.console.println("Choose a lever 1 through 5.  Use each lever once.");
+    }
+    @Override
+    public void doAction(char selection) {
+       switch (Character.toUpperCase(selection)){
+           case 'Y':
+                  this.pit();
+                  break;
+           case 'N':
+               super.console.println("As you wish");
+               break;
+           default:
+               ErrorView.display(this.getClass().getName(), "\nInconceivable!  Please select Y for yes or N for no");
+               PitOfDespairView pitOfDespair = new PitOfDespairView();
+               pitOfDespair.displayMenu();
+        }
+        
     }
     
     public void pit (){
+        
+        
+        this.console.println("Choose a lever 1 through 5.  Use each lever once.");
         //use a scanner to recieve player input
         Scanner userInput = new Scanner(System.in);
    
@@ -55,8 +68,9 @@ public class PitOfDespairView extends View{
                 
            } catch (InputMismatchException IME){
                 ErrorView.display(this.getClass().getName(), "\nNot a number!  Please put in a number between 1-5\n");
+                
            }
-                userInput.next();//to get the scanner to advance to the next input
+                //userInput.next();//to get the scanner to advance to the next input
         this.console.println("Your health is "+ health);
         }while ((!levers[0] || !levers[1] || !levers[2] || !levers[3] || !levers[4]) && health > 0);
         
@@ -104,11 +118,7 @@ public int leverPull(int leverChoice){
         return healthChange;
 }
 
-    @Override
-    public void doAction(char value) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+  
     private void displayDefeatMenu() {
         DefeatMenuView defeatMenu = new DefeatMenuView();
         defeatMenu.displayMenu();

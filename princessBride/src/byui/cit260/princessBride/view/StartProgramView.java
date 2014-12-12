@@ -37,7 +37,7 @@ public class StartProgramView extends View {
     }
 
 
-    //@Override
+    @Override
     public void doAction(char selection) { 
         switch (Character.toUpperCase(selection)){
             case 'Y':
