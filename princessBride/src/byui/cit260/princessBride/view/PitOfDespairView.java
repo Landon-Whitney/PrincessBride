@@ -69,7 +69,7 @@ public class PitOfDespairView extends View{
             this.displayDefeatMenu();
         }
         else
-            this.console.println("You survived the Pit of Despair by by becoming mostly dead");
+            this.console.println("You survived the Pit of Despair by by becoming mostly dead.");
         
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.displayMenu();

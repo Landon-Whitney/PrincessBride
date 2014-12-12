@@ -40,10 +40,10 @@ public class TrueLovesKissView extends View {
                this.console.println( "\n-------------------------------------"
                                     +"\nYeah, I guess that might be weird.  "
                                     +"\nThe princess thanks you profusely and"
-                                    +"\nYou part ways with a hardy handshake.  The End");
+                                    +"\nYou part ways with a hardy handshake.  The End.");
       
            default:
-               ErrorView.display(this.getClass().getName(), "Plese push Y or N");
+               ErrorView.display(this.getClass().getName(), "Please enter Y or N.");
        
        }
     }

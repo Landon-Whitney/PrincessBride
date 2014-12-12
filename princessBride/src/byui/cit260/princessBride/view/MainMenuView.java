@@ -22,7 +22,7 @@ public class MainMenuView extends View {
             + "\n              Main Menu              "
             + "\n-------------------------------------"
             + "\nG - Search anew for Buttercup        "
-            + "\nB - Continue the search for Buttercup"
+            + "\nB - Load a saved game"
             + "\nH - Get help on how to play the game "
             + "\nS - Save game                        "
             + "\nE - Exit                             "

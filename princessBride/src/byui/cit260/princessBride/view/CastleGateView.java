@@ -16,19 +16,23 @@ import princessbride.PrincessBride;
 public class CastleGateView extends View{
 
     public CastleGateView() {
-        super("\n\nLet me explain."
-        + "\n"
-        + "\nNo, there is too much. Let me sum up. Buttercup is marrying Humperdink"
-        + "\nin little less than half an hour. So all we have to do is get in, break"
-        + "\nup the wedding, steal the princess, make our escape...after I kill "
-        + "\nCount Rugen. There is but one working castle gate, and...and it is "
-        + "\nguarded by 60 men."
-        + "\n"
-        + "\nYou must get through the castle gate using your brains, Inigos steel,"
-        + "\nand Fezzicks strength. Oh and whatever you happen to have in your pocket."
-        + "\n"
-        + "\nWill you accept this challenge?"
-        + "\n(Enter Y or N)"
+        super("\n\n-----------------------------------------------------------------------------"
+        + "\n|                             Castle Gate                                   |"
+        + "\n|                                                                           |"
+        + "\n|Let me explain.                                                            |"
+        + "\n|                                                                           |"
+        + "\n|No, there is too much. Let me sum up. Buttercup is marrying Humperdink     |"
+        + "\n|in little less than half an hour. So all we have to do is get in, break    |"
+        + "\n|up the wedding, steal the princess, make our escape...after I kill         |"
+        + "\n|Count Rugen. There is but one working castle gate, and...and it is         |"
+        + "\n|guarded by 60 men.                                                         |"
+        + "\n|                                                                           |"
+        + "\n|You must get through the castle gate using your brains, Inigos steel,      |"
+        + "\n|and Fezzicks strength. Oh, and whatever you happen to have in your pocket. |"
+        + "\n|                                                                           |"
+        + "\n|Will you accept this challenge?                                            |"
+        + "\n|(Enter Y or N)                                                             |"
+        + "\n-----------------------------------------------------------------------------"
         );
     }
 
@@ -60,9 +64,12 @@ public class CastleGateView extends View{
     private void displayInventoryMenu() {
         Game game = PrincessBride.getCurrentGame();
         InventoryItem[] inventoryList = game.getInventoryList();
+        int g = 1;
+        
+        this.console.println("\n\nInventory List");
+        this.console.println("\n-------------------");
         for (InventoryItem item: inventoryList){
             if (item.getQuantity()>0){
-                int g = 1;
                 this.console.println("\n" + g);
                 this.console.println(item);
                 g++;
@@ -72,11 +79,13 @@ public class CastleGateView extends View{
 
     private void resultAction(char charSelection) {
         switch (charSelection){
-            case '1': 
+            case '1':
+                this.console.println("it works");
             case '2':
             case '3':
             case '4':
             case '5':
+            default:
                 
         }
     }
