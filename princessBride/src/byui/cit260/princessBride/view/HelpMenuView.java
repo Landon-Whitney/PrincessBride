@@ -14,17 +14,43 @@ public class HelpMenuView extends View{
     
     public HelpMenuView () {
             super("\n"
-            + "\n---------------------------------------"
-            + "\n               Help Menu               "
-            + "\n---------------------------------------"
-            + "\nG - What is the goal of the game?      "
-            + "\nM - How do I move around in the game?  "
-            + "\nF - What do I do if I fail a challenge?"
-            + "\nS - Can I leave the game and return to it later?"
-            + "\nE - Exit                             "
-            + "\n---------------------------------------");
+                    + "\n-------------------------------------------------"
+                    + "\n                    Help Menu                    "
+                    + "\n-------------------------------------------------"
+                    + "\nG - What is the goal of the game?      "
+                    + "\nM - How do I move around in the game?  "
+                    + "\nB - How do I access blocked locations?"
+                    + "\nF - What do I do if I fail a challenge?"
+                    + "\nS - Can I leave the game and return to it later?"
+                    + "\nP - How can I beat the Miracle Max challenge?"
+                    + "\nE - Exit                             "
+                    + "\n--------------------------------------------------");
     }
     
+    private final String MIRACLEMAXHELP = "\n\n*************************************************"
+            + "\n*             Miracle Max Help                  *"
+            + "\n*                                               *"
+            + "\n*In the Miracle Max challenge, you are asked to *"
+            + "\n*mix the ingredients for a miracle pill by      *"
+            + "\n*the necessary radius and height. This radius   *"
+            + "\n*and height should be integers the give the     *"
+            + "\n*volume in the listed recipe. The volume can be *"
+            + "\n*calculated with the formula: V = pi * r^2 * h. *"
+            + "\n*Use the numbers 5, 6, 55, and 66 to come up the*"
+            + "\n*correct volume.                                *"
+            + "\n*************************************************";
+    
+    private final String BLOCKEDSCENESHELP = "\n\n*************************************************"
+            + "\n*             Blocked Locations                 *"
+            + "\n*                                               *"
+            + "\n*Locations that are blocked are marked on the   *"
+            + "\n*map with an X. New locations will become       *"
+            + "\n*available as other scenes are completed by the *"
+            + "\n*player. Winning challenges is the only way to  *"
+            + "\n*open these blocked scenes.                     *"
+            + "\n*************************************************";
+    
+  
     public void doAction(char selection) {
         switch (Character.toUpperCase(selection)) {
             case 'G':
@@ -33,11 +59,17 @@ public class HelpMenuView extends View{
             case 'M':
                 this.explainMovement();
                 break;
+            case 'B':
+                this.console.println(BLOCKEDSCENESHELP);
+                break;
             case 'F':
                 this.explainFailing();
                 break;
             case 'S':
                 this.explainSaveGame();
+                break;
+            case 'P':
+                this.console.println(MIRACLEMAXHELP);
                 break;
             case 'E':
                 return;
@@ -84,9 +116,9 @@ public class HelpMenuView extends View{
                 + "\n* In this game, you can choose the order in           *"
                 + "\n* which to complete the challenges. To do this,       *"
                 + "\n* access Main Menu and choose option L - move to      *"
-                + "\n* a new location. From there, you will put in the     *"
-                + "\n* x and y coordinates found in the map, which you     *"
-                + "\n* can also access from the main menu under view map.  *" 
+                + "\n* a new location. From there, you will put in the x   *"
+                + "\n* and y coordinates found in the map, which you can   *"
+                + "\n* also access from the main menu under 'View Map'.    *" 
         );
         
         super.console.println

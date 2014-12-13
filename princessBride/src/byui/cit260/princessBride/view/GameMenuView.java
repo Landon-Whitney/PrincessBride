@@ -113,6 +113,7 @@ public class GameMenuView extends View {
                 }
           }  
         }
+        this.console.println("X: blocked location and scene");
     }
 
     private void viewInventory() {
@@ -159,7 +160,6 @@ public class GameMenuView extends View {
         this.console.println("Enter the column number of your destination: ");
         int column = super.getNumInput();
         
-        this.console.println("You have moved to (" + row + "," + column + ") in the map.");
         MapControl.movePlayerToLocation(row, column);
     }
 

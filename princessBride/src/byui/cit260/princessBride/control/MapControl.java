@@ -64,7 +64,7 @@ public class MapControl {
         else {
             Location location = map.getLocations()[newRow][newColumn];
             MapControl.checkBlockedLocations();
-            if (location.getBlocked()){
+            if (location.getBlocked()){ //need to change so checks if scene is blocked, not location
                 throw new MapControlException("Can not move player to location" + newRow + ", " + newColumn +" because that location is blocked.");
             }
             else {
