@@ -40,8 +40,7 @@ public class InigosGrottoView extends View{
                 + "\n get one point for every word that you know that rhymes.   "
                 +"\n Would you like to play Inigo's game? Y/N                   "
         );
-        //this.console.println(this.promptMessage);
-        
+           
     
     }
 
@@ -84,6 +83,8 @@ public class InigosGrottoView extends View{
                 break;
             default:
                 ErrorView.display(this.getClass().getName(), "Please print Y or N");
+                InigosGrottoView inigos = new InigosGrottoView();
+                inigos.displayMenu();
                 break;
         }
         

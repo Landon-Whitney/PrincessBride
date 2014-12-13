@@ -38,21 +38,32 @@ public class StartProgramView extends View {
 
 
     @Override
-    public void doAction(char value) {
-        
-        if (value == 'N') {
-            return;
+    public void doAction(char selection) { 
+        switch (Character.toUpperCase(selection)){
+            case 'Y':
+                    String playersName = this.getPlayersName();
+                    // Create a new player 
+                    Player player = ProgramControl.createPlayer(playersName);
+                    // DISPLAY a customized welcome message 
+                    this.displayWelcomeMessage(player);
+                    PrincessBride.setPlayer(player);
+                    // DISPLAY the main menu 
+                    MainMenuView mainMenu = new MainMenuView();
+                    mainMenu.displayMenu();
+                    break;
+            case 'N':
+                    this.console.println("As you wish");
+                    mainMenu = new MainMenuView();
+                    mainMenu.displayMenu();
+                    break;
+            default:
+                    ErrorView.display(this.getClass().getName(), "\nInconceivable!  Please select Y or N.");
+                    StartProgramView start = new StartProgramView();
+                    start.displayMenu();
+                    break;
+                    
         }
-        
-        String playersName = this.getPlayersName();
-        // Create a new player 
-        Player player = ProgramControl.createPlayer(playersName);
-        // DISPLAY a customized welcome message 
-        this.displayWelcomeMessage(player);
-        PrincessBride.setPlayer(player);
-        // DISPLAY the main menu 
-        MainMenuView mainMenu = new MainMenuView();
-        mainMenu.displayMenu();
+       
     }
 
 
