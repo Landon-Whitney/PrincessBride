@@ -29,7 +29,7 @@ public abstract class View implements ViewInterface {
         char selection = ' ';
         this.console.println(this.promptMessage);
         this.console.println("Select an option: ");
-        String input = this.getInput();
+        String input = this.getInput().toUpperCase();
         //this.console.println(input);
         selection = input.charAt(0);
             

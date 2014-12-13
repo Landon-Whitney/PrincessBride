@@ -6,6 +6,7 @@
 package byui.cit260.princessBride.view;
 
 import byui.cit260.princessBride.control.GameControl;
+import byui.cit260.princessBride.control.InventoryControl;
 import byui.cit260.princessBride.control.MapControl;
 import byui.cit260.princessBride.exceptions.MapControlException;
 import byui.cit260.princessBride.model.Actor;
@@ -116,7 +117,7 @@ public class GameMenuView extends View {
 
     private void viewInventory() {
         //get the sorted list of inventory items for the current game
-        InventoryItem[] inventory = GameControl.getSortedInventoryList();
+        InventoryItem[] inventory = InventoryControl.getSortedInventoryList();
         
         this.console.println("\nList of Inventory Items");
         this.console.println("Description" + "\t" +

@@ -45,35 +45,6 @@ public class GameControl {
         //MapControl.moveActorsToStartingLocation(map); Actors dont move in our game
 
     }
-    
-    public static InventoryItem[] createInventoryList(){
-           System.out.println("** called createInventoryList in GameControl**");
-           return null;
-       
-    }
-    
-     public static InventoryItem[] getSortedInventoryList() {
-        //get inventory list for the current game
-        InventoryItem[] originalInventoryList = PrincessBride.getCurrentGame().getInventoryList();
-        
-        //clone (make a copy) of the oringinal list
-        InventoryItem[] inventoryList = originalInventoryList.clone();
-        
-        //using a selection sort to sort the list of inventoryList by name
-        Item tempInventoryItem;
-        for (int i = 0; i < inventoryList.length-1; i++) {
-            int min = i;
-            for (int j = i+1; j < inventoryList.length; j++) {
-                if (inventoryList[min].getDescription().compareToIgnoreCase(inventoryList[j].getDescription())>0) 
-                    min = j;
-                InventoryItem temp = inventoryList[i];
-                inventoryList[i] = inventoryList[min];
-                inventoryList[min] = temp;
-            }
-        }
-        
-        return inventoryList;
-    }
 
     public static void saveGame(Game game, String filePath) 
             throws GameControlException{
@@ -84,6 +55,7 @@ public class GameControl {
             output.writeObject(game);
         }
         catch(IOException e){
+            e.printStackTrace();
             throw new GameControlException(e.getMessage());
         }
     }

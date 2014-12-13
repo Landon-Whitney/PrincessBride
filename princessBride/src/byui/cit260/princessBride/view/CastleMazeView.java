@@ -65,6 +65,8 @@ public class CastleMazeView extends View{
                 break;
             default:
                 super.console.println("Please answer yes or no.");
+                CastleMazeView maze = new CastleMazeView();
+                maze.display();
                 break;
         }   
     }

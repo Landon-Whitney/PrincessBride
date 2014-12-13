@@ -70,22 +70,22 @@ public class InventoryItem implements Serializable {
         inventory[Item.rope.ordinal()] = rope;
         
         InventoryItem knife = new InventoryItem();
-        rope.setName("Knife");
-        rope.setDescription("gilded dagger");
-        rope.setQuantity(0);
-        rope.setRequiredAmount(1);
+        knife.setName("Knife");
+        knife.setDescription("gilded dagger");
+        knife.setQuantity(0);
+        knife.setRequiredAmount(1);
         inventory[Item.knife.ordinal()] = knife;
         
         InventoryItem cloak = new InventoryItem();
-        cloak.setName("Holocaust cloak");
-        cloak.setDescription("flame retardant cloak");
+        cloak.setName("Cloak");
+        cloak.setDescription("flame retardant holocaust cloak");
         cloak.setQuantity(0);
         cloak.setRequiredAmount(1);
         inventory[Item.cloak.ordinal()] = cloak;
         
         InventoryItem pill = new InventoryItem();
-        pill.setName("Miracle pill");
-        pill.setDescription("pill that restores life to the mostly dead");
+        pill.setName("Pill");
+        pill.setDescription("miracle pill that restores life to the mostly dead");
         pill.setQuantity(0);
         pill.setRequiredAmount(1);
         inventory[Item.pill.ordinal()] = pill;

@@ -5,11 +5,8 @@
  */
 package byui.cit260.princessBride.model;
 
-import java.io.BufferedReader;
-import java.io.PrintWriter;
 import java.io.Serializable;
 import java.util.Objects;
-import princessbride.PrincessBride;
 /**
  *
  * @author whitneydavis
@@ -19,18 +16,11 @@ public class Map implements Serializable{
     private Integer rowCount;
     private Integer columnCount;
     private Location [][] locations;
-    protected final BufferedReader keyboard = PrincessBride.getInFile();
-    protected final PrintWriter console = PrincessBride.getOutFile();
 
     public Map() {
     }
     
     public Map(int noOfRows, int noOfColumns) {
-        
-        if (noOfRows < 1 || noOfColumns < 1) {
-            this.console.println("The number of rows and columns must be > zero");
-            return;
-        }
         
         this.rowCount = noOfRows;
         this.columnCount = noOfColumns;

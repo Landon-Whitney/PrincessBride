@@ -16,26 +16,35 @@ import byui.cit260.princessBride.model.Scene;
  */
 public class MiracleMaxView extends View {
 
+    private final String INSTRUCTIONS = "\n\nTo add the ingredients to the recipe you must first tell"
+                           + "\nMiracle Max the radius and height of the measuring cup you"
+                           + "\nneed in centimeters. There can be many correct combinations"
+                           + "\nas long as the radius and height calculate to the correct"
+                           + "\nvolume in Liters."
+                           + "\n"
+                           + "\nHINT: Miracle Max thinks the radius and heights of the volumes"
+                           + "\nhave to do with his favorite numbers: 5 and 6.";
     
     private final String RECIPE = "\n"
             + "\n----------------------------------------"
             + "\n           Miracle Pill Recipe          "
             + "\n----------------------------------------"
-            + "\n1.  .57 Liters of ROUS spit                "
-            + "\n2.  .47 Liters of Shrieking Eel blood "
-            + "\n3.  5.18 Liter of Buttercup's tears"
-            + "\n4.  6.2 Liters of Milk"
+            + "\n1 - .57 Liters of ROUS spit             "
+            + "\n2 - .47 Liters of Shrieking Eel blood "
+            + "\n3 - 5.18 Liter of Buttercup's tears"
+            + "\n4 - 6.2 Liters of Milk"
             + "\n"
             + "\nCombine all ingredients until well mixed,"
             + "\nform into a pill, and then let sit for   "
             + "\n24 hours before consuming."
-            + "\nE - Exit "
-            + "\n----------------------------------------";
+            + "\n----------------------------------------"
+            + "\n"
+            + "\nSelect an option above(1-4):";
     
     public MiracleMaxView() {
         super("\n\n*************************************************"
-                + "\n\n*                 Miracle Max                    *" 
-                + "*                                               *"
+                + "\n*                 Miracle Max                   *" 
+                + "\n*                                               *"
                 + "\n* Fezzik and Inigo have had a change of heart   *"
                 + "\n* and want to help you rescue Buttercup. They   *"
                 + "\n* have dragged you from the Pit of Despair to a *"
@@ -51,100 +60,11 @@ public class MiracleMaxView extends View {
                 + "\n* the Miracle Pill, you must give the correct   *"
                 + "\n* radius and height of the measuring cup so     *"
                 + "\n* Miracle Max can mix it.                       *"
-                + "\n\n*************************************************"
+                + "\n*************************************************"
                 + "\n\nWould you like to mix the miracle pill for Max?"
                 + "\nEnter Y or N");
     }
-
-    public void displayIngredientList () throws SceneControlException {
-        int ingredients = 0;
-        char selection = ' ';
-        double neededVolume;
-        double addedVolume;
-        int radius = 0;
-        int height = 0;
-        int remainingIngredients = 4;
-        
-        SceneControl miracleMaxControl = new SceneControl();
-        this.console.println("To add the ingredients to the recipe you must first tell Miracle Max the radius and height of the measuring cup you need in centimeters.");
-        this.console.println("There can be many correct combinations as long as the radius and height calculate to the correct volume in Liters.");
-        this.console.println("HINT: Miracle Max thinks the radius and heights of the volumes have to do with his favorite numbers: 5 and 6. Volume = radius^2 * pi * height");
-        
-        while (ingredients < 4) {
-            this.console.println(RECIPE);
-            
-            String input = this.getInput();
-            selection = input.charAt(0);
-            
-            //get the amount needed for the recipe
-            neededVolume = this.findNeededVolume(selection);
-            
-            //get the inputs for radius and height from the player
-
-            this.console.println("Enter the radius needed:");
-            radius = this.getNumInput();
-            this.console.println("Enter the height needed:");
-            height = this.getNumInput();
-            
-            //calculate the volume added by the player from the inputs
-            addedVolume = miracleMaxControl.calculateIngredientVolume(radius, height);
-            
-            //compare the amount added to the amount needed
-            if (addedVolume == neededVolume){
-                ingredients = ++ingredients;
-                remainingIngredients = 4 - ingredients;
-                this.console.println("You've sucessfully added one ingredient from the recipe! Only" + remainingIngredients + "to go!");
-            }
-            else {
-               this.console.println("You rush a miracle man, you get rotten miracles. You added the wrong amount of ingredient, try again!");
-               this.displayDefeatMenu();
-               break;
-            }
-        }
-        this.console.println("You've sucessfully mixed the Miracle Pill! This pill will restore your mostly dead self to mostly alive!");
-        
-        //set scene to completed
-        Scene.MiracleMax.setCompleted(Boolean.TRUE);
-        
-        //add items to inventory
-        InventoryControl inventory = new InventoryControl();
-        inventory.addItem("Miracle Pill");
-        inventory.addItem("Holocaust Cloak");
-        
-        //display Game Menu
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
-    }  
     
-    private double findNeededVolume(char selection) {
-        double neededVolume = 0.0;
-        switch (selection) {
-            case '1':
-                neededVolume = 0.57; // r = 6 h = 5
-                break;
-            case '2':
-                neededVolume = 0.47; // r = 5 h = 6
-                break;
-            case '3':
-                neededVolume = 5.18; // r = 5 h = 66
-                break;
-            case '4':
-                neededVolume = 6.22; // r = 6 h = 55
-                break;
-            case 'E':
-                break;
-            default:
-                System.out.println("\nInconceivable! Please select an option from the recipe.");
-                break;
-        }
-        return neededVolume;
-    }
-
-    private void displayDefeatMenu() {
-        DefeatMenuView defeatMenu = new DefeatMenuView();
-        defeatMenu.displayMenu();
-    }
-
     @Override
     public void doAction(char value) {
         // if value is N then return to main menu view
@@ -153,10 +73,74 @@ public class MiracleMaxView extends View {
         }
         else {    
             try {
-                this.displayIngredientList();
+                this.miracleMaxChallenge();
             } catch (SceneControlException ex) {
                 ErrorView.display(this.getClass().getName(), "Error reading input: "+ ex.getMessage());
             }
         }
     }
+
+    public void miracleMaxChallenge () throws SceneControlException {
+        int ingredients = 0;
+        double[] neededVolumeArray = {.57, .47, 5.18, 6.22};
+        double addedVolume;
+        double neededVolume;
+        int remainingIngredients = 4;
+        
+        this.console.println(INSTRUCTIONS);
+        
+        while (ingredients < 4) {
+            this.console.println(RECIPE);
+            //get which ingredient
+            int input = this.getNumInput();
+            //get the amount needed for the recipe
+            if (input > 0 && input < 5){
+                neededVolume = neededVolumeArray[input-1];
+            }
+            else {
+                ErrorView.display(this.getClass().getName(), "\nInconceiveable! Please select an option between 1 and 4:");
+                continue;
+            }
+            //get the inputs for radius and height from the player
+            this.console.println("Enter the radius needed:");
+            int radius = this.getNumInput();
+            this.console.println("Enter the height needed:");
+            int height = this.getNumInput();
+            
+            //calculate the volume added by the player from the inputs
+            SceneControl miracleMaxControl = new SceneControl();
+            addedVolume = miracleMaxControl.calculateIngredientVolume(radius, height);
+            
+            //compare the amount added to the amount needed
+            if (addedVolume == neededVolume){
+                ingredients = ++ingredients;
+                remainingIngredients = 4 - ingredients;
+                this.console.println("You've sucessfully added one ingredient from the recipe! Only " + remainingIngredients + " left!");
+            }
+            else {
+               this.console.println("You rush a miracle man, you get rotten miracles. You added the wrong amount of ingredient, try again!");
+               DefeatMenuView defeatMenu = new DefeatMenuView();
+               defeatMenu.displayMenu();
+               break;
+            }
+            
+            if (remainingIngredients == 0){
+                this.console.println("You've sucessfully mixed the Miracle Pill! This pill will restore your mostly dead self to mostly alive!");
+        
+                //set scene to completed
+                Scene.MiracleMax.setCompleted(Boolean.TRUE);
+        
+                //add items to inventory
+                InventoryControl inventory = new InventoryControl();
+                inventory.addItem("Miracle Pill");
+                inventory.addItem("Holocaust Cloak");
+            }
+        }
+    }  
+    
+    //1. r = 6 h = 5
+    //2. r = 5 h = 6
+    //2. r = 5 h = 66
+    //4. r = 6 h = 55
+
 }
