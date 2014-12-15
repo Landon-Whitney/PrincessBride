@@ -16,9 +16,10 @@ import byui.cit260.princessBride.model.Scene;
 public class FireswampView extends View {
 
     private final String PLAYERSCHOICE = "\n"              
-                +"\n-------------------------------------------     "
+                +"\n------------------------------------------------"
                 +"\n Part of being careful is choosing the right    "
-                +"\n weapon.  You have gathered a few things.       "
+                +"\n item.  Based on what you have seen or heard,   "
+                +"\n type in a letter to make a choice:             "
                 +"\n                                                "
                 +"\n G - the goblet of water you got from Vizzini   "
                 +"\n B - the bag of rocks from Fezzik               "
@@ -28,16 +29,19 @@ public class FireswampView extends View {
     public FireswampView(){
     
             super("\n"
-                + "\n-----------------------------------------------"
-                + "\n You are so happy to be reunited with Buttercup,"
-                + "\n But danger approaches!  The evil Prince       "
-                + "\n Humperdink has followed you!  You roll down   "
-                + "\n a hill and run into the fireswamp to seek     "
-                + "\n safety.  But there are many dangers in the    "
-                + "\n fireswamp.  Many have entered, none have      "
-                + "\n come out....Be very careful in there.         "
-                + "\n Will you enter the fireswamp? Y/N             "
-                + "\n-------------------------------------------------");
+                + "\n***************************************************"
+                + "\n*               The Fire Swamp                    *"
+                + "\n*                                                 *"
+                + "\n* You are so happy to be reunited with Buttercup, *"
+                + "\n* But danger approaches!  The evil Prince         *"
+                + "\n* Humperdink has followed you!  You roll down     *"
+                + "\n* a hill and run into the Fire Swamp to seek      *"
+                + "\n* safety.  But there are many dangers in the      *"
+                + "\n* fireswamp.  Many have entered, none have        *"
+                + "\n* come out....Be very careful in there.           *"
+                + "\n***************************************************"
+                + "\n\n Will you enter the Fire Swamp? "
+                + "\nEnter Y or N");
     }     
                 
     public void doAction(char selection){
@@ -69,7 +73,7 @@ public class FireswampView extends View {
         
         
         if(result<=3){
-            super.console.println("You hear a noise in the bushes!  Hurry what item do you choose?");
+            super.console.println("You hear a noise in the bushes!  Hurry! What item do you choose?");
             playersSelection = super.getInput();
             char charSelection = playersSelection.charAt(0);
             

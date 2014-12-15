@@ -22,15 +22,17 @@ public class InigosGrottoView extends View{
     
     public InigosGrottoView(){
         
-        super("\n"
-                + "\n-----------------------------------------------------------"
-                + "\n As you race to Princess Buttercup's aid, you meet up with "
-                + "\n an agile man named Inigo.  He is one of the hired thugs    "
-                + "\n who kidnapped her!  He says that he is saving the blade   "
-                + "\n that his father made for another and if you can beat him  "
-                + "\n in a rhyming game, he will tell you where Princess        "
-                + "\n Buttercup is being held.                                  "
-                + "\n-----------------------------------------------------------"
+        super("\n\n*************************************************************"
+                + "\n*                    Inigo's Grotto                         *"
+                + "\n*                                                           *"
+                + "\n* As you race to Princess Buttercup's aid, you meet up with *"
+                + "\n* an agile man named Inigo.  He is one of the hired thugs   *"
+                + "\n* who kidnapped her!  He says that he is saving the blade   *"
+                + "\n* that his father made for another and if you can beat him  *"
+                + "\n* in a rhyming game, he will tell you where Princess        *"
+                + "\n* Buttercup is being held.                                  *"
+                + "\n*************************************************************"
+                + "\n\n------------------------------------------------------------"
                 + "\n The rhyming battle works like this: Inigo will give you   "
                 + "\n a word and he will tell you how many words that he knows  "
                 + "\n that rhymes with it.  You tell him as many words as you   "
@@ -38,8 +40,8 @@ public class InigosGrottoView extends View{
                 + "\n pressing enter.  When you can't think of another word,    "
                 + "\n just leave the answer blank and press enter.  You will    "
                 + "\n get one point for every word that you know that rhymes.   "
-                +"\n Would you like to play Inigo's game? Y/N                   "
-        );
+                + "\n-------------------------------------------------------------"
+                +"\n Would you like to play Inigo's game? Enter Y or N          " );
            
     
     }
