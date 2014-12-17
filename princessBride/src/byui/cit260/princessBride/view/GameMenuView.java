@@ -144,15 +144,8 @@ public class GameMenuView extends View {
         this.console.println(Actor.Miracle_Max.toString());
         this.console.println(Actor.Prince_Humperdink.toString());
         this.console.println(Actor.Princess_Buttercup.toString());
-        this.console.println(Actor.Vizzini.toString());
-        
-        String filePath = this.getFileInput();
-        
-        try{
-            GameControl.saveActor(Actor.values(), filePath);
-        }catch(Exception ex){
-            ErrorView.display(filePath, promptMessage);
-        }
+        this.console.println(Actor.Vizzini.toString());   
+     
     }
 
     private void moveLocations() throws MapControlException {

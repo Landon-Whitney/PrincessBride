@@ -24,18 +24,21 @@ public class PitOfDespairView extends View{
     
     public PitOfDespairView (){
             
-                      super("\n**************************************"
-                        +"\n* You awake to find yourself in a lab.  *" 
-                        +"\n* An albino servant informs you that    *"
-                        +"\n* you are in the pit of despair, Prince *"
-                        +"\n* Humperdink's secret lab where he      *"
-                        +"\n* experiements on humans.               *"
-                        +"\n* You have five levers in front of you. *"
-                        +"\n* Each lever will take away or add      *"
-                        +"\n* years to your life.  You must throw   *"
-                        +"\n* all the levers and hope you escape!   *"
+                      super("\n*****************************************"
+                        +"\n*             Pit of Despair             *"
+                        +"\n*                                        *"
+                        +"\n* You awake to find yourself in a lab.   *" 
+                        +"\n* An albino servant informs you that     *"
+                        +"\n* you are in the pit of despair, Prince  *"
+                        +"\n* Humperdink's secret lab where he       *"
+                        +"\n* experiements on humans.                *"
+                        +"\n* You have five levers in front of you.  *"
+                        +"\n* Each lever will take away or add       *"
+                        +"\n* years to your life.  You must throw    *"
+                        +"\n* all the levers and hope you escape!    *"
+                        +"\n********************************************"
                         +"\n* Will you face the lever challenge? Y/N *"
-                        +"\n*****************************************");
+                        +"\n********************************************");
     }
     @Override
     public void doAction(char selection) {
