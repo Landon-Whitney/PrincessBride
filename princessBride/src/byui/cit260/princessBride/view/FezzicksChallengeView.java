@@ -31,7 +31,7 @@ public class FezzicksChallengeView extends View {
                 + "\n* don't even exercise. I challenge you to a competition of*"
                 + "\n* Rock, Paper, Scissors. Best two out of three wins!      *"
                 + "\n*                                                         *"
-                + "\n* Will you accept this challenge from Fezzik?            *"
+                + "\n* Will you accept this challenge from Fezzik?             *"
                 + "\n* (Enter Y or N)                                          *"
                 + "\n***********************************************************");
 }
@@ -46,6 +46,8 @@ public class FezzicksChallengeView extends View {
                 break;
             default:
                 ErrorView.display(this.getClass().getName(), "\nInconceivable! Please select 'Y' for yes or 'N' for no.");
+                FezzicksChallengeView fezzik = new FezzicksChallengeView();
+                fezzik.display();
                 break;
         }
     }
@@ -61,35 +63,40 @@ public class FezzicksChallengeView extends View {
             playerSelection = super.getInput();
             char charSelection = playerSelection.charAt(0);
             charSelection = Character.toUpperCase(charSelection);
-            
-            SceneControl scoreArray = new SceneControl();
-            score = scoreArray.createScoreArray(score, i);
-            
-            if (score[i] == 1) {
-                switch (charSelection) {
-                    case 'R':
-                        super.console.println("\nFezzik has played scissors and lost!\nI just want you to feel you are doing well. I don't want people to die embarrassed.");
-                        break;
-                    case 'P':
-                        super.console.println("\nFezzik has played rock and lost!\nI just want you to feel you are doing well. I don't want people to die embarrassed.");
-                        break;
-                    case 'S':
-                        super.console.println("\nFezzik has played paper and lost!\nI just want you to feel you are doing well. I don't want people to die embarrassed.");
-                        break;
+            if ('R' == charSelection || ('P' == charSelection || 'S' == charSelection)) {
+                SceneControl scoreArray = new SceneControl();
+                score = scoreArray.createScoreArray(score, i);
+                
+                if (score[i] == 1) {
+                    switch (charSelection) {
+                        case 'R':
+                            super.console.println("\nFezzik has played scissors and lost!\nI just want you to feel you are doing well. I don't want people to die embarrassed.");
+                            break;
+                        case 'P':
+                            super.console.println("\nFezzik has played rock and lost!\nI just want you to feel you are doing well. I don't want people to die embarrassed.");
+                            break;
+                        case 'S':
+                            super.console.println("\nFezzik has played paper and lost!\nI just want you to feel you are doing well. I don't want people to die embarrassed.");
+                            break;
+                    }
                 }
-            }
-            else if (score[i] == 0) {
-                switch (charSelection) {
-                    case 'R':
-                        super.console.println("\nFezzik has played paper and won!\nIt's not my fault being the biggest and the strongest; I don't even exercise.");
-                        break;
-                    case 'P':
-                        super.console.println("\nFezzik has played scissors and won!\nIt's not my fault being the biggest and the strongest; I don't even exercise.");
-                        break;
-                    case 'S':
-                        super.console.println("\nFezzik has played rock and won!\nIt's not my fault being the biggest and the strongest; I don't even exercise.");
-                        break;
+                else if (score[i] == 0) {
+                    switch (charSelection) {
+                        case 'R':
+                            super.console.println("\nFezzik has played paper and won!\nIt's not my fault being the biggest and the strongest; I don't even exercise.");
+                            break;
+                        case 'P':
+                            super.console.println("\nFezzik has played scissors and won!\nIt's not my fault being the biggest and the strongest; I don't even exercise.");
+                            break;
+                        case 'S':
+                            super.console.println("\nFezzik has played rock and won!\nIt's not my fault being the biggest and the strongest; I don't even exercise.");
+                            break;
+                    }
                 }
+            } else {
+                ErrorView.display(this.getClass().getName(), "Please enter 'R', 'S', or 'P'.");
+                i--;
+                        
             }
         }
         

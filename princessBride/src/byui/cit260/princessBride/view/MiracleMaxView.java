@@ -9,6 +9,8 @@ import byui.cit260.princessBride.control.InventoryControl;
 import byui.cit260.princessBride.control.SceneControl;
 import byui.cit260.princessBride.exceptions.SceneControlException;
 import byui.cit260.princessBride.model.Scene;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -66,17 +68,23 @@ public class MiracleMaxView extends View {
     }
     
     @Override
-    public void doAction(char value) {
-        // if value is N then return to main menu view
-        if (value == 'N') {
-            this.console.println("As you wish.");
-        }
-        else {    
-            try {
-                this.miracleMaxChallenge();
-            } catch (SceneControlException ex) {
-                ErrorView.display(this.getClass().getName(), "Error reading input: "+ ex.getMessage());
-            }
+    public void doAction(char selection) {
+        switch (Character.toUpperCase(selection)) {
+            case 'Y':
+                try {
+                    this.miracleMaxChallenge();
+                } catch (SceneControlException ex) {
+                    ErrorView.display(this.getClass().getName(), promptMessage);
+                }
+                break;
+            case 'N':
+                super.console.println("As you wish.");
+                break;
+            default:
+                ErrorView.display(this.getClass().getName(), "\nInconceivable! Please select 'Y' for yes or 'N' for no.");
+                MiracleMaxView max = new MiracleMaxView();
+                max.display();
+                break;
         }
     }
 
@@ -118,7 +126,7 @@ public class MiracleMaxView extends View {
                 this.console.println("You've sucessfully added one ingredient from the recipe! Only " + remainingIngredients + " left!");
             }
             else {
-               this.console.println("You rush a miracle man, you get rotten miracles. You added the wrong amount of ingredient, try again!");
+               this.console.println("\nYou rush a miracle man, you get rotten miracles.\nYou added the wrong amount of ingredient, try again!");
                DefeatMenuView defeatMenu = new DefeatMenuView();
                defeatMenu.displayMenu();
                break;

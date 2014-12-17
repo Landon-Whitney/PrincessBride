@@ -21,7 +21,6 @@ import byui.cit260.princessBride.view.View;
 import byui.cit260.princessBride.view.VizziniView;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 import java.io.BufferedReader;
 import java.io.PrintWriter;
 import java.util.Random;
@@ -127,27 +126,30 @@ public class SceneControl {
     public double percentSolution(int gramsIocane,int gramsWine)
             throws SceneControlException{
     
-        if(gramsIocane < 0 || gramsIocane > 20 ){ //No Iocane or too much
-            throw new SceneControlException("You have no Iocane powder or way too much!!");
+        if(gramsIocane <= 0){ //No Iocane or too much
+            throw new SceneControlException("You have no iocane powder!");
         }
-        if(gramsWine < 0 || gramsWine > 1000){//No wine or too much
-            throw new SceneControlException("You have no wine or way too much!");
+        if(gramsWine <= 0){//No wine or too much
+            throw new SceneControlException("You have no wine!");
         }
+        
+        double iocane = (double) gramsIocane;
+        double wine = (double) gramsWine;
 
-    double percentSolution = gramsIocane / (gramsIocane + gramsWine) * 100;
-    double roundedPercent = Math.round(percentSolution * 100.0)/100.0;
+        double percentSolution = iocane / (iocane + wine) * 100;
+        double roundedPercent = Math.round(percentSolution * 100.0)/100.0;
     
-    return roundedPercent;
+        return roundedPercent;
     
     }
 
  
     public double calculateIngredientVolume(int radius, int height)
             throws SceneControlException{
-        if(radius < 0 || radius > 100) {
+        if(radius < 0) {
             throw new SceneControlException("Please put in a valid radius!");
         }
-        if(height < 0 || height > 100) {
+        if(height < 0) {
             throw new SceneControlException("Please put in a valid height!");
         }
         

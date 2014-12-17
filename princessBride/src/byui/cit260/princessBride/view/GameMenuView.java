@@ -118,18 +118,21 @@ public class GameMenuView extends View {
 
     private void viewInventory() {
         //get the sorted list of inventory items for the current game
-        InventoryItem[] inventory = InventoryControl.getSortedInventoryList();
-        
-        this.console.println("\nList of Inventory Items");
-        this.console.println("Description" + "\t" +
-                            "Required" + "\t" +
-                            "In Stock");
-        
-        //for each inventory item
-        for (InventoryItem inventoryItem : inventory) {
-            //DISPLAY the description, the required amount and amount in stock
-            this.console.println(inventoryItem.getDescription());
+        InventoryItem[] inventoryList = InventoryControl.getSortedInventoryList();
+        //print out title
+        String title = "Inventory List";
+        this.console.println(title);
+        //print out column headings
+        String catagories = "\n\n\nName\t\tDescription\t\tQuantity\n";
+        this.console.println(catagories); //http://stackoverflow.com/questions/6000810/printing-with-t-tabs-does-not-result-in-aligned-columns
+        //iterate through and print out each item
+        for (InventoryItem inventoryItem: inventoryList){
+            String description = inventoryItem.getDescription();
+            double quantity = inventoryItem.getQuantity();
+            
+            this.console.println("\n" + inventoryItem + "\t\t" + description + "\t\t   " + quantity);
         }
+
     }
 
     private void viewActors() {

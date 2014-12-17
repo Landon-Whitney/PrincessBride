@@ -10,9 +10,6 @@ import byui.cit260.princessBride.control.SceneControl;
 import byui.cit260.princessBride.exceptions.SceneControlException;
 import byui.cit260.princessBride.model.InventoryItem;
 import byui.cit260.princessBride.model.Scene;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import princessbride.PrincessBride;
 
 /**
  *
@@ -46,11 +43,7 @@ public class VizziniView extends View {
     public void doAction(char selection) {
         switch (Character.toUpperCase(selection)){
             case 'Y':
-                try {
                     this.wineChallenge();
-                } catch (SceneControlException ex){
-                    ErrorView.display(this.getClass().getName(), "Error reading input: "+ ex.getMessage());
-                }
                 break;
             case 'N':
                 super.console.println("As you wish.");
@@ -61,7 +54,7 @@ public class VizziniView extends View {
         }   
     }
 
-    public void wineChallenge() throws SceneControlException {
+    public void wineChallenge(){
         int gramsIocane;
         int gramsWine;
         Double percentSolution = null;
@@ -73,8 +66,13 @@ public class VizziniView extends View {
             super.console.println("Please enter the grams of iocane in the glass:");
             gramsIocane = super.getNumInput();
         
-            SceneControl solution = new SceneControl();
-            percentSolution = solution.percentSolution(gramsIocane, gramsWine);
+            try {
+                SceneControl solution = new SceneControl();
+                percentSolution = solution.percentSolution(gramsIocane, gramsWine);
+            } catch (SceneControlException ex){
+                ErrorView.display(this.getClass().getName(), "Error reading input: "+ ex.getMessage());
+            }
+            
         }while(percentSolution == null); 
         
         if (percentSolution < 2 || percentSolution == 2){

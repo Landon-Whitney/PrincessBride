@@ -19,7 +19,7 @@ public class DefeatMenuView extends View{
             + "\n            Defeat Menu                "
             + "\n---------------------------------------"
             + "\nS - Start game from last save          "
-            + "\nM - Return to Main Menu                "
+            + "\nH - Go to Help Menu                    "
             + "\nE - Return to Game Menu                "
             + "\n---------------------------------------");
     }
@@ -30,13 +30,11 @@ public class DefeatMenuView extends View{
                 MainMenuView savedGame = new MainMenuView();
                 savedGame.startExistingGame();
                 break;
-            case 'M':
-                MainMenuView mainMenu = new MainMenuView();
-                mainMenu.displayMenu();
+            case 'H':
+                HelpMenuView helpMenu = new HelpMenuView();
+                helpMenu.displayMenu();
                 break;
             case 'E':
-                //GameMenuView gameMenu = new GameMenuView();
-                //gameMenu.displayMenu();
                 break;
             default:
                 ErrorView.display(this.getClass().getName(), "\nInconceivable! Please select an option from the Defeat Menu.");

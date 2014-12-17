@@ -82,7 +82,7 @@ public class PrincessBride {
             
             //create StartProgramView and start the program
             StartProgramView startProgramView = new StartProgramView();
-            startProgramView.display();
+            startProgramView.displayMenu();
             
             }catch (Throwable te){
                 System.out.println("Exception: " + te.toString()+

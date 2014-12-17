@@ -83,11 +83,13 @@ public class CastleMazeView extends View{
         String selectionArray[] = null;
         
         do{
-            this.console.println("\n\nEnter your selected words separated by a comma that lead from START to END. You should have five selections:");
+            this.console.println("\n\nEnter your selected words separated by a "
+                    + "comma that lead from START to END. You should have five selections:");
             String selection = this.getInput();
             selectionArray = selection.split(",");
             if (selectionArray.length != 5){
-                ErrorView.display(this.getClass().getName(), "You must select five words that lead from the START to the END");
+                ErrorView.display(this.getClass().getName(), "You must select "
+                        + "five words that lead from the START to the END");
             }
         }while (selectionArray.length != 5);
             

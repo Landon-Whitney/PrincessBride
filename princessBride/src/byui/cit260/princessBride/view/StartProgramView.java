@@ -53,8 +53,6 @@ public class StartProgramView extends View {
                     break;
             case 'N':
                     this.console.println("As you wish");
-                    mainMenu = new MainMenuView();
-                    mainMenu.displayMenu();
                     break;
             default:
                     ErrorView.display(this.getClass().getName(), "\nInconceivable!  Please select Y or N.");
