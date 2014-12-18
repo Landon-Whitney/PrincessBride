@@ -50,8 +50,22 @@ public class InigosGrottoView extends View{
     public void doAction(char value) {
         switch (Character.toUpperCase(value)){
             case 'Y':
-                double average = 0;
-                while(average < 8){
+                this.inigoGame();
+                break;
+            case 'N':
+                this.console.println("As you wish.");
+                break;
+            default:
+                ErrorView.display(this.getClass().getName(), "Please print Y or N");
+                InigosGrottoView inigos = new InigosGrottoView();
+                inigos.displayMenu();
+                break;
+        }
+        
+}
+    private void inigoGame(){
+               double average = 0;
+                //while(average < 8){
                     SceneControl inigosGrottoControl = new SceneControl();
                     int score = inigosGrottoControl.checkPlayerRhymingWord();
             try {
@@ -78,18 +92,5 @@ public class InigosGrottoView extends View{
                             
                             }
                 }
-            break;
-            case 'N':
-                this.console.println("As you wish.");
-
-                break;
-            default:
-                ErrorView.display(this.getClass().getName(), "Please print Y or N");
-                InigosGrottoView inigos = new InigosGrottoView();
-                inigos.displayMenu();
-                break;
-        }
-        
     }
-    
-}
+

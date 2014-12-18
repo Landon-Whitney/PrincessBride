@@ -35,6 +35,8 @@ public class DefeatMenuView extends View{
                 helpMenu.displayMenu();
                 break;
             case 'E':
+                GameMenuView gamemenu = new GameMenuView();
+                gamemenu.displayMenu();
                 break;
             default:
                 ErrorView.display(this.getClass().getName(), "\nInconceivable! Please select an option from the Defeat Menu.");
